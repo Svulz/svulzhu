@@ -575,189 +575,189 @@ const translations = {
 
 
     /* =====================================================
-       SLOVENIAN
+       SWEDISH
     ===================================================== */
 
-    sl: {
+    sv: {
 
-        htmlLang: "sl",
+        htmlLang: "sv",
 
-        logo: "Nazaj na vrh",
+        logo: "Tillbaka till toppen",
 
         nav: {
-            home: "Domov",
-            projects: "Projekti",
-            cv: "Življenjepis",
-            dashboard: "Nadzorna plošča"
+            home: "Hem",
+            projects: "Projekt",
+            cv: "CV",
+            dashboard: "Instrumentpanel"
         },
 
         hero: {
-            eyebrow: "Spletna stran",
+            eyebrow: "Webbplats",
             description:
-                "To je moja osebna spletna stran, kjer predstavljam informacije o sebi in svojih glavnih področjih zanimanja."
+                "Det här är min personliga webbplats där jag delar information om mig själv och mina främsta intressen."
         },
 
         status: {
-            online: "Na spletu",
-            offline: "Brez povezave",
-            invisible: "Neviden"
+            online: "Online",
+            offline: "Offline",
+            invisible: "Osynlig"
         },
 
         buttons: {
-            projects: "Projekti",
-            cv: "Življenjepis"
+            projects: "Projekt",
+            cv: "CV"
         },
 
         clock: {
-            localTime: "LOKALNI ČAS"
+            localTime: "LOKAL TID"
         },
 
         dashboard: {
-            eyebrow: "NADZORNA PLOŠČA",
-            title: "Aktualne informacije"
+            eyebrow: "INSTRUMENTPANEL",
+            title: "Aktuell information"
         },
 
         accessibility: {
-            title: "Dostopnost",
+            title: "Tillgänglighet",
             description:
-                "Prilagodite spletno stran za udobnejšo uporabo.",
+                "Anpassa webbplatsen för en bekvämare användarupplevelse.",
 
-            large: "Večja velikost pisave",
-            largeDescription: "Lažje berljivo besedilo",
+            large: "Större text",
+            largeDescription: "Text som är lättare att läsa",
 
-            xlarge: "Zelo velika pisava",
-            xlargeDescription: "Še večje besedilo",
+            xlarge: "Extra stor text",
+            xlargeDescription: "Ännu större text",
 
-            contrast: "Visok kontrast",
-            contrastDescription: "Močnejše barve in obrobe",
+            contrast: "Hög kontrast",
+            contrastDescription: "Tydligare färger och kanter",
 
-            readable: "Berljiva pisava",
-            readableDescription: "Preprostejši prikaz pisave",
+            readable: "Lättläst typsnitt",
+            readableDescription: "Enklare teckensnittsvisning",
 
-            links: "Označi povezave",
-            linksDescription: "Podčrtane povezave",
+            links: "Markera länkar",
+            linksDescription: "Understrukna länkar",
 
-            motion: "Izklopi animacije",
-            motionDescription: "Manj premikajočih se elementov",
+            motion: "Stäng av animationer",
+            motionDescription: "Färre rörliga element",
 
-            targets: "Večji gumbi",
-            targetsDescription: "Lažje dotikanje in klikanje",
+            targets: "Större knappar",
+            targetsDescription: "Enklare att trycka och klicka",
 
-            keyboard: "Način tipkovnice",
-            keyboardDescription: "Bolj vidno označen fokus",
+            keyboard: "Tangentbordsläge",
+            keyboardDescription: "Tydligare fokusmarkering",
 
-            reset: "Ponastavi nastavitve"
+            reset: "Återställ inställningar"
         },
 
         weather: {
-            label: "VREME",
-            wind: "💨 Veter",
-            humidity: "💧 Vlažnost",
-            refresh: "↻ Osveži vreme",
-            loading: "Nalaganje vremenskih podatkov...",
-            unavailable: "Vremenski podatki niso na voljo.",
-            location: "Iskanje lokacije..."
+            label: "VÄDER",
+            wind: "💨 Vind",
+            humidity: "💧 Luftfuktighet",
+            refresh: "↻ Uppdatera vädret",
+            loading: "Laddar väderdata...",
+            unavailable: "Väderdata är inte tillgängliga.",
+            location: "Hämtar plats..."
         },
 
         quick: {
-            label: "HITRE INFORMACIJE",
-            date: "Današnji datum",
-            device: "Naprava",
-            birthday: "Rojstni dan",
-            gender: "Spol",
-            male: "Moški",
-            mobile: "Mobilni telefon",
-            tablet: "Tablica",
-            desktop: "Namizni računalnik",
-            watch: "Pametna ura"
+            label: "SNABBINFO",
+            date: "Dagens datum",
+            device: "Enhet",
+            birthday: "Födelsedag",
+            gender: "Kön",
+            male: "Man",
+            mobile: "Mobil",
+            tablet: "Surfplatta",
+            desktop: "Stationär dator",
+            watch: "Smartklocka"
         },
 
         contacts: {
             label: "KONTAKT",
-            email: "E-pošta",
-            phone: "Telefonska številka",
-            facebook: "Skupnost",
-            web: "Spletna stran",
-            location: "Prebivališče",
-            locationValue: "Szolnok, Madžarska"
+            email: "E-post",
+            phone: "Telefonnummer",
+            facebook: "Sociala medier",
+            web: "Webbplats",
+            location: "Bostadsort",
+            locationValue: "Szolnok, Ungern"
         },
 
         exchange: {
-            label: "MENJALNI TEČAJI",
-            title: "Valute",
-            loading: "Nalaganje menjalnih tečajev...",
-            unavailable: "Menjalni tečaji niso na voljo.",
-            updated: "Posodobljeno"
+            label: "VÄXELKURSER",
+            title: "Valutor",
+            loading: "Laddar växelkurser...",
+            unavailable: "Växelkurser är inte tillgängliga.",
+            updated: "Uppdaterad"
         },
 
         currency: {
-            eur: "Evro",
-            usd: "Ameriški dolar",
-            gbp: "Britanski funt",
-            chf: "Švicarski frank"
+            eur: "Euro",
+            usd: "Amerikansk dollar",
+            gbp: "Brittiskt pund",
+            chf: "Schweizisk franc"
         },
 
         projects: {
-            eyebrow: "MOJE DELO",
-            title: "Projekti"
+            eyebrow: "MITT ARBETE",
+            title: "Projekt"
         },
 
         project: {
             viewer: {
-                label: "Projekta",
-                title: "Ogled celotnega projekta",
+                label: "Projekt",
+                title: "Visa hela projektet",
                 description:
-                    "Za ogled celotne dokumentacije mojega diplomskega projekta kliknite spodnji gumb.",
-                button: "Ogled projekta"
+                    "Klicka på knappen nedan för att visa den fullständiga dokumentationen för mitt examensarbete.",
+                button: "Visa projekt"
             }
         },
 
         cv: {
-            eyebrow: "O MENI",
-            title: "Življenjepis",
+            eyebrow: "OM MIG",
+            title: "Meritförteckning",
 
             viewer: {
-                label: "ŽIVLJENJEPIS",
-                title: "Ogled celotnega življenjepisa",
+                label: "MERITFÖRTECKNING",
+                title: "Visa hela CV:t",
                 description:
-                    "Za ogled celotnega življenjepisa kliknite spodnji gumb.",
-                button: "Ogled celotnega življenjepisa"
+                    "Klicka på knappen nedan för att visa mitt fullständiga CV.",
+                button: "Visa hela CV:t"
             },
 
-            viewTitle: "Ogled celotnega življenjepisa",
+            viewTitle: "Visa hela CV:t",
 
             viewDescription:
-                "Za ogled celotnega življenjepisa kliknite spodnji gumb.",
+                "Klicka på knappen nedan för att visa mitt fullständiga CV.",
 
-            viewButton: "Ogled celotnega življenjepisa →"
+            viewButton: "Visa hela CV:t →"
         },
 
         footer: {
-            rights: "Vse pravice pridržane."
+            rights: "Alla rättigheter förbehållna."
         },
 
         weatherCodes: {
-            0: "Jasno nebo",
-            1: "Pretežno jasno",
-            2: "Delno oblačno",
-            3: "Oblačno",
-            45: "Megla",
-            48: "Slana megla",
-            51: "Rahlo rosenje",
-            53: "Rosenje",
-            55: "Močno rosenje",
-            61: "Rahel dež",
-            63: "Dež",
-            65: "Močan dež",
-            71: "Rahlo sneženje",
-            73: "Sneženje",
-            75: "Močno sneženje",
-            80: "Plohe",
-            81: "Plohe",
-            82: "Močne plohe",
-            95: "Nevihta",
-            96: "Nevihta s točo",
-            99: "Močna nevihta"
+            0: "Klar himmel",
+            1: "Mestadels klart",
+            2: "Delvis molnigt",
+            3: "Mulet",
+            45: "Dimma",
+            48: "Rimfrostdis",
+            51: "Lätt duggregn",
+            53: "Duggregn",
+            55: "Kraftigt duggregn",
+            61: "Lätt regn",
+            63: "Regn",
+            65: "Kraftigt regn",
+            71: "Lätt snöfall",
+            73: "Snöfall",
+            75: "Kraftigt snöfall",
+            80: "Regnskurar",
+            81: "Regnskurar",
+            82: "Kraftiga regnskurar",
+            95: "Åskväder",
+            96: "Åskväder med hagel",
+            99: "Kraftigt åskväder"
         }
     }
 
@@ -2231,7 +2231,7 @@ function getLocale() {
         hu: "hu-HU",
         en: "en-GB",
         de: "de-DE",
-        sl: "sl-SI"
+        sv: "sv-SE"
 
     }[
         currentLanguage
@@ -2875,7 +2875,7 @@ function getCurrentLocationText() {
         hu: "Aktuális hely",
         en: "Current location",
         de: "Aktueller Standort",
-        sl: "Trenutna lokacija"
+        sv: "Aktuell plats"
 
     };
 
