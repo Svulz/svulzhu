@@ -2419,7 +2419,8 @@ function getLocale() {
         hu: "hu-HU",
         en: "en-GB",
         de: "de-DE",
-        sv: "sv-SE"
+        sv: "sv-SE",
+        da: "da-DK"
 
     }[
         currentLanguage
@@ -3063,7 +3064,8 @@ function getCurrentLocationText() {
         hu: "Aktuális hely",
         en: "Current location",
         de: "Aktueller Standort",
-        sv: "Aktuell plats"
+        sv: "Aktuell plats",
+        da: "Aktuel placering"
 
     };
 
