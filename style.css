@@ -1037,7 +1037,7 @@ body.accessibility-keyboard-mode button:focus-visible {
 
     border-radius: 999px;
 
-    background: rgba(36, 179, 107, 0.08);
+    background: rgba(36, 179, 107, 0.04);
 
     color: #24915c;
 
@@ -1118,7 +1118,7 @@ body.accessibility-keyboard-mode button:focus-visible {
 }
 
 .dark .status {
-    color: #6ce0a0;
+    color: #08d464;
 }
 
 .dark .status.status-offline {
@@ -2495,4 +2495,339 @@ body.keyboard-mode.dark :focus-visible {
         padding: 20px;
     }
 
+}
+/* =========================================================
+   ENGINEERING PORTFOLIO — TECHNICAL THEME
+========================================================= */
+
+/* VILÁGOS MÓD — mérnöki megjelenés */
+:root {
+    color-scheme: light;
+
+    --bg: #edf4f8;
+    --bg-secondary: #dce8f0;
+
+    --card: rgba(255, 255, 255, 0.92);
+    --card-solid: #ffffff;
+    --card-hover: #f8fcff;
+
+    --text: #152536;
+    --text-secondary: #52697c;
+    --text-muted: #75899a;
+
+    --border: rgba(36, 113, 151, 0.22);
+
+    --accent: #087eaf;
+    --accent-hover: #06668f;
+    --accent-light: #e0f4fc;
+
+    --success: #168b55;
+    --danger: #d94150;
+
+    --shadow: 0 15px 45px rgba(27, 67, 91, 0.10);
+    --shadow-hover: 0 20px 55px rgba(27, 67, 91, 0.17);
+}
+
+/* SÖTÉT MÓD — mérnöki megjelenés */
+body.dark {
+    color-scheme: dark;
+
+    --bg: #0b1118;
+    --bg-secondary: #111c27;
+
+    --card: rgba(19, 31, 43, 0.92);
+    --card-solid: #131f2b;
+    --card-hover: #192a39;
+
+    --text: #eaf4fc;
+    --text-secondary: #9aafc1;
+    --text-muted: #8297a8;
+
+    --border: rgba(79, 190, 235, 0.19);
+
+    --accent: #35c8ff;
+    --accent-hover: #7cdeff;
+    --accent-light: rgba(53, 200, 255, 0.12);
+
+    --success: #49dfa0;
+    --danger: #ff6878;
+
+    --shadow: 0 15px 45px rgba(0, 0, 0, 0.24);
+    --shadow-hover: 0 20px 55px rgba(0, 0, 0, 0.4);
+}
+
+/* A háttér mindkét témában alkalmazkodjon */
+body {
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+/* Az óra kártyája is alkalmazkodjon */
+.clock-card {
+    background: var(--card);
+    border-color: var(--border);
+}
+
+body.dark .clock-card {
+    background: linear-gradient(
+        145deg,
+        #192e3c,
+        #0d1d29
+    );
+}
+
+/* A fejléc kövesse az aktuális témát */
+.header {
+    background: color-mix(
+        in srgb,
+        var(--bg) 90%,
+        transparent
+    );
+}
+
+
+/* =========================================================
+   ANIMATED ENGINEERING BORDER
+========================================================= */
+
+.card,
+.clock-card,
+.cv-viewer-card,
+.project-viewer-card,
+.btn,
+.theme-toggle,
+.language-toggle,
+.accessibility-toggle,
+.status,
+.small-btn,
+.info-row,
+.exchange-row,
+.contact-dashboard-item {
+    position: relative;
+    isolation: isolate;
+}
+
+/* Kártyák alapkerete */
+
+.card,
+.clock-card,
+.cv-viewer-card {
+    border: 1px solid rgba(100, 180, 215, 0.18);
+    overflow: hidden;
+}
+
+/* A mozgó fénycsík */
+
+.card::after,
+.clock-card::after,
+.cv-viewer-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1.5px;
+    border-radius: inherit;
+
+    background: conic-gradient(
+        from var(--border-angle, 0deg),
+        transparent 0deg,
+        transparent 245deg,
+        #35c8ff 290deg,
+        #ffffff 305deg,
+        #35c8ff 320deg,
+        transparent 350deg,
+        transparent 360deg
+    );
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 3;
+}
+
+/* Hoverkor elindul a keret animációja */
+
+.card:hover::after,
+.clock-card:hover::after,
+.cv-viewer-card:hover::after {
+    opacity: 1;
+    animation: engineering-border 2.5s linear infinite;
+}
+
+/* Folyamatos szögváltoztatás */
+
+@property --border-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes engineering-border {
+    from {
+        --border-angle: 0deg;
+    }
+
+    to {
+        --border-angle: 360deg;
+    }
+}
+
+/* Mérnöki, finom emelkedés */
+
+.card,
+.clock-card,
+.cv-viewer-card {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+.card:hover,
+.clock-card:hover,
+.cv-viewer-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(53, 200, 255, 0.45);
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.25),
+        0 0 25px rgba(53, 200, 255, 0.07);
+}
+/* =========================================================
+   TECHNICAL UI DETAILS
+========================================================= */
+
+/* Finom műszaki jelölés a kártyák felső sarkában */
+
+.card-label::before {
+    content: "// ";
+    color: #ff9b54;
+    font-weight: 800;
+}
+
+.eyebrow::before {
+    content: "[ ";
+    color: #ff9b54;
+}
+
+.eyebrow::after {
+    content: " ]";
+    color: #ff9b54;
+}
+
+/* Precízebb, műszaki megjelenésű kártyák */
+
+.card,
+.clock-card,
+.cv-viewer-card {
+    border-radius: 14px;
+    backdrop-filter: blur(12px);
+}
+
+.weather-details div,
+.info-row > span,
+.contact-dashboard-icon,
+.exchange-icon,
+.weather-icon,
+.cv-viewer-icon {
+    border-radius: 9px;
+    border: 1px solid rgba(53, 200, 255, 0.13);
+}
+
+/* Gombok */
+
+.btn-primary {
+    background: #168fbd;
+    border: 1px solid #35c8ff;
+    box-shadow: 0 0 20px rgba(53, 200, 255, 0.12);
+}
+
+.btn-primary:hover {
+    background: #087ba8;
+    box-shadow: 0 0 25px rgba(53, 200, 255, 0.24);
+}
+
+.btn-secondary {
+    background: rgba(15, 28, 40, 0.8);
+    border-color: rgba(53, 200, 255, 0.25);
+}
+
+/* Digitális óra */
+
+.clock {
+    color: #71dcff;
+    text-shadow: 0 0 25px rgba(53, 200, 255, 0.16);
+    font-variant-numeric: tabular-nums;
+}
+
+.clock-line {
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #35c8ff,
+        transparent
+    );
+    width: 100%;
+    height: 1px;
+}
+
+/* Dashboard elválasztók */
+
+.info-row,
+.exchange-row,
+.contact-dashboard-item {
+    border-bottom-color: rgba(100, 180, 215, 0.13);
+}
+
+/* Felső fejléc */
+
+.nav a:hover {
+    color: #71dcff;
+}
+
+/* Mobilon is használható */
+
+@media (max-width: 650px) {
+    .nav {
+        background: #0d1823;
+    }
+
+    .card:hover,
+    .clock-card:hover,
+    .cv-viewer-card:hover {
+        transform: translateY(-2px);
+    }
+}
+
+/* Akadálymentesség: mozgáscsökkentés */
+
+@media (prefers-reduced-motion: reduce) {
+    .card:hover::after,
+    .clock-card:hover::after,
+    .cv-viewer-card:hover::after {
+        animation: none;
+    }
+}
+
+/* ONLINE – visszafogott háttér, az Offline stílusához igazítva */
+.status-selector .status:not(.status-offline):not(.status-invisible) {
+    background: rgba(36, 179, 107, 0.04) !important;
+    border-color: rgba(36, 179, 107, 0.18) !important;
+}
+
+/* Sötét módban is visszafogott maradjon */
+body.dark .status-selector .status:not(.status-offline):not(.status-invisible) {
+    background: rgba(36, 179, 107, 0.06) !important;
+    border-color: rgba(36, 179, 107, 0.2) !important;
+}
+
+/* PROJEKTEK → CV – világos mód */
+body:not(.dark) .hero a {
+    color: #ffffff !important;
 }
