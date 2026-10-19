@@ -759,7 +759,195 @@ const translations = {
             96: "Åskväder med hagel",
             99: "Kraftigt åskväder"
         }
+    },
+   
+    /* =====================================================
+       DANISH
+    ===================================================== */
+
+    da: {
+
+        htmlLang: "da",
+
+        logo: "Tilbage til toppen",
+
+        nav: {
+            home: "Hjem",
+            projects: "Projekter",
+            cv: "CV",
+            dashboard: "Dashboard"
+        },
+
+        hero: {
+            eyebrow: "Hjemmeside",
+            description:
+                "Dette er min personlige hjemmeside, hvor jeg deler information om mig selv og mine vigtigste interesseområder."
+        },
+
+        status: {
+            online: "Online",
+            offline: "Offline",
+            invisible: "Usynlig"
+        },
+
+        buttons: {
+            projects: "Projekter",
+            cv: "CV"
+        },
+
+        clock: {
+            localTime: "LOKAL TID"
+        },
+
+        dashboard: {
+            eyebrow: "DASHBOARD",
+            title: "Aktuelle oplysninger"
+        },
+
+        accessibility: {
+            title: "Tilgængelighed",
+            description:
+                "Tilpas hjemmesiden, så den bliver mere behagelig at bruge.",
+
+            large: "Større tekst",
+            largeDescription: "Tekst, der er lettere at læse",
+
+            xlarge: "Ekstra stor tekst",
+            xlargeDescription: "Endnu større tekst",
+
+            contrast: "Høj kontrast",
+            contrastDescription: "Stærkere farver og tydeligere kanter",
+
+            readable: "Letlæselig skrifttype",
+            readableDescription: "Enklere skrifttype",
+
+            links: "Fremhæv links",
+            linksDescription: "Understreg hyperlinks",
+
+            motion: "Deaktiver animationer",
+            motionDescription: "Færre bevægelige elementer",
+
+            targets: "Større knapper",
+            targetsDescription: "Nemmere at trykke og klikke",
+
+            keyboard: "Tastaturtilstand",
+            keyboardDescription: "Mere synlig fokusmarkering",
+
+            reset: "Nulstil indstillinger"
+        },
+
+        weather: {
+            label: "VEJR",
+            wind: "💨 Vind",
+            humidity: "💧 Luftfugtighed",
+            refresh: "↻ Opdater vejret",
+            loading: "Indlæser vejrdata...",
+            unavailable: "Vejrdata er ikke tilgængelige.",
+            location: "Finder placering..."
+        },
+
+        quick: {
+            label: "HURTIG INFO",
+            date: "Dagens dato",
+            device: "Enhed",
+            birthday: "Fødselsdag",
+            gender: "Køn",
+            male: "Mand",
+            mobile: "Mobil",
+            tablet: "Tablet",
+            desktop: "Stationær computer",
+            watch: "Smartur"
+        },
+
+        contacts: {
+            label: "KONTAKT",
+            email: "E-mail",
+            phone: "Telefonnummer",
+            facebook: "Sociale medier",
+            web: "Hjemmeside",
+            location: "Bopæl",
+            locationValue: "Szolnok, Ungarn"
+        },
+
+        exchange: {
+            label: "VALUTAKURSER",
+            title: "Valutaer",
+            loading: "Indlæser valutakurser...",
+            unavailable: "Valutakurser er ikke tilgængelige.",
+            updated: "Opdateret"
+        },
+
+        currency: {
+            eur: "Euro",
+            usd: "Amerikansk dollar",
+            gbp: "Britisk pund",
+            chf: "Schweizisk franc"
+        },
+
+        projects: {
+            eyebrow: "MIT ARBEJDE",
+            title: "Projekter"
+        },
+
+        project: {
+            viewer: {
+                label: "Projekt",
+                title: "Se hele projektet",
+                description:
+                    "Klik på knappen nedenfor for at se den fulde dokumentation af mit afgangsprojekt.",
+                button: "Se projekt"
+            }
+        },
+
+        cv: {
+            eyebrow: "OM MIG",
+            title: "Curriculum Vitae",
+
+            viewer: {
+                label: "CURRICULUM VITAE",
+                title: "Se hele CV'et",
+                description:
+                    "Klik på knappen nedenfor for at se mit fulde CV.",
+                button: "Se hele CV'et"
+            },
+
+            viewTitle: "Se hele CV'et",
+
+            viewDescription:
+                "Klik på knappen nedenfor for at se det fulde CV.",
+
+            viewButton: "Se hele CV'et →"
+        },
+
+        footer: {
+            rights: "Alle rettigheder forbeholdes."
+        },
+
+        weatherCodes: {
+            0: "Klar himmel",
+            1: "Overvejende klart",
+            2: "Delvist skyet",
+            3: "Overskyet",
+            45: "Tåge",
+            48: "Rimtåge",
+            51: "Let støvregn",
+            53: "Støvregn",
+            55: "Kraftig støvregn",
+            61: "Let regn",
+            63: "Regn",
+            65: "Kraftig regn",
+            71: "Let snefald",
+            73: "Snefald",
+            75: "Kraftigt snefald",
+            80: "Regnbyger",
+            81: "Regnbyger",
+            82: "Kraftige regnbyger",
+            95: "Tordenvejr",
+            96: "Tordenvejr med hagl",
+            99: "Kraftigt tordenvejr"
+        }
     }
+
 
 };
 
