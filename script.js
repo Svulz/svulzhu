@@ -29,7 +29,7 @@ const translations = {
 
         hero: {
             eyebrow: "Weboldal",
-            description: Snowflake | RTOS szakember
+            description: "Snowflake | RTOS szakember"
                                        
         },
 
@@ -217,7 +217,7 @@ const translations = {
 
         hero: {
             eyebrow: "Website",
-            description: Snowflake | RTOS specialist
+            description: "Snowflake | RTOS specialist"
         },
 
         status: {
@@ -404,7 +404,7 @@ const translations = {
 
         hero: {
             eyebrow: "Webseite",
-            description: Snowflake | RTOS spezialist
+            description: "Snowflake | RTOS spezialist"
         },
 
         status: {
@@ -591,7 +591,7 @@ const translations = {
 
         hero: {
             eyebrow: "Webbplats",
-            description: Snowflake | RTOS specialist
+            description: "Snowflake | RTOS specialist"
         },
 
         status: {
@@ -777,7 +777,7 @@ const translations = {
 
         hero: {
             eyebrow: "Hjemmeside",
-            description: Snowflake | RTOS specialist
+            description: "Snowflake | RTOS specialist"
         },
 
         status: {
