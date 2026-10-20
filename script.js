@@ -29,7 +29,7 @@ const translations = {
 
         hero: {
             eyebrow: "Weboldal",
-            description: "Rust Developer | TinyML Enthusiast"
+            description: "Rust fejlesztő | TinyML rajongó"
                                        
         },
 
@@ -217,8 +217,7 @@ const translations = {
 
         hero: {
             eyebrow: "Website",
-            description:
-                "This is my personal website where I share information about myself and my main areas of interest."
+            description: "Rust developer | TinyML enthusiast"
         },
 
         status: {
@@ -405,8 +404,7 @@ const translations = {
 
         hero: {
             eyebrow: "Webseite",
-            description:
-                "Dies ist meine persönliche Webseite, auf der ich Informationen über mich und meine wichtigsten Interessen teile."
+            description: "Rust entwickler | TinyML enthusiast"
         },
 
         status: {
@@ -593,8 +591,7 @@ const translations = {
 
         hero: {
             eyebrow: "Webbplats",
-            description:
-                "Det här är min personliga webbplats där jag delar information om mig själv och mina främsta intressen."
+            description: "Rust framkallare | TinyML entusiast"
         },
 
         status: {
@@ -780,8 +777,7 @@ const translations = {
 
         hero: {
             eyebrow: "Hjemmeside",
-            description:
-                "Dette er min personlige hjemmeside, hvor jeg deler information om mig selv og mine vigtigste interesseområder."
+            description: "Rust udvikler | TinyML entusiast"
         },
 
         status: {
