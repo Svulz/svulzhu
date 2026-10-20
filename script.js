@@ -18,12 +18,12 @@ const translations = {
 
         htmlLang: "hu",
 
-        logo: "Vissza",
+        logo: "Vissza az oldal tetejére",
 
         nav: {
             home: "Főoldal",
             projects: "Projektek",
-            cv: "CV",
+            cv: "Önéletrajz",
             dashboard: "Dashboard"
         },
 
@@ -41,7 +41,7 @@ const translations = {
 
         buttons: {
             projects: "Projektek",
-            cv: "CV"
+            cv: "Önéletrajz"
         },
 
         clock: {
@@ -150,22 +150,22 @@ const translations = {
 
         cv: {
             eyebrow: "RÓLAM",
-            title: "Curriculum Vitae",
+            title: "Önéletrajz",
 
             viewer: {
-                label: "CURRICULUM VITAE",
-                title: "Teljes CV megtekintése",
+                label: "Önéletrajz",
+                title: "Teljes önéletrajz megtekintése",
                 description:
                     "A teljes önéletrajzom megtekintéséhez kattints az alábbi gombra.",
-                button: "Teljes CV megtekintése"
+                button: "Teljes önéletrajz megtekintése"
             },
 
-            viewTitle: "Teljes CV megtekintése",
+            viewTitle: "Teljes önéletrajz megtekintése",
 
             viewDescription:
                 "A teljes önéletrajz megtekintéséhez kattints az alábbi gombra.",
 
-            viewButton: "Teljes CV megtekintése →"
+            viewButton: "Teljes önéletrajz megtekintése →"
         },
 
         footer: {
@@ -585,7 +585,7 @@ const translations = {
         nav: {
             home: "Hem",
             projects: "Projekt",
-            cv: "CV",
+            cv: "Meritförteckning",
             dashboard: "Instrumentpanel"
         },
 
@@ -602,7 +602,7 @@ const translations = {
 
         buttons: {
             projects: "Projekt",
-            cv: "CV"
+            cv: "Meritförteckning"
         },
 
         clock: {
@@ -771,7 +771,7 @@ const translations = {
         nav: {
             home: "Hjem",
             projects: "Projekter",
-            cv: "CV",
+            cv: "Levnedsbeskrivelse",
             dashboard: "Dashboard"
         },
 
@@ -788,7 +788,7 @@ const translations = {
 
         buttons: {
             projects: "Projekter",
-            cv: "CV"
+            cv: "Levnedsbeskrivelse"
         },
 
         clock: {
@@ -897,10 +897,10 @@ const translations = {
 
         cv: {
             eyebrow: "OM MIG",
-            title: "Curriculum Vitae",
+            title: "Levnedsbeskrivelse",
 
             viewer: {
-                label: "CURRICULUM VITAE",
+                label: "Levnedsbeskrivelse",
                 title: "Se hele CV'et",
                 description:
                     "Klik på knappen nedenfor for at se mit fulde CV.",
