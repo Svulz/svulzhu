@@ -29,7 +29,7 @@ const translations = {
 
         hero: {
             eyebrow: "Weboldal",
-            description: "Rust fejlesztő | TinyML rajongó"
+            description: Snowflake | RTOS szakember
                                        
         },
 
@@ -217,7 +217,7 @@ const translations = {
 
         hero: {
             eyebrow: "Website",
-            description: "Rust developer | TinyML enthusiast"
+            description: Snowflake | RTOS specialist
         },
 
         status: {
@@ -404,7 +404,7 @@ const translations = {
 
         hero: {
             eyebrow: "Webseite",
-            description: "Rust entwickler | TinyML enthusiast"
+            description: Snowflake | RTOS spezialist
         },
 
         status: {
@@ -591,7 +591,7 @@ const translations = {
 
         hero: {
             eyebrow: "Webbplats",
-            description: "Rust framkallare | TinyML entusiast"
+            description: Snowflake | RTOS specialist
         },
 
         status: {
@@ -777,7 +777,7 @@ const translations = {
 
         hero: {
             eyebrow: "Hjemmeside",
-            description: "Rust udvikler | TinyML entusiast"
+            description: Snowflake | RTOS specialist
         },
 
         status: {
