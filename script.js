@@ -29,8 +29,7 @@ const translations = {
 
         hero: {
             eyebrow: "Weboldal",
-            description:
-               Rust Developer | TinyML Enthusiast
+            description: "Rust Developer | TinyML Enthusiast"
                                        
         },
 
