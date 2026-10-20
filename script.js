@@ -30,7 +30,8 @@ const translations = {
         hero: {
             eyebrow: "Weboldal",
             description:
-                "Ez az én személyes oldalam, ahol mindent leírok magamról és főbb érdeklődési köreimről."
+               Rust Developer | TinyML Enthusiast
+                                       
         },
 
         status: {
