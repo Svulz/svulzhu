@@ -3589,11 +3589,11 @@ applyAccessibilitySettings();
             loadError: "Nem sikerült betölteni az adatokat.",
             historyError: "A hallgatási előzmények most nem érhetők el.",
             yourMusic: "A TE ZENÉID",
+            spotifyDashboard: "Spotify Dashboard",
+            lastplayed: "LEGUTÓBBI ZENE",
             openSpotify: "Megnyitás Spotify-on ↗",
             recentTitle: "Legutóbbi zenék",
             dashboardSubtitle: "ZENELEJÁTSZÓ • SZEMÉLYES DASHBOARD",
-            spotifyDashboard: "Spotify Dashboard",
-            lastplayed: "LEGUTÓBBI ZENE"
         },
 
         en: {
@@ -3625,11 +3625,11 @@ applyAccessibilitySettings();
             loadError: "Failed to load the data.",
             historyError: "Listening history is temporarily unavailable.",
             yourMusic: "YOUR MUSIC",
+            spotifyDashboard: "Spotify Dashboard",
+            lastplayed: "RECENTLY PLAYED",
             openSpotify: "Open on Spotify ↗",
             recentTitle: "Recently played",
             dashboardSubtitle: "MUSIC PLAYER • PERSONAL DASHBOARD",
-            spotifyDashboard: "Spotify Dashboard",
-            lastplayed: "RECENTLY PLAYED"
         },
 
         de: {
@@ -3661,11 +3661,11 @@ applyAccessibilitySettings();
             loadError: "Die Daten konnten nicht geladen werden.",
             historyError: "Der Hörverlauf ist momentan nicht verfügbar.",
             yourMusic: "DEINE MUSIK",
+            spotifyDashboard: "Spotify-Dashboard",
+            lastplayed: "ZULETZT GEHÖRT",
             openSpotify: "Auf Spotify öffnen ↗",
             recentTitle: "Zuletzt gehörte Musik",
             dashboardSubtitle: "MUSIKPLAYER • PERSÖNLICHES DASHBOARD",
-            spotifyDashboard: "Spotify-Dashboard",
-            lastplayed: "ZULETZT GEHÖRT"
            
         },
 
@@ -3698,11 +3698,11 @@ applyAccessibilitySettings();
             loadError: "Det gick inte att läsa in informationen.",
             historyError: "Lyssningshistoriken är inte tillgänglig just nu.",
             yourMusic: "DIN MUSIK",
+            spotifyDashboard: "Spotify-instrumentpanel",
+            lastPlayed: "SENAST SPELAD",
             openSpotify: "Öppna på Spotify ↗",
             recentTitle: "Senast spelade låtar",
             dashboardSubtitle: "MUSIKSPELARE • PERSONLIG DASHBOARD",
-            spotifyDashboard: "Spotify-instrumentpanel",
-            lastPlayed: "SENAST SPELAD"
         },
 
         da: {
@@ -3734,11 +3734,11 @@ applyAccessibilitySettings();
             loadError: "Dataene kunne ikke indlæses.",
             historyError: "Lyttehistorikken er ikke tilgængelig lige nu.",
             yourMusic: "DIN MUSIK",
+            spotifyDashboard: "Spotify-dashboard",
+            lastplayed: "SENEST AFSPILLET",
             openSpotify: "Åbn på Spotify ↗",
             recentTitle: "Senest afspillet musik",
             dashboardSubtitle: "MUSIKAFSPILLER • PERSONLIGT DASHBOARD",
-            spotifyDashboard: "Spotify-dashboard",
-            lastplayed: "SENEST AFSPILLET"
         }
     };
 
