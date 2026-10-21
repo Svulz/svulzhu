@@ -1058,10 +1058,10 @@
             </article>
 
             
+
 <!-- SPOTIFY DASHBOARD -->
 <article class="card spotify-card">
 
-    
     <div class="card-header">
         <div>
             <p class="card-label" data-spotify-i18n="yourMusic">
@@ -1074,8 +1074,15 @@
         <div class="spotify-icon" aria-label="Spotify">♫</div>
     </div>
 
+    <!-- MOST JÁTSZOTT ZENE -->
+    <div class="spotify-now-playing">
+
+        <div class="spotify-artwork" aria-label="Albumborító">
+            ♫
+        </div>
 
         <div class="spotify-track-info">
+
             <span class="spotify-live">
                 <span class="spotify-live-dot"></span>
                 <span data-spotify-i18n="lastPlayed">
@@ -1084,9 +1091,11 @@
             </span>
 
             <h4 id="spotifyTrack">A zenéd itt jelenik meg</h4>
+
             <p id="spotifyArtist">
                 Csatlakoztasd a Spotify-fiókodat
             </p>
+
             <a
                 id="spotifyOpen"
                 href="https://open.spotify.com/"
@@ -1102,16 +1111,16 @@
         </div>
     </div>
 
-   
+    <!-- LEGUTÓBBI ZENÉK -->
     <div class="spotify-section-heading">
         <h4 data-spotify-i18n="recentTitle">
             Legutóbbi zenék
         </h4>
+
         <button id="spotifyRefresh" type="button">
             ↻ Frissítés
         </button>
     </div>
-
 
     <div id="spotifyRecent" class="spotify-recent-list">
         <p class="spotify-empty">
@@ -1119,23 +1128,21 @@
         </p>
     </div>
 
-  <button id="spotifyConnect" type="button"
-          class="spotify-connect-button">
-       Csatlakozás Spotify-hoz
- </button>
+    <!-- SPOTIFY CSATLAKOZÁS -->
+    <button
+        id="spotifyConnect"
+        type="button"
+        class="spotify-connect-button"
+    >
+        Csatlakozás Spotify-hoz
+    </button>
 
     <p class="spotify-footer" data-spotify-i18n="dashboardSubtitle">
         ZENELEJÁTSZÓ <span>•</span> SZEMÉLYES DASHBOARD
     </p>
 
-
 </article>
 <!-- END SPOTIFY DASHBOARD -->
-
-
-        </div>
-
-    </section>
 
 
     <!-- ================= PROJECTS ================= -->
