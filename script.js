@@ -3512,6 +3512,7 @@ applyAccessibilitySettings();
 
 /* =========================================
    SPOTIFY DASHBOARD — REAL API + PKCE
+   5 LANGUAGES: HU, EN, DE, SV, DA
    GitHub Pages compatible
 ========================================= */
 
@@ -3558,6 +3559,177 @@ applyAccessibilitySettings();
         refresh: "spotify_refresh_token"
     };
 
+    const translations = {
+        hu: {
+            connect: "Csatlakozás a Spotify-hoz",
+            connected: "Spotify csatlakoztatva",
+            connecting: "Csatlakozás…",
+            refresh: "↻ Frissítés",
+            loading: "Betöltés…",
+            noMusic: "Most nem szól zene",
+            startMusic: "Indíts el egy zenét a Spotify-on.",
+            recentHint: "A legutóbbi hallgatásokat lent találod.",
+            notConnected: "Spotify nincs csatlakoztatva",
+            connectAccount: "Csatlakozz a saját fiókodhoz.",
+            noHistory: "Még nincs elérhető hallgatási előzmény.",
+            unknownTrack: "Ismeretlen cím",
+            playing: "MOST JÁTSZIK",
+            lastPlayed: "LEGUTÓBBI ZENE",
+            openSpotify: "Megnyitás Spotify-on",
+            missingClient: "Előbb állítsd be a Spotify Client ID-t.",
+            httpsRequired: "Biztonságos HTTPS-kapcsolat szükséges.",
+            missingVerifier: "Hiányzik a PKCE ellenőrző kód. Próbáld újra a csatlakozást.",
+            loginFailed: "A Spotify bejelentkezés nem sikerült.",
+            loginCancelled: "A Spotify-bejelentkezés megszakadt.",
+            securityError: "Biztonsági ellenőrzési hiba. Csatlakozz újra.",
+            expired: "Lejárt a Spotify-kapcsolat. Csatlakozz újra.",
+            forbidden: "A Spotify nem engedélyezi ezt a kérést.",
+            rateLimit: "Túl sok kérés. Próbáld újra később.",
+            apiError: "Spotify API hiba",
+            loadError: "Nem sikerült betölteni az adatokat.",
+            historyError: "A hallgatási előzmények most nem érhetők el."
+        },
+
+        en: {
+            connect: "Connect Spotify",
+            connected: "Spotify connected",
+            connecting: "Connecting…",
+            refresh: "↻ Refresh",
+            loading: "Loading…",
+            noMusic: "Nothing is playing right now",
+            startMusic: "Start playing something on Spotify.",
+            recentHint: "Your recent listening history is below.",
+            notConnected: "Spotify is not connected",
+            connectAccount: "Connect your Spotify account.",
+            noHistory: "No listening history available yet.",
+            unknownTrack: "Unknown title",
+            playing: "NOW PLAYING",
+            lastPlayed: "LAST PLAYED",
+            openSpotify: "Open on Spotify",
+            missingClient: "Please configure your Spotify Client ID first.",
+            httpsRequired: "A secure HTTPS connection is required.",
+            missingVerifier: "The PKCE verifier is missing. Please connect again.",
+            loginFailed: "Spotify login failed.",
+            loginCancelled: "Spotify login was cancelled.",
+            securityError: "Security verification failed. Please reconnect.",
+            expired: "Your Spotify connection has expired. Please reconnect.",
+            forbidden: "Spotify does not allow this request.",
+            rateLimit: "Too many requests. Please try again later.",
+            apiError: "Spotify API error",
+            loadError: "Failed to load the data.",
+            historyError: "Listening history is temporarily unavailable."
+        },
+
+        de: {
+            connect: "Mit Spotify verbinden",
+            connected: "Spotify verbunden",
+            connecting: "Verbindung wird hergestellt…",
+            refresh: "↻ Aktualisieren",
+            loading: "Wird geladen…",
+            noMusic: "Zurzeit läuft keine Musik",
+            startMusic: "Starte die Wiedergabe auf Spotify.",
+            recentHint: "Deine zuletzt gehörten Titel findest du unten.",
+            notConnected: "Spotify ist nicht verbunden",
+            connectAccount: "Verbinde dein Spotify-Konto.",
+            noHistory: "Noch kein Hörverlauf verfügbar.",
+            unknownTrack: "Unbekannter Titel",
+            playing: "LÄUFT GERADE",
+            lastPlayed: "ZULETZT GEHÖRT",
+            openSpotify: "Auf Spotify öffnen",
+            missingClient: "Bitte konfiguriere zuerst deine Spotify Client ID.",
+            httpsRequired: "Eine sichere HTTPS-Verbindung ist erforderlich.",
+            missingVerifier: "Der PKCE-Prüfcode fehlt. Bitte verbinde dich erneut.",
+            loginFailed: "Die Spotify-Anmeldung ist fehlgeschlagen.",
+            loginCancelled: "Die Spotify-Anmeldung wurde abgebrochen.",
+            securityError: "Sicherheitsprüfung fehlgeschlagen. Bitte erneut verbinden.",
+            expired: "Deine Spotify-Verbindung ist abgelaufen. Bitte erneut verbinden.",
+            forbidden: "Spotify erlaubt diese Anfrage nicht.",
+            rateLimit: "Zu viele Anfragen. Bitte versuche es später erneut.",
+            apiError: "Spotify-API-Fehler",
+            loadError: "Die Daten konnten nicht geladen werden.",
+            historyError: "Der Hörverlauf ist momentan nicht verfügbar."
+        },
+
+        sv: {
+            connect: "Anslut till Spotify",
+            connected: "Spotify är anslutet",
+            connecting: "Ansluter…",
+            refresh: "↻ Uppdatera",
+            loading: "Laddar…",
+            noMusic: "Ingen musik spelas just nu",
+            startMusic: "Börja spela musik på Spotify.",
+            recentHint: "Din senaste lyssningshistorik finns nedan.",
+            notConnected: "Spotify är inte anslutet",
+            connectAccount: "Anslut ditt Spotify-konto.",
+            noHistory: "Ingen lyssningshistorik tillgänglig ännu.",
+            unknownTrack: "Okänd titel",
+            playing: "SPELAS JUST NU",
+            lastPlayed: "SENAST SPELAD",
+            openSpotify: "Öppna på Spotify",
+            missingClient: "Konfigurera ditt Spotify Client ID först.",
+            httpsRequired: "En säker HTTPS-anslutning krävs.",
+            missingVerifier: "PKCE-verifieraren saknas. Anslut igen.",
+            loginFailed: "Det gick inte att logga in på Spotify.",
+            loginCancelled: "Spotify-inloggningen avbröts.",
+            securityError: "Säkerhetskontrollen misslyckades. Anslut igen.",
+            expired: "Din Spotify-anslutning har gått ut. Anslut igen.",
+            forbidden: "Spotify tillåter inte den här förfrågan.",
+            rateLimit: "För många förfrågningar. Försök igen senare.",
+            apiError: "Spotify API-fel",
+            loadError: "Det gick inte att läsa in informationen.",
+            historyError: "Lyssningshistoriken är inte tillgänglig just nu."
+        },
+
+        da: {
+            connect: "Forbind til Spotify",
+            connected: "Spotify er forbundet",
+            connecting: "Forbinder…",
+            refresh: "↻ Opdater",
+            loading: "Indlæser…",
+            noMusic: "Der afspilles ikke musik lige nu",
+            startMusic: "Start afspilning på Spotify.",
+            recentHint: "Din seneste lyttehistorik finder du nedenfor.",
+            notConnected: "Spotify er ikke forbundet",
+            connectAccount: "Forbind din Spotify-konto.",
+            noHistory: "Der er endnu ingen lyttehistorik tilgængelig.",
+            unknownTrack: "Ukendt titel",
+            playing: "AFSPILLES NU",
+            lastPlayed: "SENEST AFSPILLET",
+            openSpotify: "Åbn på Spotify",
+            missingClient: "Konfigurer først dit Spotify Client ID.",
+            httpsRequired: "En sikker HTTPS-forbindelse er påkrævet.",
+            missingVerifier: "PKCE-verifikatoren mangler. Forbind igen.",
+            loginFailed: "Spotify-login mislykkedes.",
+            loginCancelled: "Spotify-login blev annulleret.",
+            securityError: "Sikkerhedskontrollen mislykkedes. Forbind igen.",
+            expired: "Din Spotify-forbindelse er udløbet. Forbind igen.",
+            forbidden: "Spotify tillader ikke denne anmodning.",
+            rateLimit: "For mange anmodninger. Prøv igen senere.",
+            apiError: "Spotify API-fejl",
+            loadError: "Dataene kunne ikke indlæses.",
+            historyError: "Lyttehistorikken er ikke tilgængelig lige nu."
+        }
+    };
+
+    function getLanguage() {
+        const raw =
+            document.documentElement.lang ||
+            document.querySelector("[data-language]")?.dataset.language ||
+            localStorage.getItem("language") ||
+            localStorage.getItem("lang") ||
+            "hu";
+
+        const lang = raw.toLowerCase().split("-")[0];
+
+        return translations[lang] ? lang : "hu";
+    }
+
+    function t(key) {
+        return translations[getLanguage()][key] ||
+            translations.hu[key] ||
+            key;
+    }
+
     const get = (key) => sessionStorage.getItem(key);
     const set = (key, value) => sessionStorage.setItem(key, value);
     const remove = (key) => sessionStorage.removeItem(key);
@@ -3566,9 +3738,7 @@ applyAccessibilitySettings();
         const chars =
             "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~";
 
-        const bytes = crypto.getRandomValues(
-            new Uint8Array(length)
-        );
+        const bytes = crypto.getRandomValues(new Uint8Array(length));
 
         return Array.from(
             bytes,
@@ -3577,9 +3747,7 @@ applyAccessibilitySettings();
     }
 
     function base64Url(buffer) {
-        return btoa(
-            String.fromCharCode(...new Uint8Array(buffer))
-        )
+        return btoa(String.fromCharCode(...new Uint8Array(buffer)))
             .replace(/\+/g, "-")
             .replace(/\//g, "_")
             .replace(/=+$/, "");
@@ -3602,18 +3770,22 @@ applyAccessibilitySettings();
 
     function setTrack(track, isPlaying = false) {
         if (!track) {
-            trackElement.textContent = "Most nem szól zene";
-            setStatus("Indíts el egy zenét a Spotify-on.");
+            trackElement.textContent = t("noMusic");
+            setStatus(t("startMusic"));
             openElement.href = "https://open.spotify.com/";
             return;
         }
 
-        trackElement.textContent = track.name || "Ismeretlen cím";
+        trackElement.textContent = track.name || t("unknownTrack");
+
         artistElement.textContent = (track.artists || [])
             .map((artist) => artist.name)
             .join(", ");
 
         openElement.href = spotifyLink(track);
+        openElement.target = "_blank";
+        openElement.rel = "noopener noreferrer";
+        openElement.setAttribute("aria-label", t("openSpotify"));
 
         const artwork = document.querySelector(".spotify-artwork");
         const imageUrl = track.album?.images?.[0]?.url;
@@ -3624,7 +3796,7 @@ applyAccessibilitySettings();
             if (imageUrl) {
                 const image = document.createElement("img");
                 image.src = imageUrl;
-                image.alt = "Albumborító: " + track.name;
+                image.alt = "Album artwork: " + track.name;
                 image.loading = "lazy";
                 image.style.width = "100%";
                 image.style.height = "100%";
@@ -3636,10 +3808,11 @@ applyAccessibilitySettings();
         }
 
         const status = document.querySelector(".spotify-live");
+
         if (status) {
             status.textContent = isPlaying
-                ? "MOST JÁTSZIK"
-                : "LEGUTÓBBI ZENE";
+                ? t("playing")
+                : t("lastPlayed");
         }
     }
 
@@ -3649,7 +3822,7 @@ applyAccessibilitySettings();
         if (!items?.length) {
             const empty = document.createElement("p");
             empty.className = "spotify-empty";
-            empty.textContent = "Még nincs elérhető hallgatási előzmény.";
+            empty.textContent = t("noHistory");
             recentElement.appendChild(empty);
             return;
         }
@@ -3669,6 +3842,7 @@ applyAccessibilitySettings();
             image.alt = "";
             image.loading = "lazy";
             image.src = track.album?.images?.slice(-1)[0]?.url || "";
+
             image.onerror = () => {
                 image.style.visibility = "hidden";
             };
@@ -3677,7 +3851,7 @@ applyAccessibilitySettings();
             info.className = "spotify-row-info";
 
             const title = document.createElement("strong");
-            title.textContent = track.name || "Ismeretlen cím";
+            title.textContent = track.name || t("unknownTrack");
 
             const artist = document.createElement("span");
             artist.textContent = (track.artists || [])
@@ -3694,7 +3868,7 @@ applyAccessibilitySettings();
             link.textContent = "↗";
             link.setAttribute(
                 "aria-label",
-                "Megnyitás Spotify-on: " + track.name
+                t("openSpotify") + ": " + (track.name || t("unknownTrack"))
             );
 
             row.append(number, image, info, link);
@@ -3703,46 +3877,53 @@ applyAccessibilitySettings();
     }
 
     async function authorize() {
-        if (
-            CLIENT_ID === "IDE_ILLESZD_BE_A_CLIENT_ID_T" ||
-            !CLIENT_ID
-        ) {
-            setStatus("Előbb állítsd be a Spotify Client ID-t.");
+        if (!CLIENT_ID) {
+            setStatus(t("missingClient"));
             return;
         }
 
         if (!window.crypto?.subtle) {
-            setStatus("Biztonságos HTTPS-kapcsolat szükséges.");
+            setStatus(t("httpsRequired"));
             return;
         }
 
-        const verifier = randomString(64);
-        const state = randomString(32);
-        const challenge = await createChallenge(verifier);
+        try {
+            connectButton.disabled = true;
+            connectButton.textContent = t("connecting");
 
-        set(STORAGE.verifier, verifier);
-        set(STORAGE.state, state);
+            const verifier = randomString(64);
+            const state = randomString(32);
+            const challenge = await createChallenge(verifier);
 
-        const params = new URLSearchParams({
-            client_id: CLIENT_ID,
-            response_type: "code",
-            redirect_uri: REDIRECT_URI,
-            scope: SCOPES.join(" "),
-            code_challenge_method: "S256",
-            code_challenge: challenge,
-            state
-        });
+            set(STORAGE.verifier, verifier);
+            set(STORAGE.state, state);
 
-        window.location.assign(
-            "https://accounts.spotify.com/authorize?" +
-            params.toString()
-        );
+            const params = new URLSearchParams({
+                client_id: CLIENT_ID,
+                response_type: "code",
+                redirect_uri: REDIRECT_URI,
+                scope: SCOPES.join(" "),
+                code_challenge_method: "S256",
+                code_challenge: challenge,
+                state
+            });
+
+            window.location.assign(
+                "https://accounts.spotify.com/authorize?" +
+                params.toString()
+            );
+        } catch (error) {
+            setStatus(error.message || t("loginFailed"));
+            connectButton.disabled = false;
+            connectButton.textContent = t("connect");
+        }
     }
 
     async function exchangeCode(code) {
         const verifier = get(STORAGE.verifier);
+
         if (!verifier) {
-            throw new Error("Hiányzik a PKCE ellenőrző kód. Próbáld újra a csatlakozást.");
+            throw new Error(t("missingVerifier"));
         }
 
         const body = new URLSearchParams({
@@ -3765,8 +3946,7 @@ applyAccessibilitySettings();
 
         if (!response.ok) {
             throw new Error(
-                data.error_description || data.error ||
-                "A Spotify bejelentkezés nem sikerült."
+                data.error_description || data.error || t("loginFailed")
             );
         }
 
@@ -3779,6 +3959,7 @@ applyAccessibilitySettings();
 
     function saveTokens(data) {
         set(STORAGE.token, data.access_token);
+
         set(
             STORAGE.expiry,
             String(Date.now() + data.expires_in * 1000)
@@ -3838,19 +4019,19 @@ applyAccessibilitySettings();
 
         if (response.status === 401) {
             clearSession();
-            throw new Error("Lejárt a Spotify-kapcsolat. Csatlakozz újra.");
+            throw new Error(t("expired"));
         }
 
         if (response.status === 403) {
-            throw new Error("A Spotify nem engedélyezi ezt a kérést.");
+            throw new Error(t("forbidden"));
         }
 
         if (response.status === 429) {
-            throw new Error("Túl sok kérés. Próbáld újra később.");
+            throw new Error(t("rateLimit"));
         }
 
         if (!response.ok) {
-            throw new Error("Spotify API hiba (" + response.status + ").");
+            throw new Error(t("apiError") + " (" + response.status + ").");
         }
 
         return response.json();
@@ -3868,15 +4049,16 @@ applyAccessibilitySettings();
 
     async function loadDashboard() {
         refreshButton.disabled = true;
-        refreshButton.textContent = "Betöltés…";
+        refreshButton.textContent = t("loading");
 
         try {
             const token = await getAccessToken();
 
             if (!token) {
-                trackElement.textContent = "Spotify nincs csatlakoztatva";
-                setStatus("Csatlakozz a saját fiókodhoz.");
+                trackElement.textContent = t("notConnected");
+                setStatus(t("connectAccount"));
                 renderRecent([]);
+                connectButton.textContent = t("connect");
                 return;
             }
 
@@ -3891,47 +4073,89 @@ applyAccessibilitySettings();
                 if (playback?.item) {
                     setTrack(playback.item, playback.is_playing);
                 } else {
-                    trackElement.textContent = "Most nem szól zene";
-                    setStatus("A legutóbbi hallgatásokat lent találod.");
+                    trackElement.textContent = t("noMusic");
+                    setStatus(t("recentHint"));
                     openElement.href = "https://open.spotify.com/";
                 }
+            } else {
+                setStatus(
+                    playbackResult.reason?.message || t("loadError")
+                );
             }
 
             if (recentResult.status === "fulfilled") {
                 renderRecent(recentResult.value?.items || []);
             } else {
                 renderRecent([]);
-                setStatus(recentResult.reason?.message ||
-                    "A hallgatási előzmények most nem érhetők el.");
+                setStatus(
+                    recentResult.reason?.message || t("historyError")
+                );
             }
 
-            connectButton.textContent = "Spotify csatlakoztatva";
+            connectButton.textContent = t("connected");
         } catch (error) {
-            setStatus(error.message || "Nem sikerült betölteni az adatokat.");
+            setStatus(error.message || t("loadError"));
         } finally {
             refreshButton.disabled = false;
-            refreshButton.textContent = "↻ Frissítés";
+            refreshButton.textContent = t("refresh");
+        }
+    }
+
+    function applyLanguage() {
+        const token = get(STORAGE.token);
+
+        connectButton.textContent = token
+            ? t("connected")
+            : t("connect");
+
+        refreshButton.textContent = t("refresh");
+
+        const status = document.querySelector(".spotify-live");
+
+        if (status && !token) {
+            status.textContent = t("notConnected");
         }
     }
 
     connectButton.addEventListener("click", authorize);
     refreshButton.addEventListener("click", loadDashboard);
 
+    // Frissíti a Spotify szövegeit, ha a weboldal nyelve megváltozik.
+    window.addEventListener("languageChanged", () => {
+        applyLanguage();
+        loadDashboard();
+    });
+
+    // Figyeli a HTML lang attribútum változását.
+    if (document.documentElement) {
+        const observer = new MutationObserver(() => {
+            applyLanguage();
+            loadDashboard();
+        });
+
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ["lang"]
+        });
+    }
+
     async function init() {
+        applyLanguage();
+
         const params = new URLSearchParams(window.location.search);
         const code = params.get("code");
         const returnedState = params.get("state");
         const error = params.get("error");
 
         if (error) {
-            setStatus("A Spotify-bejelentkezés megszakadt.");
+            setStatus(t("loginCancelled"));
             window.history.replaceState({}, "", REDIRECT_URI);
             return;
         }
 
         if (code) {
             if (!returnedState || returnedState !== get(STORAGE.state)) {
-                setStatus("Biztonsági ellenőrzési hiba. Csatlakozz újra.");
+                setStatus(t("securityError"));
                 clearSession();
                 window.history.replaceState({}, "", REDIRECT_URI);
                 return;
@@ -3941,7 +4165,7 @@ applyAccessibilitySettings();
                 await exchangeCode(code);
                 window.history.replaceState({}, "", REDIRECT_URI);
             } catch (err) {
-                setStatus(err.message);
+                setStatus(err.message || t("loginFailed"));
                 window.history.replaceState({}, "", REDIRECT_URI);
                 return;
             }
@@ -3951,11 +4175,13 @@ applyAccessibilitySettings();
     }
 
     init();
-   // Spotify Dashboard automatikus frissítése 30 másodpercenként
-   window.setInterval(() => {
-       if (!document.hidden) {
-           loadDashboard();
-       }
-   }, 30000);
+
+    // Automatikus frissítés 30 másodpercenként.
+    window.setInterval(() => {
+        if (!document.hidden) {
+            loadDashboard();
+        }
+    }, 30000);
 })();
+
 
