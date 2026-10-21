@@ -3508,8 +3508,6 @@ loadAccessibilitySettings();
 
 applyAccessibilitySettings();
 
-
-
 /* =========================================
    SPOTIFY DASHBOARD — REAL API + PKCE
    5 LANGUAGES: HU, EN, DE, SV, DA
@@ -4099,87 +4097,74 @@ applyAccessibilitySettings();
         ].forEach(remove);
     }
 
-    async function loadDashboard() {
-        refreshButton.disabled = true;
-        refreshButton.textContent = t("loading");
+    
+async function loadDashboard() {
+    if (loading) return;
 
-        try {
-            const token = await getAccessToken();
+    loading = true;
+    refreshButton.disabled = true;
+    refreshButton.textContent = t("loading");
 
-            if (!token) {
-                trackElement.textContent = t("notConnected");
-                setStatus(t("connectAccount"));
-                renderRecent([]);
-                connectButton.textContent = t("connect");
-                return;
-            }
+    try {
+        const token = await getAccessToken();
 
-            const [playbackResult, recentResult] = await Promise.allSettled([
-                api("/me/player/currently-playing", token),
-                api("/me/player/recently-played?limit=5", token)
-            ]);
+        if (!token) {
+            trackElement.textContent = t("notConnected");
+            setStatus(t("connectAccount"));
+            setArtwork(null);
+            openElement.href = "https://open.spotify.com/";
+            renderRecent([]);
+            connectButton.textContent = t("connect");
+            setLiveLabel(false);
+            return;
+        }
 
-            
-            if (playbackResult.status === "fulfilled") {
-                const playback = playbackResult.value;
+        const [playbackResult, recentResult] = await Promise.allSettled([
+            api("/me/player/currently-playing", token),
+            api("/me/player/recently-played?limit=5", token)
+        ]);
 
-                if (playback?.item) {
-                    // Van aktuális zeneszám
-                    setTrack(playback.item, playback.is_playing);
-                } else if (
-                    recentResult.status === "fulfilled" &&
-                    recentResult.value?.items?.length
-                ) {
-            
-                   
-            if (playbackResult.status === "fulfilled") {
-                const playback = playbackResult.value;
+        if (playbackResult.status === "fulfilled") {
+            const playback = playbackResult.value;
 
-                if (playback?.item && playback.currently_playing_type === "track") {
-                    if (playback.is_playing) {
-                     setTrack(playback.item, true);
-                    } else {
-                        trackElement.textContent = t("noMusic");
-                        setStatus(t("startMusic"));
-
-                        const artwork = document.querySelector(".spotify-artwork");
-                        if (artwork) artwork.textContent = "♫";
-
-                        openElement.href = "https://open.spotify.com/";
-                    }
-                } else {
-                    trackElement.textContent = t("noMusic");
-                    setStatus(t("startMusic"));
-
-                    const artwork = document.querySelector(".spotify-artwork");
-                    if (artwork) artwork.textContent = "♫";
-
-                    openElement.href = "https://open.spotify.com/";
-                }
+            if (
+                playback?.item &&
+                playback.currently_playing_type === "track" &&
+                playback.is_playing
+            ) {
+                setTrack(playback.item, true);
             } else {
-                setStatus(
-                    playbackResult.reason?.message || t("loadError")
-                );
+                setNoMusic();
             }
+        } else {
+            setStatus(
+                playbackResult.reason?.message || t("loadError")
+            );
+        }
 
+        if (recentResult.status === "fulfilled") {
+            renderRecent(recentResult.value?.items || []);
+        } else {
+            renderRecent([]);
 
-            if (recentResult.status === "fulfilled") {
-                renderRecent(recentResult.value?.items || []);
-            } else {
-                renderRecent([]);
+            if (playbackResult.status === "fulfilled") {
                 setStatus(
                     recentResult.reason?.message || t("historyError")
                 );
             }
-
-            connectButton.textContent = t("connected");
-        } catch (error) {
-            setStatus(error.message || t("loadError"));
-        } finally {
-            refreshButton.disabled = false;
-            refreshButton.textContent = t("refresh");
         }
+
+        connectButton.textContent = t("connected");
+
+    } catch (error) {
+        setStatus(error.message || t("loadError"));
+    } finally {
+        loading = false;
+        refreshButton.disabled = false;
+        refreshButton.textContent = t("refresh");
     }
+}
+
 
     
    function applyLanguage() {
@@ -4271,5 +4256,11 @@ applyAccessibilitySettings();
         }
     }, 30000);
 })();
+
+
+
+
+
+
 
 
