@@ -1059,90 +1059,62 @@
 
             
 
-            <!-- SPOTIFY DASHBOARD -->
-            <article class="card spotify-card">
+           
+<section class="spotify-dashboard">
 
-                <div class="card-header">
-                    <div>
-                        <p class="card-label" data-spotify-i18n="yourMusic">
-                            A TE ZENÉID
-                        </p>
-                        <h3 data-spotify-i18n="spotifyDashboard">
-                            Spotify Dashboard
-                        </h3>
-                    </div>
-                    <div class="spotify-icon" aria-label="Spotify">♫</div>
-                </div>
+    <div class="spotify-header">
+        <h2 data-spotify-i18n="spotifyDashboard">
+            Spotify Dashboard
+        </h2>
+        <p data-spotify-i18n="dashboardSubtitle">
+            MUSIC PLAYER • PERSONAL DASHBOARD
+        </p>
+    </div>
 
-                <!-- MOST JÁTSZOTT ZENE -->
-                <div class="spotify-now-playing">
+    <div class="spotify-controls">
+        <button id="spotifyConnect" type="button">
+            Connect Spotify
+        </button>
 
-                    <div class="spotify-artwork" aria-label="Albumborító">
-                        ♫
-                    </div>
+        <button id="spotifyRefresh" type="button">
+            ↻ Refresh
+        </button>
+    </div>
 
-                    <div class="spotify-track-info">
+    <div class="spotify-live">
+        <div class="spotify-artwork">♫</div>
 
-                        <span class="spotify-live">
-                            <span class="spotify-live-dot"></span>
-                            <span data-spotify-i18n="lastPlayed">
-                                LEGUTÓBBI ZENE
-                            </span>
-                        </span>
+        <div class="spotify-track-info">
+            <span data-spotify-i18n="lastPlayed">
+                LAST PLAYED
+            </span>
 
-                        <h4 id="spotifyTrack">A zenéd itt jelenik meg</h4>
+            <h3 id="spotifyTrack">Nothing is playing right now</h3>
+            <p id="spotifyArtist">Connect your Spotify account.</p>
 
-                        <p id="spotifyArtist">
-                            Csatlakoztasd a Spotify-fiókodat
-                        </p>
+            <a
+                id="spotifyOpen"
+                href="https://open.spotify.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Open on Spotify ↗
+            </a>
+        </div>
+    </div>
 
-                        <a
-                            id="spotifyOpen"
-                            href="https://open.spotify.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="spotify-open-link"
-                          >
-                            <span data-spotify-i18n="openSpotify">
-                                 Megnyitás Spotify-on ↗
-                            </span>
-                        </a>
+    <div class="spotify-history">
+        <h3 data-spotify-i18n="recentTitle">
+            Recently played
+        </h3>
 
-                    </div>
-                </div>
+        <div id="spotifyRecent">
+            <p class="spotify-empty">Loading…</p>
+        </div>
+    </div>
 
-                <!-- LEGUTÓBBI ZENÉK -->
-                <div class="spotify-section-heading">
-                    <h4 data-spotify-i18n="recentTitle">
-                        Legutóbbi zenék
-                    </h4>
+</section>
 
-                    <button id="spotifyRefresh" type="button">
-                        ↻ Frissítés
-                    </button>
-                </div>
-
-                <div id="spotifyRecent" class="spotify-recent-list">
-                    <p class="spotify-empty">
-                        A zenék a Spotify-kapcsolat beállítása után jelennek meg.
-                    </p>
-                </div>
-
-                <!-- SPOTIFY CSATLAKOZÁS -->
-                <button
-                    id="spotifyConnect"
-                    type="button"
-                    class="spotify-connect-button"
-                >
-                    Csatlakozás Spotify-hoz
-                </button>
-
-                <p class="spotify-footer" data-spotify-i18n="dashboardSubtitle">
-                    ZENELEJÁTSZÓ <span>•</span> SZEMÉLYES DASHBOARD
-                </p>
-
-            </article>
-            <!-- END SPOTIFY DASHBOARD -->
 
 
     
