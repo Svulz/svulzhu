@@ -2831,3 +2831,114 @@ body.dark .status-selector .status:not(.status-offline):not(.status-invisible) {
 body:not(.dark) .hero a {
     color: #ffffff !important;
 }
+/* =========================================================
+   SPOTIFY TRACKS
+========================================================= */
+
+.spotify-card {
+    min-width: 0;
+    overflow: hidden;
+}
+
+.spotify-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.spotify-tracks {
+    display: grid;
+    gap: 0.85rem;
+    margin-top: 1rem;
+}
+
+.spotify-track {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    min-width: 0;
+    padding: 0.75rem;
+    border-radius: 12px;
+    background: rgba(128, 128, 128, 0.08);
+}
+
+.spotify-track-cover {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.spotify-track-details {
+    min-width: 0;
+    flex: 1;
+}
+
+.spotify-track-details p {
+    margin: 0.2rem 0;
+    overflow-wrap: anywhere;
+}
+
+.spotify-track-title {
+    font-weight: 700;
+}
+
+.spotify-track-artist,
+.spotify-track-time {
+    font-size: 0.85rem;
+    opacity: 0.75;
+}
+
+.spotify-track a {
+    display: inline-block;
+    margin-top: 0.35rem;
+    color: #1db954;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+#spotifyLogin,
+#spotifyRefresh {
+    padding: 0.7rem 1rem;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    font: inherit;
+}
+
+#spotifyLogin {
+    color: #fff;
+    background: #1db954;
+}
+
+#spotifyRefresh {
+    color: inherit;
+    background: rgba(128, 128, 128, 0.15);
+}
+
+#spotifyLogin:focus-visible,
+#spotifyRefresh:focus-visible,
+.spotify-track a:focus-visible {
+    outline: 3px solid #1db954;
+    outline-offset: 3px;
+}
+
+body.dark .spotify-track {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+@media (max-width: 480px) {
+    .spotify-track-cover {
+        width: 52px;
+        height: 52px;
+    }
+
+    .spotify-track {
+        gap: 0.65rem;
+        padding: 0.6rem;
+    }
+}
