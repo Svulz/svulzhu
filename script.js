@@ -3750,7 +3750,24 @@ applyAccessibilitySettings();
         return translations[getLanguage()][key] ||
             translations.hu[key] ||
             key;
+       
     }
+   
+   function translateSpotifyElements() {
+       const elements = {
+           "[data-spotify-i18n='yourMusic']": "yourMusic",
+           "[data-spotify-i18n='openSpotify']": "openSpotify",
+           "[data-spotify-i18n='recentTitle']": "recentTitle",
+           "[data-spotify-i18n='dashboardSubtitle']": "dashboardSubtitle"
+       };
+
+       Object.entries(elements).forEach(([selector, key]) => {
+           document.querySelectorAll(selector).forEach(element => {
+               element.textContent = t(key);
+           });
+       });
+   }
+
 
     const get = (key) => sessionStorage.getItem(key);
     const set = (key, value) => sessionStorage.setItem(key, value);
@@ -4123,21 +4140,29 @@ applyAccessibilitySettings();
         }
     }
 
-    function applyLanguage() {
-        const token = get(STORAGE.token);
+    
+   function applyLanguage() {
+       const token = get(STORAGE.token);
 
-        connectButton.textContent = token
-            ? t("connected")
-            : t("connect");
+       connectButton.textContent = token
+           ? t("connected")
+           : t("connect");
 
-        refreshButton.textContent = t("refresh");
+       refreshButton.textContent = t("refresh");
 
-        const status = document.querySelector(".spotify-live");
+       const status = document.querySelector(".spotify-live");
 
-        if (status && !token) {
-            status.textContent = t("notConnected");
-        }
-    }
+       if (status && !token) {
+           status.textContent = t("notConnected");
+       }
+
+       // A Spotify statikus feliratainak fordítása
+       translateSpotifyElements();
+
+       // A Spotify-link feliratának frissítése
+       openElement.textContent = t("openSpotify");
+   }
+
 
     connectButton.addEventListener("click", authorize);
     refreshButton.addEventListener("click", loadDashboard);
