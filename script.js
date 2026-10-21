@@ -132,21 +132,6 @@ const translations = {
             gbp: "Angol font",
             chf: "Svájci frank"
         },
-       spotify: {
-          label: "SPOTIFY",
-          title: "Legutóbb hallgatott zenék",
-          login: "Spotify csatlakoztatása",
-          logout: "Leválasztás",
-          refresh: "Zenék frissítése",
-          loading: "Zenék betöltése...",
-          empty: "Még nincs megjeleníthető zeneelőzmény.",
-          unavailable: "A zenei adatok nem érhetők el.",
-          connectFirst: "Csatlakoztasd a Spotify-fiókodat!",
-          playedAt: "Hallgatva",
-          openTrack: "Megnyitás Spotifyon",
-          connected: "Spotify csatlakoztatva",
-          error: "Nem sikerült csatlakozni a Spotifyhoz."
-      },
 
         projects: {
             eyebrow: "MUNKÁIM",
@@ -334,21 +319,6 @@ const translations = {
             gbp: "British Pound",
             chf: "Swiss Franc"
         },
-       spotify: {
-          label: "SPOTIFY",
-          title: "Recently played",
-          login: "Connect Spotify",
-          logout: "Disconnect",
-          refresh: "Refresh tracks",
-          loading: "Loading tracks...",
-          empty: "No recent tracks available",
-          unavailable: "Music data is unavailable.",
-          connectFirst: "Connect your Spotify account!",
-          playedAt: "Played",
-          openTrack: "Open on Spotify",
-          connected: "Spotify connected",
-          error: "Could not connect to Spotify."
-      },
 
         projects: {
             eyebrow: "MY WORK",
