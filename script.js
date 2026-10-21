@@ -3587,7 +3587,11 @@ applyAccessibilitySettings();
             rateLimit: "Túl sok kérés. Próbáld újra később.",
             apiError: "Spotify API hiba",
             loadError: "Nem sikerült betölteni az adatokat.",
-            historyError: "A hallgatási előzmények most nem érhetők el."
+            historyError: "A hallgatási előzmények most nem érhetők el.",
+            yourMusic: "A TE ZENÉID",
+            openSpotify: "Megnyitás Spotify-on ↗",
+            recentTitle: "Legutóbbi zenék",
+            dashboardSubtitle: "ZENELEJÁTSZÓ • SZEMÉLYES DASHBOARD"
         },
 
         en: {
@@ -3617,7 +3621,11 @@ applyAccessibilitySettings();
             rateLimit: "Too many requests. Please try again later.",
             apiError: "Spotify API error",
             loadError: "Failed to load the data.",
-            historyError: "Listening history is temporarily unavailable."
+            historyError: "Listening history is temporarily unavailable.",
+            yourMusic: "YOUR MUSIC",
+            openSpotify: "Open on Spotify ↗",
+            recentTitle: "Recently played",
+            dashboardSubtitle: "MUSIC PLAYER • PERSONAL DASHBOARD"
         },
 
         de: {
@@ -3647,7 +3655,13 @@ applyAccessibilitySettings();
             rateLimit: "Zu viele Anfragen. Bitte versuche es später erneut.",
             apiError: "Spotify-API-Fehler",
             loadError: "Die Daten konnten nicht geladen werden.",
-            historyError: "Der Hörverlauf ist momentan nicht verfügbar."
+            historyError: "Der Hörverlauf ist momentan nicht verfügbar.",
+            yourMusic: "DEINE MUSIK",
+            openSpotify: "Auf Spotify öffnen ↗",
+            recentTitle: "Zuletzt gehörte Musik",
+            dashboardSubtitle: "MUSIKPLAYER • PERSÖNLICHES DASHBOARD"
+           
+           
         },
 
         sv: {
@@ -3677,7 +3691,11 @@ applyAccessibilitySettings();
             rateLimit: "För många förfrågningar. Försök igen senare.",
             apiError: "Spotify API-fel",
             loadError: "Det gick inte att läsa in informationen.",
-            historyError: "Lyssningshistoriken är inte tillgänglig just nu."
+            historyError: "Lyssningshistoriken är inte tillgänglig just nu.",
+            yourMusic: "DIN MUSIK",
+            openSpotify: "Öppna på Spotify ↗",
+            recentTitle: "Senast spelade låtar",
+            dashboardSubtitle: "MUSIKSPELARE • PERSONLIG DASHBOARD"
         },
 
         da: {
@@ -3707,7 +3725,11 @@ applyAccessibilitySettings();
             rateLimit: "For mange anmodninger. Prøv igen senere.",
             apiError: "Spotify API-fejl",
             loadError: "Dataene kunne ikke indlæses.",
-            historyError: "Lyttehistorikken er ikke tilgængelig lige nu."
+            historyError: "Lyttehistorikken er ikke tilgængelig lige nu.",
+            yourMusic: "DIN MUSIK",
+            openSpotify: "Åbn på Spotify ↗",
+            recentTitle: "Senest afspillet musik",
+            dashboardSubtitle: "MUSIKAFSPILLER • PERSONLIGT DASHBOARD"
         }
     };
 
