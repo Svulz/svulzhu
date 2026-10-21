@@ -3844,5 +3844,11 @@ applyAccessibilitySettings();
     }
 
     init();
+   // Spotify Dashboard automatikus frissítése 30 másodpercenként
+   window.setInterval(() => {
+       if (!document.hidden) {
+           loadDashboard();
+       }
+   }, 30000);
 })();
 
