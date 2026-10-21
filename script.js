@@ -4119,14 +4119,29 @@ applyAccessibilitySettings();
                 api("/me/player/recently-played?limit=5", token)
             ]);
 
+            
             if (playbackResult.status === "fulfilled") {
                 const playback = playbackResult.value;
 
                 if (playback?.item) {
+                    // Van aktuális zeneszám
                     setTrack(playback.item, playback.is_playing);
+                } else if (
+                    recentResult.status === "fulfilled" &&
+                    recentResult.value?.items?.length
+                ) {
+                    // Ha éppen nem szól zene, mutassuk a legutóbbit
+                    const lastTrack = recentResult.value.items[0].track;
+
+                    if (lastTrack) {
+                        setTrack(lastTrack, false);
+                    } else {
+                        trackElement.textContent = t("noMusic");
+                        setStatus(t("startMusic"));
+                    }
                 } else {
                     trackElement.textContent = t("noMusic");
-                    setStatus(t("recentHint"));
+                    setStatus(t("startMusic"));
                     openElement.href = "https://open.spotify.com/";
                 }
             } else {
