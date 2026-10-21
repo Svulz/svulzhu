@@ -3400,3 +3400,128 @@ setStatus(
 loadAccessibilitySettings();
 
 applyAccessibilitySettings();
+
+
+/* =========================================
+   SPOTIFY DASHBOARD — DEMO MODE
+   A valódi Spotify API még nincs bekötve.
+========================================= */
+
+(() => {
+    const trackElement = document.getElementById("spotifyTrack");
+    const artistElement = document.getElementById("spotifyArtist");
+    const openElement = document.getElementById("spotifyOpen");
+    const recentElement = document.getElementById("spotifyRecent");
+    const refreshButton = document.getElementById("spotifyRefresh");
+
+    if (
+        !trackElement ||
+        !artistElement ||
+        !openElement ||
+        !recentElement ||
+        !refreshButton
+    ) {
+        return;
+    }
+
+    const demoTracks = [
+        {
+            title: "Blinding Lights",
+            artist: "The Weeknd",
+            query: "The Weeknd Blinding Lights"
+        },
+        {
+            title: "Starboy",
+            artist: "The Weeknd, Daft Punk",
+            query: "The Weeknd Starboy"
+        },
+        {
+            title: "Sweater Weather",
+            artist: "The Neighbourhood",
+            query: "The Neighbourhood Sweater Weather"
+        },
+        {
+            title: "505",
+            artist: "Arctic Monkeys",
+            query: "Arctic Monkeys 505"
+        },
+        {
+            title: "Instant Crush",
+            artist: "Daft Punk, Julian Casablancas",
+            query: "Daft Punk Instant Crush"
+        }
+    ];
+
+    function spotifySearchUrl(query) {
+        return (
+            "https://open.spotify.com/search/" +
+            encodeURIComponent(query)
+        );
+    }
+
+    function renderSpotifyDemo() {
+        const currentTrack = demoTracks[0];
+
+        trackElement.textContent = currentTrack.title;
+        artistElement.textContent = currentTrack.artist;
+        openElement.href = spotifySearchUrl(currentTrack.query);
+
+        const status = document.querySelector(".spotify-live");
+        if (status) {
+            status.textContent = "MINTA LEJÁTSZÁS";
+        }
+
+        recentElement.replaceChildren();
+
+        demoTracks.forEach((track, index) => {
+            const row = document.createElement("div");
+            row.className = "spotify-track-row";
+
+            const number = document.createElement("span");
+            number.className = "spotify-track-number";
+            number.textContent = String(index + 1);
+
+            const artwork = document.createElement("div");
+            artwork.className = "spotify-mini-art";
+            artwork.setAttribute("aria-hidden", "true");
+            artwork.textContent = "♫";
+
+            const info = document.createElement("div");
+            info.className = "spotify-row-info";
+
+            const title = document.createElement("strong");
+            title.textContent = track.title;
+
+            const artist = document.createElement("span");
+            artist.textContent = track.artist;
+
+            info.append(title, artist);
+
+            const link = document.createElement("a");
+            link.className = "spotify-row-link";
+            link.href = spotifySearchUrl(track.query);
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+            link.setAttribute(
+                "aria-label",
+                track.title + " keresése Spotify-on"
+            );
+            link.textContent = "↗";
+
+            row.append(number, artwork, info, link);
+            recentElement.appendChild(row);
+        });
+    }
+
+    refreshButton.addEventListener("click", () => {
+        renderSpotifyDemo();
+
+        refreshButton.textContent = "✓ Betöltve";
+
+        window.setTimeout(() => {
+            refreshButton.textContent = "↻ Frissítés";
+        }, 1500);
+    });
+
+    renderSpotifyDemo();
+})();
