@@ -4130,18 +4130,30 @@ applyAccessibilitySettings();
                     recentResult.status === "fulfilled" &&
                     recentResult.value?.items?.length
                 ) {
-                    // Ha éppen nem szól zene, mutassuk a legutóbbit
-                    const lastTrack = recentResult.value.items[0].track;
+            
+                   
+            if (playbackResult.status === "fulfilled") {
+                const playback = playbackResult.value;
 
-                    if (lastTrack) {
-                        setTrack(lastTrack, false);
+                if (playback?.item && playback.currently_playing_type === "track") {
+                    if (playback.is_playing) {
+                     setTrack(playback.item, true);
                     } else {
                         trackElement.textContent = t("noMusic");
                         setStatus(t("startMusic"));
+
+                        const artwork = document.querySelector(".spotify-artwork");
+                        if (artwork) artwork.textContent = "♫";
+
+                        openElement.href = "https://open.spotify.com/";
                     }
                 } else {
                     trackElement.textContent = t("noMusic");
                     setStatus(t("startMusic"));
+
+                    const artwork = document.querySelector(".spotify-artwork");
+                    if (artwork) artwork.textContent = "♫";
+
                     openElement.href = "https://open.spotify.com/";
                 }
             } else {
@@ -4149,6 +4161,7 @@ applyAccessibilitySettings();
                     playbackResult.reason?.message || t("loadError")
                 );
             }
+
 
             if (recentResult.status === "fulfilled") {
                 renderRecent(recentResult.value?.items || []);
