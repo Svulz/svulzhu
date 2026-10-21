@@ -3591,7 +3591,9 @@ applyAccessibilitySettings();
             yourMusic: "A TE ZENÉID",
             openSpotify: "Megnyitás Spotify-on ↗",
             recentTitle: "Legutóbbi zenék",
-            dashboardSubtitle: "ZENELEJÁTSZÓ • SZEMÉLYES DASHBOARD"
+            dashboardSubtitle: "ZENELEJÁTSZÓ • SZEMÉLYES DASHBOARD",
+            spotifyDashboard: "Spotify Dashboard",
+            lastplayed: "LEGUTÓBBI ZENE"
         },
 
         en: {
@@ -3625,7 +3627,9 @@ applyAccessibilitySettings();
             yourMusic: "YOUR MUSIC",
             openSpotify: "Open on Spotify ↗",
             recentTitle: "Recently played",
-            dashboardSubtitle: "MUSIC PLAYER • PERSONAL DASHBOARD"
+            dashboardSubtitle: "MUSIC PLAYER • PERSONAL DASHBOARD",
+            spotifyDashboard: "Spotify Dashboard",
+            lastplayed: "RECENTLY PLAYED"
         },
 
         de: {
@@ -3659,8 +3663,9 @@ applyAccessibilitySettings();
             yourMusic: "DEINE MUSIK",
             openSpotify: "Auf Spotify öffnen ↗",
             recentTitle: "Zuletzt gehörte Musik",
-            dashboardSubtitle: "MUSIKPLAYER • PERSÖNLICHES DASHBOARD"
-           
+            dashboardSubtitle: "MUSIKPLAYER • PERSÖNLICHES DASHBOARD",
+            spotifyDashboard: "Spotify-Dashboard",
+            lastplayed: "ZULETZT GEHÖRT"
            
         },
 
@@ -3695,7 +3700,9 @@ applyAccessibilitySettings();
             yourMusic: "DIN MUSIK",
             openSpotify: "Öppna på Spotify ↗",
             recentTitle: "Senast spelade låtar",
-            dashboardSubtitle: "MUSIKSPELARE • PERSONLIG DASHBOARD"
+            dashboardSubtitle: "MUSIKSPELARE • PERSONLIG DASHBOARD",
+            spotifyDashboard: "Spotify-instrumentpanel",
+            lastPlayed: "SENAST SPELAD"
         },
 
         da: {
@@ -3729,7 +3736,9 @@ applyAccessibilitySettings();
             yourMusic: "DIN MUSIK",
             openSpotify: "Åbn på Spotify ↗",
             recentTitle: "Senest afspillet musik",
-            dashboardSubtitle: "MUSIKAFSPILLER • PERSONLIGT DASHBOARD"
+            dashboardSubtitle: "MUSIKAFSPILLER • PERSONLIGT DASHBOARD",
+            spotifyDashboard: "Spotify-dashboard",
+            lastplayed: "SENEST AFSPILLET"
         }
     };
 
@@ -3756,6 +3765,8 @@ applyAccessibilitySettings();
    function translateSpotifyElements() {
        const elements = {
            "[data-spotify-i18n='yourMusic']": "yourMusic",
+           "[data-spotify-i18n='spotifyDashboard']": "spotifyDashboard",
+           "[data-spotify-i18n='lastPlayed']": "lastPlayed",
            "[data-spotify-i18n='openSpotify']": "openSpotify",
            "[data-spotify-i18n='recentTitle']": "recentTitle",
            "[data-spotify-i18n='dashboardSubtitle']": "dashboardSubtitle"
