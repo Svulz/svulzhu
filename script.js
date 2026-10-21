@@ -3402,78 +3402,155 @@ loadAccessibilitySettings();
 applyAccessibilitySettings();
 
 
+
 /* =========================================
-   SPOTIFY DASHBOARD — DEMO MODE
-   A valódi Spotify API még nincs bekötve.
+   SPOTIFY DASHBOARD — REAL API + PKCE
+   GitHub Pages compatible
 ========================================= */
 
 (() => {
-    const trackElement = document.getElementById("spotifyTrack");
-    const artistElement = document.getElementById("spotifyArtist");
-    const openElement = document.getElementById("spotifyOpen");
-    const recentElement = document.getElementById("spotifyRecent");
-    const refreshButton = document.getElementById("spotifyRefresh");
+    "use strict";
+
+    const CLIENT_ID = "2869777f104147f5bc319b6ebeb8601b";
+    const REDIRECT_URI = "https://svulz.github.io/svulzhu/";
+
+    const SCOPES = [
+        "user-read-currently-playing",
+        "user-read-recently-played",
+        "user-read-playback-state"
+    ];
+
+    const API = "https://api.spotify.com/v1";
+    const TOKEN_URL = "https://accounts.spotify.com/api/token";
+
+    const $ = (id) => document.getElementById(id);
+
+    const connectButton = $("spotifyConnect");
+    const refreshButton = $("spotifyRefresh");
+    const trackElement = $("spotifyTrack");
+    const artistElement = $("spotifyArtist");
+    const openElement = $("spotifyOpen");
+    const recentElement = $("spotifyRecent");
 
     if (
+        !connectButton ||
+        !refreshButton ||
         !trackElement ||
         !artistElement ||
         !openElement ||
-        !recentElement ||
-        !refreshButton
+        !recentElement
     ) {
         return;
     }
 
-    const demoTracks = [
-        {
-            title: "Blinding Lights",
-            artist: "The Weeknd",
-            query: "The Weeknd Blinding Lights"
-        },
-        {
-            title: "Starboy",
-            artist: "The Weeknd, Daft Punk",
-            query: "The Weeknd Starboy"
-        },
-        {
-            title: "Sweater Weather",
-            artist: "The Neighbourhood",
-            query: "The Neighbourhood Sweater Weather"
-        },
-        {
-            title: "505",
-            artist: "Arctic Monkeys",
-            query: "Arctic Monkeys 505"
-        },
-        {
-            title: "Instant Crush",
-            artist: "Daft Punk, Julian Casablancas",
-            query: "Daft Punk Instant Crush"
-        }
-    ];
+    const STORAGE = {
+        token: "spotify_access_token",
+        expiry: "spotify_token_expiry",
+        verifier: "spotify_pkce_verifier",
+        state: "spotify_oauth_state",
+        refresh: "spotify_refresh_token"
+    };
 
-    function spotifySearchUrl(query) {
-        return (
-            "https://open.spotify.com/search/" +
-            encodeURIComponent(query)
+    const get = (key) => sessionStorage.getItem(key);
+    const set = (key, value) => sessionStorage.setItem(key, value);
+    const remove = (key) => sessionStorage.removeItem(key);
+
+    function randomString(length = 64) {
+        const chars =
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~";
+
+        const bytes = crypto.getRandomValues(
+            new Uint8Array(length)
         );
+
+        return Array.from(
+            bytes,
+            (byte) => chars[byte % chars.length]
+        ).join("");
     }
 
-    function renderSpotifyDemo() {
-        const currentTrack = demoTracks[0];
+    function base64Url(buffer) {
+        return btoa(
+            String.fromCharCode(...new Uint8Array(buffer))
+        )
+            .replace(/\+/g, "-")
+            .replace(/\//g, "_")
+            .replace(/=+$/, "");
+    }
 
-        trackElement.textContent = currentTrack.title;
-        artistElement.textContent = currentTrack.artist;
-        openElement.href = spotifySearchUrl(currentTrack.query);
+    async function createChallenge(verifier) {
+        const data = new TextEncoder().encode(verifier);
+        const digest = await crypto.subtle.digest("SHA-256", data);
+        return base64Url(digest);
+    }
+
+    function setStatus(message) {
+        artistElement.textContent = message;
+    }
+
+    function spotifyLink(track) {
+        return track?.external_urls?.spotify ||
+            "https://open.spotify.com/";
+    }
+
+    function setTrack(track, isPlaying = false) {
+        if (!track) {
+            trackElement.textContent = "Most nem szól zene";
+            setStatus("Indíts el egy zenét a Spotify-on.");
+            openElement.href = "https://open.spotify.com/";
+            return;
+        }
+
+        trackElement.textContent = track.name || "Ismeretlen cím";
+        artistElement.textContent = (track.artists || [])
+            .map((artist) => artist.name)
+            .join(", ");
+
+        openElement.href = spotifyLink(track);
+
+        const artwork = document.querySelector(".spotify-artwork");
+        const imageUrl = track.album?.images?.[0]?.url;
+
+        if (artwork) {
+            artwork.replaceChildren();
+
+            if (imageUrl) {
+                const image = document.createElement("img");
+                image.src = imageUrl;
+                image.alt = "Albumborító: " + track.name;
+                image.loading = "lazy";
+                image.style.width = "100%";
+                image.style.height = "100%";
+                image.style.objectFit = "cover";
+                artwork.appendChild(image);
+            } else {
+                artwork.textContent = "♫";
+            }
+        }
 
         const status = document.querySelector(".spotify-live");
         if (status) {
-            status.textContent = "MINTA LEJÁTSZÁS";
+            status.textContent = isPlaying
+                ? "MOST JÁTSZIK"
+                : "LEGUTÓBBI ZENE";
         }
+    }
 
+    function renderRecent(items) {
         recentElement.replaceChildren();
 
-        demoTracks.forEach((track, index) => {
+        if (!items?.length) {
+            const empty = document.createElement("p");
+            empty.className = "spotify-empty";
+            empty.textContent = "Még nincs elérhető hallgatási előzmény.";
+            recentElement.appendChild(empty);
+            return;
+        }
+
+        items.forEach((entry, index) => {
+            const track = entry.track;
+            if (!track) return;
+
             const row = document.createElement("div");
             row.className = "spotify-track-row";
 
@@ -3481,47 +3558,291 @@ applyAccessibilitySettings();
             number.className = "spotify-track-number";
             number.textContent = String(index + 1);
 
-            const artwork = document.createElement("div");
-            artwork.className = "spotify-mini-art";
-            artwork.setAttribute("aria-hidden", "true");
-            artwork.textContent = "♫";
+            const image = document.createElement("img");
+            image.alt = "";
+            image.loading = "lazy";
+            image.src = track.album?.images?.slice(-1)[0]?.url || "";
+            image.onerror = () => {
+                image.style.visibility = "hidden";
+            };
 
             const info = document.createElement("div");
             info.className = "spotify-row-info";
 
             const title = document.createElement("strong");
-            title.textContent = track.title;
+            title.textContent = track.name || "Ismeretlen cím";
 
             const artist = document.createElement("span");
-            artist.textContent = track.artist;
+            artist.textContent = (track.artists || [])
+                .map((item) => item.name)
+                .join(", ");
 
             info.append(title, artist);
 
             const link = document.createElement("a");
             link.className = "spotify-row-link";
-            link.href = spotifySearchUrl(track.query);
+            link.href = spotifyLink(track);
             link.target = "_blank";
             link.rel = "noopener noreferrer";
+            link.textContent = "↗";
             link.setAttribute(
                 "aria-label",
-                track.title + " keresése Spotify-on"
+                "Megnyitás Spotify-on: " + track.name
             );
-            link.textContent = "↗";
 
-            row.append(number, artwork, info, link);
+            row.append(number, image, info, link);
             recentElement.appendChild(row);
         });
     }
 
-    refreshButton.addEventListener("click", () => {
-        renderSpotifyDemo();
+    async function authorize() {
+        if (
+            CLIENT_ID === "IDE_ILLESZD_BE_A_CLIENT_ID_T" ||
+            !CLIENT_ID
+        ) {
+            setStatus("Előbb állítsd be a Spotify Client ID-t.");
+            return;
+        }
 
-        refreshButton.textContent = "✓ Betöltve";
+        if (!window.crypto?.subtle) {
+            setStatus("Biztonságos HTTPS-kapcsolat szükséges.");
+            return;
+        }
 
-        window.setTimeout(() => {
+        const verifier = randomString(64);
+        const state = randomString(32);
+        const challenge = await createChallenge(verifier);
+
+        set(STORAGE.verifier, verifier);
+        set(STORAGE.state, state);
+
+        const params = new URLSearchParams({
+            client_id: CLIENT_ID,
+            response_type: "code",
+            redirect_uri: REDIRECT_URI,
+            scope: SCOPES.join(" "),
+            code_challenge_method: "S256",
+            code_challenge: challenge,
+            state
+        });
+
+        window.location.assign(
+            "https://accounts.spotify.com/authorize?" +
+            params.toString()
+        );
+    }
+
+    async function exchangeCode(code) {
+        const verifier = get(STORAGE.verifier);
+        if (!verifier) {
+            throw new Error("Hiányzik a PKCE ellenőrző kód. Próbáld újra a csatlakozást.");
+        }
+
+        const body = new URLSearchParams({
+            client_id: CLIENT_ID,
+            grant_type: "authorization_code",
+            code,
+            redirect_uri: REDIRECT_URI,
+            code_verifier: verifier
+        });
+
+        const response = await fetch(TOKEN_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(
+                data.error_description || data.error ||
+                "A Spotify bejelentkezés nem sikerült."
+            );
+        }
+
+        saveTokens(data);
+        remove(STORAGE.verifier);
+        remove(STORAGE.state);
+
+        return data.access_token;
+    }
+
+    function saveTokens(data) {
+        set(STORAGE.token, data.access_token);
+        set(
+            STORAGE.expiry,
+            String(Date.now() + data.expires_in * 1000)
+        );
+
+        if (data.refresh_token) {
+            set(STORAGE.refresh, data.refresh_token);
+        }
+    }
+
+    async function getAccessToken() {
+        const token = get(STORAGE.token);
+        const expiry = Number(get(STORAGE.expiry) || 0);
+
+        if (token && Date.now() < expiry - 60000) {
+            return token;
+        }
+
+        const refreshToken = get(STORAGE.refresh);
+
+        if (!refreshToken) {
+            remove(STORAGE.token);
+            return null;
+        }
+
+        const response = await fetch(TOKEN_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: new URLSearchParams({
+                client_id: CLIENT_ID,
+                grant_type: "refresh_token",
+                refresh_token: refreshToken
+            })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            clearSession();
+            return null;
+        }
+
+        saveTokens(data);
+        return data.access_token;
+    }
+
+    async function api(path, token) {
+        const response = await fetch(API + path, {
+            headers: {
+                Authorization: "Bearer " + token
+            }
+        });
+
+        if (response.status === 204) return null;
+
+        if (response.status === 401) {
+            clearSession();
+            throw new Error("Lejárt a Spotify-kapcsolat. Csatlakozz újra.");
+        }
+
+        if (response.status === 403) {
+            throw new Error("A Spotify nem engedélyezi ezt a kérést.");
+        }
+
+        if (response.status === 429) {
+            throw new Error("Túl sok kérés. Próbáld újra később.");
+        }
+
+        if (!response.ok) {
+            throw new Error("Spotify API hiba (" + response.status + ").");
+        }
+
+        return response.json();
+    }
+
+    function clearSession() {
+        [
+            STORAGE.token,
+            STORAGE.expiry,
+            STORAGE.refresh,
+            STORAGE.verifier,
+            STORAGE.state
+        ].forEach(remove);
+    }
+
+    async function loadDashboard() {
+        refreshButton.disabled = true;
+        refreshButton.textContent = "Betöltés…";
+
+        try {
+            const token = await getAccessToken();
+
+            if (!token) {
+                trackElement.textContent = "Spotify nincs csatlakoztatva";
+                setStatus("Csatlakozz a saját fiókodhoz.");
+                renderRecent([]);
+                return;
+            }
+
+            const [playbackResult, recentResult] = await Promise.allSettled([
+                api("/me/player/currently-playing", token),
+                api("/me/player/recently-played?limit=5", token)
+            ]);
+
+            if (playbackResult.status === "fulfilled") {
+                const playback = playbackResult.value;
+
+                if (playback?.item) {
+                    setTrack(playback.item, playback.is_playing);
+                } else {
+                    trackElement.textContent = "Most nem szól zene";
+                    setStatus("A legutóbbi hallgatásokat lent találod.");
+                    openElement.href = "https://open.spotify.com/";
+                }
+            }
+
+            if (recentResult.status === "fulfilled") {
+                renderRecent(recentResult.value?.items || []);
+            } else {
+                renderRecent([]);
+                setStatus(recentResult.reason?.message ||
+                    "A hallgatási előzmények most nem érhetők el.");
+            }
+
+            connectButton.textContent = "Spotify csatlakoztatva";
+        } catch (error) {
+            setStatus(error.message || "Nem sikerült betölteni az adatokat.");
+        } finally {
+            refreshButton.disabled = false;
             refreshButton.textContent = "↻ Frissítés";
-        }, 1500);
-    });
+        }
+    }
 
-    renderSpotifyDemo();
+    connectButton.addEventListener("click", authorize);
+    refreshButton.addEventListener("click", loadDashboard);
+
+    async function init() {
+        const params = new URLSearchParams(window.location.search);
+        const code = params.get("code");
+        const returnedState = params.get("state");
+        const error = params.get("error");
+
+        if (error) {
+            setStatus("A Spotify-bejelentkezés megszakadt.");
+            window.history.replaceState({}, "", REDIRECT_URI);
+            return;
+        }
+
+        if (code) {
+            if (!returnedState || returnedState !== get(STORAGE.state)) {
+                setStatus("Biztonsági ellenőrzési hiba. Csatlakozz újra.");
+                clearSession();
+                window.history.replaceState({}, "", REDIRECT_URI);
+                return;
+            }
+
+            try {
+                await exchangeCode(code);
+                window.history.replaceState({}, "", REDIRECT_URI);
+            } catch (err) {
+                setStatus(err.message);
+                window.history.replaceState({}, "", REDIRECT_URI);
+                return;
+            }
+        }
+
+        await loadDashboard();
+    }
+
+    init();
 })();
+
