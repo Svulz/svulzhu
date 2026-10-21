@@ -3857,13 +3857,15 @@ applyAccessibilitySettings();
             }
         }
 
-        const status = document.querySelector(".spotify-live");
+       const status = document.querySelector(
+          ".spotify-live [data-spotify-i18n='lastPlayed']"
+      );
 
-        if (status) {
-            status.textContent = isPlaying
-                ? t("playing")
-                : t("lastPlayed");
-        }
+      if (status) {
+          status.textContent = isPlaying
+              ? t("playing")
+              : t("lastPlayed");
+      }
     }
 
     function renderRecent(items) {
