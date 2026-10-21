@@ -3128,5 +3128,8 @@ body:not(.dark) .hero a {
         transition: none !important;
     }
 }
-
+/* Projektek szekció elkülönítése */
+#projects {
+    margin-top: 32px;
+}
 
