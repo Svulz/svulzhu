@@ -132,6 +132,26 @@ const translations = {
             gbp: "Angol font",
             chf: "Svájci frank"
         },
+       spotify: {
+            label: "ZENEI DASHBOARD",
+            title: "Spotify Dashboard",
+            nowPlaying: "MOST JÁTSZIK",
+            recentlyPlayed: "LEGUTÓBBI ZENÉK",
+            recentTitle: "Legutóbbi zenék",
+            refresh: "↻ Frissítés",
+            connect: "Csatlakozás Spotify-hoz",
+            connected: "Spotify csatlakoztatva",
+            open: "Megnyitás Spotify-on ↗",
+            loading: "Spotify-adatok betöltése...",
+            unavailable: "A Spotify-adatok nem érhetők el.",
+            notPlaying: "Most nem szól zene",
+            connectPrompt: "Csatlakozz a Spotify-fiókodhoz.",
+            topTracks: "TOP ZENÉK",
+            topArtists: "TOP ELŐADÓK",
+            favoriteArtist: "Kedvenc előadó",
+            noRecent: "Még nincs elérhető hallgatási előzmény.",
+            noData: "Ehhez még nincs elérhető adat."
+        },
 
         projects: {
             eyebrow: "MUNKÁIM",
@@ -320,6 +340,27 @@ const translations = {
             chf: "Swiss Franc"
         },
 
+       spotify: {
+            label: "MUSIC DASHBOARD",
+            title: "Spotify Dashboard",
+            nowPlaying: "NOW PLAYING",
+            recentlyPlayed: "RECENTLY PLAYED",
+            recentTitle: "Recently played",
+            refresh: "↻ Refresh",
+            connect: "Connect Spotify",
+            connected: "Spotify connected",
+            open: "Open on Spotify ↗",
+            loading: "Loading Spotify data...",
+            unavailable: "Spotify data is unavailable.",
+            notPlaying: "Nothing playing right now",
+            connectPrompt: "Connect your Spotify account.",
+            topTracks: "TOP TRACKS",
+            topArtists: "TOP ARTISTS",
+            favoriteArtist: "Favorite artist",
+            noRecent: "No listening history available yet.",
+            noData: "No data available yet."
+      },
+
         projects: {
             eyebrow: "MY WORK",
             title: "Projects"
@@ -506,6 +547,27 @@ const translations = {
             gbp: "Britisches Pfund",
             chf: "Schweizer Franken"
         },
+
+       spotify: {
+            label: "MUSIK-DASHBOARD",
+            title: "Spotify Dashboard",
+            nowPlaying: "LÄUFT GERADE",
+            recentlyPlayed: "ZULETZT GEHÖRT",
+            recentTitle: "Zuletzt gehört",
+            refresh: "↻ Aktualisieren",
+            connect: "Mit Spotify verbinden",
+            connected: "Spotify verbunden",
+            open: "Auf Spotify öffnen ↗",
+            loading: "Spotify-Daten werden geladen...",
+            unavailable: "Spotify-Daten sind nicht verfügbar.",
+            notPlaying: "Gerade läuft keine Musik",
+            connectPrompt: "Verbinde dein Spotify-Konto.",
+            topTracks: "TOP-SONGS",
+            topArtists: "TOP-KÜNSTLER",
+            favoriteArtist: "Lieblingskünstler",
+            noRecent: "Noch kein Wiedergabeverlauf verfügbar.",
+            noData: "Noch keine Daten verfügbar."
+      },
 
         projects: {
             eyebrow: "MEINE ARBEIT",
@@ -694,6 +756,29 @@ const translations = {
             chf: "Schweizisk franc"
         },
 
+       
+       spotify: {
+            label: "MUSIKÖVERSIKT",
+            title: "Spotify Dashboard",
+            nowPlaying: "SPELAS JUST NU",
+            recentlyPlayed: "SENAST SPELADE",
+            recentTitle: "Senast spelade låtar",
+            refresh: "↻ Uppdatera",
+            connect: "Anslut till Spotify",
+            connected: "Spotify är anslutet",
+            open: "Öppna i Spotify ↗",
+            loading: "Laddar Spotify-data...",
+            unavailable: "Spotify-data är inte tillgänglig.",
+            notPlaying: "Ingen musik spelas just nu",
+            connectPrompt: "Anslut ditt Spotify-konto.",
+            topTracks: "TOPPLÅTAR",
+            topArtists: "TOPPARTISTER",
+            favoriteArtist: "Favoritartist",
+            noRecent: "Ingen lyssningshistorik tillgänglig ännu.",
+            noData: "Ingen data tillgänglig ännu."
+      },
+
+
         projects: {
             eyebrow: "MITT ARBETE",
             title: "Projekt"
@@ -879,6 +964,28 @@ const translations = {
             gbp: "Britisk pund",
             chf: "Schweizisk franc"
         },
+
+       spotify: {
+            label: "MUSIKOVERSIGT",
+            title: "Spotify Dashboard",
+            nowPlaying: "AFSPILLER NU",
+            recentlyPlayed: "SENEST AFSPILLET",
+            recentTitle: "Senest afspillet",
+            refresh: "↻ Opdater",
+            connect: "Forbind til Spotify",
+            connected: "Spotify er tilsluttet",
+            open: "Åbn i Spotify ↗",
+            loading: "Indlæser Spotify-data...",
+            unavailable: "Spotify-data er ikke tilgængelige.",
+            notPlaying: "Der afspilles ikke musik lige nu",
+            connectPrompt: "Forbind din Spotify-konto.",
+            topTracks: "TOPNUMRE",
+            topArtists: "TOPKUNSTNERE",
+            favoriteArtist: "Favoritkunstner",
+            noRecent: "Der er endnu ingen lyttehistorik tilgængelig.",
+            noData: "Ingen data tilgængelige endnu."
+      },
+
 
         projects: {
             eyebrow: "MIT ARBEJDE",
