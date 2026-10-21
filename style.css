@@ -3128,8 +3128,32 @@ body:not(.dark) .hero a {
         transition: none !important;
     }
 }
-/* Projektek szekció elkülönítése */
-#projects {
-    margin-top: 32px;
+
+/* Projektek és Önéletrajz – széles, egymás alatti kártyák */
+
+#projects,
+#cv,
+#resume {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
 }
+
+/* Ha a kártyákat közös grid rendezi el */
+.projects-grid,
+.project-grid,
+.cv-grid,
+.resume-grid {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+/* A kártyák töltsék ki a sort */
+#projects .card,
+#cv .card,
+#resume .card {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+}
+
 
