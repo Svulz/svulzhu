@@ -2,9 +2,9 @@
    SPOTIFY DASHBOARD — PKCE
 ========================================================= */
 
-const SPOTIFY_CLIENT_ID = "IDE_MASOLD_A_CLIENT_ID_T";
+const SPOTIFY_CLIENT_ID = "2869777f104147f5bc319b6ebeb8601b";
 const SPOTIFY_REDIRECT_URI =
-    "https://FELHASZNALO.github.io/REPOZITORIUM/";
+    "https://svulz.github.io/svulzhu/";
 
 const SPOTIFY_SCOPE = "user-read-recently-played";
 
