@@ -3758,5 +3758,66 @@ applyAccessibilitySettings();
 })();
 
 
+const WORKER_URL =
+    "https://spotify-now-playing.ballaarpi0318.workers.dev";
+
+async function updateNowPlaying() {
+    const container = document.getElementById("nowPlaying");
+    if (!container) return;
+
+    try {
+        const response = await fetch(
+            `${WORKER_URL}/now-playing`,
+            { cache: "no-store" }
+        );
+
+        if (!response.ok) {
+            throw new Error("Spotify-adatok nem érhetők el.");
+        }
+
+        const data = await response.json();
+
+        if (!data.isPlaying || !data.title) {
+            container.textContent =
+                "Jelenleg nem szól zene.";
+            return;
+        }
+
+        const row = document.createElement("div");
+        row.className = "now-playing-content";
+
+        if (data.cover) {
+            const img = document.createElement("img");
+            img.className = "now-playing-cover";
+            img.src = data.cover;
+            img.alt = "Albumborító";
+            row.appendChild(img);
+        }
+
+        const info = document.createElement("div");
+        info.className = "now-playing-info";
+
+        const title = document.createElement("p");
+        title.className = "now-playing-title";
+        title.textContent = data.title;
+
+        const artist = document.createElement("p");
+        artist.className = "now-playing-artist";
+        artist.textContent = data.artist;
+
+        info.append(title, artist);
+        row.appendChild(info);
+
+        container.replaceChildren(row);
+    } catch (error) {
+        container.textContent =
+            "A Spotify-adatok most nem érhetők el.";
+        console.error(error);
+    }
+}
+
+updateNowPlaying();
+setInterval(updateNowPlaying, 20000);
+
 
 
