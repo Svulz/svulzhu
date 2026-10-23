@@ -3402,10 +3402,7 @@ loadAccessibilitySettings();
 applyAccessibilitySettings();
 
 
-
-/* =====================================================
-   SNAKE MINI JÁTÉK – EGYESÍTETT, JAVÍTOTT VÁLTOZAT
-===================================================== */
+/* ===== SNAKE MINI JÁTÉK – JAVÍTOTT VERZIÓ ===== */
 
 (() => {
     const canvas = document.getElementById("snakeCanvas");
@@ -3414,17 +3411,15 @@ applyAccessibilitySettings();
     const bestElement = document.getElementById("snakeBest");
     const statusElement = document.getElementById("snakeStatus");
 
-    if (!canvas || !startButton || !scoreElement || !statusElement) {
-        return;
-    }
+    if (!canvas || !startButton || !scoreElement ||
+        !bestElement || !statusElement) return;
 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     const cell = 15;
-    const cells = Math.floor(
-        Math.min(canvas.width, canvas.height) / cell
-    );
+    const cellsX = Math.floor(canvas.width / cell);
+    const cellsY = Math.floor(canvas.height / cell);
 
     let snake = [];
     let food = null;
@@ -3434,36 +3429,27 @@ applyAccessibilitySettings();
     let best = 0;
     let timer = null;
     let running = false;
-    let gameOver = false;
 
     try {
         best = Number(localStorage.getItem("snakeBest")) || 0;
-    } catch (_) {
-        best = 0;
-    }
+    } catch (_) {}
 
-    if (bestElement) {
-        bestElement.textContent = best;
-    }
+    bestElement.textContent = best;
 
     function placeFood() {
         const empty = [];
 
-        for (let y = 0; y < cells; y++) {
-            for (let x = 0; x < cells; x++) {
-                if (!snake.some(part => part.x === x && part.y === y)) {
+        for (let y = 0; y < cellsY; y++) {
+            for (let x = 0; x < cellsX; x++) {
+                if (!snake.some(p => p.x === x && p.y === y)) {
                     empty.push({ x, y });
                 }
             }
         }
 
-        if (empty.length === 0) {
-            food = null;
-            return false;
-        }
-
-        food = empty[Math.floor(Math.random() * empty.length)];
-        return true;
+        food = empty.length
+            ? empty[Math.floor(Math.random() * empty.length)]
+            : null;
     }
 
     function draw() {
@@ -3475,15 +3461,17 @@ applyAccessibilitySettings();
         ctx.strokeStyle = dark ? "#1b302b" : "#dcece5";
         ctx.lineWidth = 0.5;
 
-        for (let i = 0; i <= cells; i++) {
+        for (let x = 0; x <= cellsX; x++) {
             ctx.beginPath();
-            ctx.moveTo(i * cell, 0);
-            ctx.lineTo(i * cell, cells * cell);
+            ctx.moveTo(x * cell, 0);
+            ctx.lineTo(x * cell, canvas.height);
             ctx.stroke();
+        }
 
+        for (let y = 0; y <= cellsY; y++) {
             ctx.beginPath();
-            ctx.moveTo(0, i * cell);
-            ctx.lineTo(cells * cell, i * cell);
+            ctx.moveTo(0, y * cell);
+            ctx.lineTo(canvas.width, y * cell);
             ctx.stroke();
         }
 
@@ -3493,9 +3481,7 @@ applyAccessibilitySettings();
             ctx.arc(
                 food.x * cell + cell / 2,
                 food.y * cell + cell / 2,
-                cell * 0.38,
-                0,
-                Math.PI * 2
+                cell * 0.38, 0, Math.PI * 2
             );
             ctx.fill();
         }
@@ -3506,34 +3492,15 @@ applyAccessibilitySettings();
                 : (dark ? "#1ed760" : "#128a4a");
 
             ctx.beginPath();
-
-            if (typeof ctx.roundRect === "function") {
-                ctx.roundRect(
-                    part.x * cell + 1,
-                    part.y * cell + 1,
-                    cell - 2,
-                    cell - 2,
-                    4
-                );
-            } else {
-                ctx.rect(
-                    part.x * cell + 1,
-                    part.y * cell + 1,
-                    cell - 2,
-                    cell - 2
-                );
-            }
-
+            ctx.roundRect(
+                part.x * cell + 1,
+                part.y * cell + 1,
+                cell - 2,
+                cell - 2,
+                4
+            );
             ctx.fill();
         });
-    }
-
-    function updateScore() {
-        scoreElement.textContent = score;
-
-        if (bestElement) {
-            bestElement.textContent = best;
-        }
     }
 
     function startGame() {
@@ -3549,31 +3516,22 @@ applyAccessibilitySettings();
         nextDirection = { x: 1, y: 0 };
         score = 0;
         running = true;
-        gameOver = false;
 
         placeFood();
-        updateScore();
-        draw();
-
-        statusElement.textContent =
-            "Játék folyamatban – gyűjtsd az almákat!";
-
+        scoreElement.textContent = score;
+        statusElement.textContent = "Játék folyamatban – gyűjtsd az almákat!";
         startButton.textContent = "Újrakezdés";
 
+        draw();
         timer = setInterval(tick, 130);
     }
 
     function endGame(message) {
-        running = false;
-        gameOver = true;
-
         clearInterval(timer);
         timer = null;
-
+        running = false;
         statusElement.textContent = message;
         startButton.textContent = "Új játék";
-
-        draw();
     }
 
     function tick() {
@@ -3585,22 +3543,15 @@ applyAccessibilitySettings();
         };
 
         const eating = food &&
-            head.x === food.x &&
-            head.y === food.y;
+            head.x === food.x && head.y === food.y;
 
-        const hitWall =
-            head.x < 0 || head.x >= cells ||
-            head.y < 0 || head.y >= cells;
+        const body = eating ? snake : snake.slice(0, -1);
 
-        const bodyToCheck = eating
-            ? snake
-            : snake.slice(0, -1);
-
-        const hitSelf = bodyToCheck.some(part =>
-            part.x === head.x && part.y === head.y
-        );
-
-        if (hitWall || hitSelf) {
+        if (
+            head.x < 0 || head.x >= cellsX ||
+            head.y < 0 || head.y >= cellsY ||
+            body.some(p => p.x === head.x && p.y === head.y)
+        ) {
             endGame(`Vége a játéknak! Pontszám: ${score}`);
             return;
         }
@@ -3609,24 +3560,24 @@ applyAccessibilitySettings();
 
         if (eating) {
             score++;
+            scoreElement.textContent = score;
 
             if (score > best) {
                 best = score;
+                bestElement.textContent = best;
 
                 try {
                     localStorage.setItem("snakeBest", String(best));
-                } catch (_) {
-                    // A játék mentés nélkül is működik.
-                }
+                } catch (_) {}
             }
 
-            if (!placeFood()) {
-                updateScore();
+            placeFood();
+
+            if (!food) {
+                draw();
                 endGame("Gratulálok, megtöltötted a pályát!");
                 return;
             }
-
-            updateScore();
         } else {
             snake.pop();
         }
@@ -3638,78 +3589,24 @@ applyAccessibilitySettings();
         if (!running) return;
 
         const directions = {
-            up: { x: 0, y: -1 },
-            down: { x: 0, y: 1 },
-            left: { x: -1, y: 0 },
+            up:    { x: 0, y: -1 },
+            down:  { x: 0, y: 1 },
+            left:  { x: -1, y: 0 },
             right: { x: 1, y: 0 }
         };
 
         const proposed = directions[name];
         if (!proposed) return;
 
-        // Azonnali visszafordulás tiltása.
         if (
             proposed.x === -direction.x &&
             proposed.y === -direction.y
-        ) {
-            return;
-        }
+        ) return;
 
         nextDirection = proposed;
     }
 
     startButton.addEventListener("click", startGame);
-
-    // Billentyűzet: nyilak és WASD.
-    document.addEventListener("keydown", event => {
-        const keys = {
-            ArrowUp: "up",
-            ArrowDown: "down",
-            ArrowLeft: "left",
-            ArrowRight: "right",
-            w: "up",
-            s: "down",
-            a: "left",
-            d: "right"
-        };
-
-        const key = event.key.length === 1
-            ? event.key.toLowerCase()
-            : event.key;
-
-        const name = keys[key];
-
-        if (!name || !running) return;
-
-        if (
-            document.activeElement === startButton ||
-            event.target instanceof HTMLInputElement ||
-            event.target instanceof HTMLTextAreaElement
-        ) {
-            return;
-        }
-
-        event.preventDefault();
-        changeDirection(name);
-    });
-
-    // Mobilos iránygombok: mindkét HTML-megoldást támogatja.
-    const directionButtons = {
-        snakeUp: "up",
-        snakeDown: "down",
-        snakeLeft: "left",
-        snakeRight: "right"
-    };
-
-    Object.entries(directionButtons).forEach(([id, directionName]) => {
-        const button = document.getElementById(id);
-
-        if (button) {
-            button.addEventListener("click", () => {
-                changeDirection(directionName);
-            });
-        }
-    });
 
     document.querySelectorAll("[data-snake-dir]").forEach(button => {
         button.addEventListener("click", () => {
@@ -3717,16 +3614,29 @@ applyAccessibilitySettings();
         });
     });
 
-    // A téma megváltoztatásakor a játéktér is frissül.
-    const themeButton = document.getElementById("themeToggle");
+    document.addEventListener("keydown", event => {
+        const keys = {
+            ArrowUp: "up",
+            ArrowDown: "down",
+            ArrowLeft: "left",
+            ArrowRight: "right"
+        };
 
+        const name = keys[event.key];
+
+        if (name && running) {
+            event.preventDefault();
+            changeDirection(name);
+        }
+    });
+
+    const themeButton = document.getElementById("themeToggle");
     if (themeButton) {
         themeButton.addEventListener("click", () => {
             requestAnimationFrame(draw);
         });
     }
 
-    // Kezdőképernyő.
     snake = [
         { x: 6, y: 10 },
         { x: 5, y: 10 },
@@ -3734,10 +3644,9 @@ applyAccessibilitySettings();
     ];
 
     placeFood();
-    updateScore();
     draw();
-
-    statusElement.textContent = "Nyomd meg az Új játék gombot!";
 })();
+
+
 
 
