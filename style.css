@@ -3012,4 +3012,154 @@ body.dark .spotify-card .card-label {
 }
 
 
+/* ===== SPOTIFY KÁRTYA ===== */
+
+.spotify-card,
+.game-card {
+    min-width: 0;
+}
+
+.spotify-description {
+    margin: 12px 0 16px;
+    color: var(--text-secondary);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.spotify-player {
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #121212;
+}
+
+.spotify-player iframe {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    border: 0;
+}
+
+.spotify-logo {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: #1ed760;
+    color: #101010;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.spotify-link {
+    width: 100%;
+    margin-top: 14px;
+}
+
+
+/* ===== SNAKE JÁTÉK ===== */
+
+.game-icon {
+    font-size: 30px;
+}
+
+.game-score {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    margin: 14px 0;
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.game-score strong {
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+}
+
+#snakeCanvas {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 0 auto;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #101a19;
+    touch-action: manipulation;
+}
+
+#snakeStatus {
+    min-height: 20px;
+    margin-top: 12px;
+    color: var(--accent);
+    font-size: 12px;
+}
+
+.game-controls {
+    display: grid;
+    justify-items: center;
+    gap: 6px;
+    margin-top: 12px;
+}
+
+.game-controls > div {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.game-controls button {
+    width: 48px;
+    min-height: 44px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--card-solid);
+    color: var(--text);
+    cursor: pointer;
+    font-size: 18px;
+    touch-action: manipulation;
+}
+
+.game-controls button:hover {
+    border-color: var(--accent);
+    background: var(--accent-light);
+    color: var(--accent);
+}
+
+.game-start {
+    width: 100%;
+    margin-top: 12px;
+}
+
+.game-hint {
+    margin-top: 10px;
+    color: var(--text-secondary);
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+@media (max-width: 650px) {
+    .spotify-player iframe {
+        height: 352px;
+    }
+
+    .game-card,
+    .spotify-card {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .spotify-card,
+    .game-card,
+    .game-controls button {
+        transition: none !important;
+    }
+}
+
 
