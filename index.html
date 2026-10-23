@@ -1057,6 +1057,114 @@
 
             </article>
 
+            
+            <!-- ===== SPOTIFY KÁRTYA ===== -->
+            <article class="card spotify-card">
+
+                <div class="card-header">
+                    <div>
+                        <p class="card-label">SPOTIFY</p>
+                        <h3>Hallgasd, amit szeretek</h3>
+                    </div>
+
+                    <div class="spotify-logo" aria-hidden="true">♫</div>
+                </div>
+
+                <p class="spotify-description">
+                    Zenehallgatás közvetlenül a portfólióból.
+                </p>
+
+                <div class="spotify-player">
+                    <iframe
+                        id="spotifyPlayer"
+                        title="Spotify zenelejátszó"
+                        src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator"
+                        width="100%"
+                        height="352"
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <a
+                    class="btn btn-primary spotify-link"
+                    href="https://open.spotify.com/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Spotify megnyitása ↗
+                </a>
+
+            </article>
+
+
+            <!-- ===== SNAKE MINI JÁTÉK ===== -->
+            <article class="card game-card">
+
+                <div class="card-header">
+                    <div>
+                        <p class="card-label">MINI JÁTÉK</p>
+                        <h3>Snake</h3>
+                    </div>
+
+                    <div class="game-icon" aria-hidden="true">🐍</div>
+                </div>
+
+                <p class="game-hint">
+                    Gyűjtsd össze az almákat, és kerüld el a falakat
+                    és a saját farkadat!
+                </p>
+    
+                <div class="game-score" aria-live="polite">
+                    <span>Pontszám: <strong id="snakeScore">0</strong></span>
+                    <span>Rekord: <strong id="snakeBest">0</strong></span>
+                </div>
+
+                <canvas
+                    id="snakeCanvas"
+                    width="300"
+                    height="300"
+                    role="img"
+                    aria-label="Snake játéktábla">
+                </canvas>
+
+                <p id="snakeStatus" class="game-hint" aria-live="polite">
+                    Nyomd meg az Indítás gombot!
+                </p>
+
+                <div class="game-controls" aria-label="Snake irányítás">
+
+                    <button type="button" data-snake-dir="up"
+                        aria-label="Felfelé">↑</button>
+
+                    <div>
+                        <button type="button" data-snake-dir="left"
+                        aria-label="Balra">←</button>
+
+                        <button type="button" data-snake-dir="down"
+                            aria-label="Lefelé">↓</button>
+
+                        <button type="button" data-snake-dir="right"
+                            aria-label="Jobbra">→</button>
+                    </div>
+
+                </div>
+
+                <button
+                    type="button"
+                    id="snakeStart"
+                    class="btn btn-primary game-start">
+                    Indítás
+                </button>
+
+                <p class="game-hint">
+                    Irányítás: nyílbillentyűk vagy a fenti gombok.
+                    A játék mobilon is használható.
+                </p>
+
+            </article>
+
+
         </div>
 
     </section>
