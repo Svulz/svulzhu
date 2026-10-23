@@ -3400,3 +3400,181 @@ setStatus(
 loadAccessibilitySettings();
 
 applyAccessibilitySettings();
+
+
+(() => {
+    const canvas = document.getElementById("snakeCanvas");
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    const scoreElement = document.getElementById("snakeScore");
+    const statusElement = document.getElementById("snakeStatus");
+    const startButton = document.getElementById("snakeStart");
+
+    const size = 15;
+    const cells = canvas.width / size;
+
+    let snake, food, direction, nextDirection;
+    let score = 0;
+    let timer = null;
+    let running = false;
+    let ended = false;
+
+    function placeFood() {
+        do {
+            food = {
+                x: Math.floor(Math.random() * cells),
+                y: Math.floor(Math.random() * cells)
+            };
+        } while (snake.some(part =>
+            part.x === food.x && part.y === food.y
+        ));
+    }
+
+    function draw() {
+        ctx.fillStyle = "#111a17";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = "#ff5c70";
+        ctx.beginPath();
+        ctx.arc(
+            food.x * size + size / 2,
+            food.y * size + size / 2,
+            size / 2 - 2,
+            0,
+            Math.PI * 2
+        );
+        ctx.fill();
+
+        snake.forEach((part, index) => {
+            ctx.fillStyle = index === 0 ? "#8bffad" : "#1ed760";
+            ctx.fillRect(
+                part.x * size + 1,
+                part.y * size + 1,
+                size - 2,
+                size - 2
+            );
+        });
+    }
+
+    function reset() {
+        clearInterval(timer);
+
+        snake = [
+            { x: 10, y: 10 },
+            { x: 9, y: 10 },
+            { x: 8, y: 10 }
+        ];
+
+        direction = { x: 1, y: 0 };
+        nextDirection = { ...direction };
+        score = 0;
+        running = true;
+        ended = false;
+
+        scoreElement.textContent = score;
+        statusElement.textContent = "Powodzenia!";
+        placeFood();
+        draw();
+
+        timer = setInterval(tick, 130);
+    }
+
+    function tick() {
+        direction = { ...nextDirection };
+
+        const head = {
+            x: snake[0].x + direction.x,
+            y: snake[0].y + direction.y
+        };
+
+        const eating = head.x === food.x && head.y === food.y;
+        const body = eating ? snake : snake.slice(0, -1);
+
+        if (
+            head.x < 0 || head.x >= cells ||
+            head.y < 0 || head.y >= cells ||
+            body.some(part => part.x === head.x && part.y === head.y)
+        ) {
+            running = false;
+            ended = true;
+            clearInterval(timer);
+            statusElement.textContent = "Vége! Indítsd újra.";
+            return;
+        }
+
+        snake.unshift(head);
+
+        if (eating) {
+            score += 1;
+            scoreElement.textContent = score;
+
+            if (snake.length === cells * cells) {
+                running = false;
+                ended = true;
+                clearInterval(timer);
+                statusElement.textContent = "Gratulálok, nyertél!";
+                draw();
+                return;
+            }
+
+            placeFood();
+        } else {
+            snake.pop();
+        }
+
+        draw();
+    }
+
+    function changeDirection(x, y) {
+        if (!running) return;
+
+        // Ne lehessen azonnal visszafordulni.
+        if (x === -direction.x && y === -direction.y) return;
+
+        nextDirection = { x, y };
+    }
+
+    document.addEventListener("keydown", event => {
+        const keys = {
+            ArrowUp: [0, -1],
+            w: [0, -1],
+            ArrowDown: [0, 1],
+            s: [0, 1],
+            ArrowLeft: [-1, 0],
+            a: [-1, 0],
+            ArrowRight: [1, 0],
+            d: [1, 0]
+        };
+
+        const key = event.key.length === 1
+            ? event.key.toLowerCase()
+            : event.key;
+
+        if (!keys[key]) return;
+
+        if (document.activeElement === startButton) return;
+
+        event.preventDefault();
+        changeDirection(...keys[key]);
+    });
+
+    document.getElementById("snakeUp")
+        .addEventListener("click", () => changeDirection(0, -1));
+
+    document.getElementById("snakeDown")
+        .addEventListener("click", () => changeDirection(0, 1));
+
+    document.getElementById("snakeLeft")
+        .addEventListener("click", () => changeDirection(-1, 0));
+
+    document.getElementById("snakeRight")
+        .addEventListener("click", () => changeDirection(1, 0));
+
+    startButton.addEventListener("click", reset);
+
+    // Kezdőképernyő.
+    snake = [{ x: 10, y: 10 }];
+    food = { x: 15, y: 10 };
+    draw();
+})();
