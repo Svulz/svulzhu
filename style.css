@@ -2833,3 +2833,134 @@ body:not(.dark) .hero a {
 }
 
 
+/* ===== SPOTIFY KÁRTYA ===== */
+
+.spotify-card,
+.game-card {
+    min-width: 0;
+    overflow: hidden;
+}
+
+.spotify-logo {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: #1ed760;
+    color: #111;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.spotify-description {
+    margin: 8px 0 16px;
+    color: var(--muted, #999);
+    font-size: 14px;
+}
+
+.spotify-player {
+    overflow: hidden;
+    border-radius: 12px;
+    background: #121212;
+}
+
+.spotify-player iframe {
+    display: block;
+    border: 0;
+}
+
+.spotify-link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 14px;
+    text-decoration: none;
+}
+
+
+/* ===== MINI JÁTÉK ===== */
+
+.game-icon {
+    font-size: 30px;
+}
+
+.game-score {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    margin: 12px 0;
+    font-size: 14px;
+}
+
+#snakeStatus {
+    color: var(--muted, #999);
+}
+
+#snakeCanvas {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 12px;
+    background: #111a17;
+    border: 1px solid rgba(30, 215, 96, 0.3);
+    touch-action: manipulation;
+}
+
+.game-controls {
+    display: grid;
+    justify-items: center;
+    gap: 6px;
+    margin-top: 12px;
+}
+
+.game-controls > div {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.game-controls button {
+    width: 44px;
+    height: 40px;
+    border: 1px solid var(--border, #444);
+    border-radius: 10px;
+    background: var(--card-bg, #202020);
+    color: var(--text, #fff);
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.game-controls button:hover {
+    border-color: #1ed760;
+}
+
+.game-start {
+    width: 100%;
+    margin-top: 12px;
+    cursor: pointer;
+}
+
+.game-hint {
+    margin: 10px 0 0;
+    color: var(--muted, #999);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+@media (max-width: 480px) {
+    .game-score {
+        font-size: 13px;
+    }
+
+    .game-controls button {
+        width: 48px;
+        height: 44px;
+    }
+}
+
+
+
