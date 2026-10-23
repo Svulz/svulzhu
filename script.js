@@ -133,6 +133,28 @@ const translations = {
             chf: "Svájci frank"
         },
 
+        snake: {
+           label: "MINI JÁTÉK",
+           title: "Snake",
+           description: "Gyűjtsd össze az almákat, és kerüld el a falakat és a saját farkadat!",
+           score: "Pontszám:",
+           best: "Rekord:",
+           canvasLabel: "Snake játéktábla",
+           statusReady: "Nyomd meg az Indítás gombot!",
+           statusPlaying: "Játék folyamatban – gyűjtsd az almákat!",
+           statusGameOver: "Vége a játéknak! Pontszám: {score}",
+           statusWon: "Gratulálok, megtöltötted a pályát!",
+           start: "Indítás",
+           restart: "Újrakezdés",
+           newGame: "Új játék",
+           controls: "Snake irányítás",
+           up: "Felfelé",
+           down: "Lefelé",
+           left: "Balra",
+           right: "Jobbra",
+           instructions: "Irányítás: nyílbillentyűk vagy a fenti gombok. A játék mobilon is használható."
+        },
+
         projects: {
             eyebrow: "MUNKÁIM",
             title: "Projektek"
@@ -319,6 +341,28 @@ const translations = {
             gbp: "British Pound",
             chf: "Swiss Franc"
         },
+
+       snake: {
+          label: "MINI GAME",
+          title: "Snake",
+          description: "Collect the apples and avoid the walls and your own tail!",
+          score: "Score:",
+          best: "Best:",
+          canvasLabel: "Snake game board",
+          statusReady: "Press the Start button!",
+          statusPlaying: "Game in progress – collect the apples!",
+          statusGameOver: "Game over! Score: {score}",
+          statusWon: "Congratulations, you filled the entire board!",
+          start: "Start",
+          restart: "Restart",
+          newGame: "New game",
+          controls: "Snake controls",
+          up: "Up",
+          down: "Down",
+          left: "Left",
+          right: "Right",
+          instructions: "Controls: use the arrow keys or the buttons above. The game also works on mobile devices."
+       },
 
         projects: {
             eyebrow: "MY WORK",
@@ -507,6 +551,28 @@ const translations = {
             chf: "Schweizer Franken"
         },
 
+       snake: {
+          label: "MINI-SPIEL",
+          title: "Snake",
+          description: "Sammle die Äpfel und weiche den Wänden und deinem eigenen Schwanz aus!",
+          score: "Punktzahl:",
+          best: "Rekord:",
+          canvasLabel: "Snake-Spielfeld",
+          statusReady: "Drücke die Start-Taste!",
+          statusPlaying: "Spiel läuft – sammle die Äpfel!",
+          statusGameOver: "Spiel vorbei! Punktzahl: {score}",
+          statusWon: "Glückwunsch, du hast das gesamte Spielfeld gefüllt!",
+          start: "Start",
+          restart: "Neu starten",
+          newGame: "Neues Spiel",
+          controls: "Snake-Steuerung",
+          up: "Nach oben",
+          down: "Nach unten",
+          left: "Nach links",
+          right: "Nach rechts",
+          instructions: "Steuerung: Verwende die Pfeiltasten oder die Schaltflächen oben. Das Spiel funktioniert auch auf Mobilgeräten."
+       },
+
         projects: {
             eyebrow: "MEINE ARBEIT",
             title: "Projekte"
@@ -694,6 +760,28 @@ const translations = {
             chf: "Schweizisk franc"
         },
 
+       snake: {
+          label: "MINISPEL",
+          title: "Snake",
+          description: "Samla äpplena och undvik väggarna och din egen svans!",
+          score: "Poäng:",
+          best: "Rekord:",
+          canvasLabel: "Spelplan för Snake",
+          statusReady: "Tryck på Start-knappen!",
+          statusPlaying: "Spelet pågår – samla äpplena!",
+          statusGameOver: "Spelet är slut! Poäng: {score}",
+          statusWon: "Grattis, du har fyllt hela spelplanen!",
+          start: "Starta",
+          restart: "Starta om",
+          newGame: "Nytt spel",
+          controls: "Styrning av Snake",
+          up: "Uppåt",
+          down: "Nedåt",
+          left: "Vänster",
+          right: "Höger",
+          instructions: "Styrning: använd piltangenterna eller knapparna ovan. Spelet fungerar även på mobiltelefoner."
+       },
+
         projects: {
             eyebrow: "MITT ARBETE",
             title: "Projekt"
@@ -879,6 +967,28 @@ const translations = {
             gbp: "Britisk pund",
             chf: "Schweizisk franc"
         },
+
+       snake: {
+          label: "MINISPIL",
+          title: "Snake",
+          description: "Saml æblerne, og undgå væggene og din egen hale!",
+          score: "Point:",
+          best: "Rekord:",
+          canvasLabel: "Snake-spilleplade",
+          statusReady: "Tryk på Start-knappen!",
+          statusPlaying: "Spillet er i gang – saml æblerne!",
+          statusGameOver: "Spillet er slut! Point: {score}",
+          statusWon: "Tillykke, du har fyldt hele spillepladen!",
+          start: "Start",
+          restart: "Start igen",
+          newGame: "Nyt spil",
+          controls: "Snake-styring",
+          up: "Op",
+          down: "Ned",
+          left: "Venstre",
+          right: "Højre",
+          instructions: "Styring: brug piletasterne eller knapperne ovenfor. Spillet fungerer også på mobilen."
+       },
 
         projects: {
             eyebrow: "MIT ARBEJDE",
