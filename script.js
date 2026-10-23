@@ -3776,6 +3776,11 @@ async function updateNowPlaying() {
         }
 
         const data = await response.json();
+        console.log("Spotify Worker válasza:", data);
+        console.log("Lejátszás:", data.isPlaying);
+        console.log("Dal címe:", data.title);
+        console.log("Előadó:", data.artist);
+        console.log("Borító:", data.cover);
 
         if (!data.isPlaying || !data.title) {
             container.textContent =
