@@ -903,27 +903,27 @@
 
 
                     
-<a
-    href="https://www.google.com/search?q=Szolnok"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="contact-dashboard-item"
-    style="text-decoration: none; color: inherit;"
->
-    <span class="contact-dashboard-icon">
-        📍
-    </span>
+                <a
+                    href="https://www.google.com/search?q=Szolnok"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="contact-dashboard-item"
+                    style="text-decoration: none; color: inherit;"
+                >
+                    <span class="contact-dashboard-icon">
+                        📍
+                    </span>
 
-    <span class="contact-dashboard-content">
-        <small data-i18n="contacts.location">
-            Lakhely
-        </small>
+                    <span class="contact-dashboard-content">
+                        <small data-i18n="contacts.location">
+                            Lakhely
+                        </small>
 
-        <strong data-i18n="contacts.locationValue">
-            Szolnok, Magyarország
-        </strong>
-    </span>
-</a>
+                        <strong data-i18n="contacts.locationValue">
+                            Szolnok, Magyarország
+                        </strong>
+                    </span>
+                </a>
 
 
                 </div>
@@ -1058,44 +1058,161 @@
             </article>
 
             
-            <!-- ===== SPOTIFY KÁRTYA ===== -->
-            <article class="card spotify-card">
-
+            
+            <article class="card spotify-card" id="spotifyCard">
                 <div class="card-header">
                     <div>
                         <p class="card-label">SPOTIFY</p>
-                        <h3>Hallgasd, amit szeretek</h3>
+                        <h3>Most ezt hallgatom</h3>
                     </div>
-
                     <div class="spotify-logo" aria-hidden="true">♫</div>
                 </div>
 
-                <p class="spotify-description">
-                    Zenehallgatás közvetlenül a portfólióból.
-                </p>
-
-                <div class="spotify-player">
-                    <iframe
-                        id="spotifyPlayer"
-                        title="Spotify zenelejátszó"
-                        src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator"
-                        width="100%"
-                        height="352"
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"
-                        allowfullscreen>
-                    </iframe>
+                <div class="now-playing" id="nowPlaying">
+                    <p class="spotify-status">A zene adatainak betöltése…</p>
                 </div>
-
-                <a
-                    class="btn btn-primary spotify-link"
-                    href="https://open.spotify.com/"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    Spotify megnyitása ↗
-                </a>
-
             </article>
+
+            <style>
+            .spotify-card {
+                min-width: 0;
+            }
+
+            .spotify-logo {
+                width: 44px;
+                height: 44px;
+                flex-shrink: 0;
+                display: grid;
+                place-items: center;
+                border-radius: 12px;
+                background: #1ed760;
+                color: #101010;
+                font-size: 30px;
+                font-weight: 800;
+            }
+
+            .now-playing {
+                margin-top: 16px;
+            }
+
+            .now-playing-content {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                min-width: 0;
+            }
+
+            .now-playing-cover {
+                width: 96px;
+                height: 96px;
+                flex-shrink: 0;
+                object-fit: cover;
+                border-radius: 10px;
+                background: #222;
+            }
+
+            .now-playing-info {
+                min-width: 0;
+            }
+
+            .now-playing-title {
+                margin: 0 0 7px;
+                font-size: 15px;
+                font-weight: 700;
+                overflow-wrap: anywhere;
+            }
+
+            .now-playing-artist {
+                margin: 0;
+                color: var(--text-secondary);
+                font-size: 13px;
+                line-height: 1.6;
+            }
+
+            .spotify-status {
+                color: var(--text-secondary);
+                font-size: 12px;
+                line-height: 1.7;
+            }
+
+            .spotify-song-link {
+                color: inherit;
+                text-decoration: none;
+            }
+
+            .spotify-song-link:hover .now-playing-title {
+                color: #1ed760;
+            }
+            </style>
+
+            <script>
+            const WORKER_URL = "https://A-TE-WORKERED.workers.dev";
+
+            async function updateNowPlaying() {
+                const container = document.getElementById("nowPlaying");
+
+                try {
+                    const response = await fetch(
+                        `${WORKER_URL}/now-playing`,
+                        { cache: "no-store" }
+                    );
+
+                    if (!response.ok) {
+                        throw new Error("A dal adatai most nem érhetők el.");
+                    }
+
+                    const data = await response.json();
+
+                    if (!data.isPlaying || !data.title) {
+                        container.textContent =
+                            "Jelenleg nincs aktívan lejátszott dal.";
+                        container.className = "spotify-status";
+                        return;
+                    }
+
+                    const content = document.createElement("div");
+                    content.className = "now-playing-content";
+
+                    const cover = document.createElement("img");
+                    cover.className = "now-playing-cover";
+                    cover.alt = "Albumborító";
+                    cover.src = data.cover || "";
+                    cover.hidden = !data.cover;
+
+                    const info = document.createElement("div");
+                    info.className = "now-playing-info";
+
+                    const link = document.createElement("a");
+                    link.className = "spotify-song-link";
+                    link.href = data.url || "https://open.spotify.com/";
+                    link.target = "_blank";
+                    link.rel = "noopener noreferrer";
+
+                    const title = document.createElement("p");
+                    title.className = "now-playing-title";
+                    title.textContent = data.title;
+
+                    const artist = document.createElement("p");
+                    artist.className = "now-playing-artist";
+                    artist.textContent = data.artist || "";
+
+                    link.appendChild(title);
+                    info.append(link, artist);
+                    content.append(cover, info);
+
+                    container.replaceChildren(content);
+                    container.className = "now-playing";
+                } catch (error) {
+                    container.textContent =
+                        "A Spotify-adatok átmenetileg nem érhetők el.";
+                    container.className = "spotify-status";
+                }
+            }
+
+            updateNowPlaying();
+            setInterval(updateNowPlaying, 20000);
+            </script>
+
 
 
             
