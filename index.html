@@ -1098,26 +1098,36 @@
             </article>
 
 
+            
             <!-- ===== SNAKE MINI JÁTÉK ===== -->
             <article class="card game-card">
 
                 <div class="card-header">
                     <div>
-                        <p class="card-label">MINI JÁTÉK</p>
-                        <h3>Snake</h3>
+                        <p class="card-label" data-i18n="snake.label">
+                            MINI JÁTÉK
+                        </p>
+                        <h3 data-i18n="snake.title">Snake</h3>
                     </div>
 
                     <div class="game-icon" aria-hidden="true">🐍</div>
                 </div>
 
-                <p class="game-hint">
+                <p class="game-hint" data-i18n="snake.description">
                     Gyűjtsd össze az almákat, és kerüld el a falakat
                     és a saját farkadat!
                 </p>
-    
+
                 <div class="game-score" aria-live="polite">
-                    <span>Pontszám: <strong id="snakeScore">0</strong></span>
-                    <span>Rekord: <strong id="snakeBest">0</strong></span>
+                    <span>
+                        <span data-i18n="snake.score">Pontszám:</span>
+                        <strong id="snakeScore">0</strong>
+                    </span>
+
+                    <span>
+                        <span data-i18n="snake.best">Rekord:</span>
+                        <strong id="snakeBest">0</strong>
+                    </span>
                 </div>
 
                 <canvas
@@ -1125,44 +1135,65 @@
                     width="300"
                     height="300"
                     role="img"
+                    data-i18n-aria-label="snake.board"
                     aria-label="Snake játéktábla">
                 </canvas>
 
-                <p id="snakeStatus" class="game-hint" aria-live="polite">
+                <p
+                    id="snakeStatus"
+                    class="game-hint"
+                    aria-live="polite"
+                    data-i18n="snake.ready">
                     Nyomd meg az Indítás gombot!
                 </p>
 
-                <div class="game-controls" aria-label="Snake irányítás">
+                <div
+                    class="game-controls"
+                    data-i18n-aria-label="snake.controls"
+                    aria-label="Snake irányítás">
 
-                    <button type="button" data-snake-dir="up"
+                    <button
+                        type="button"
+                        data-snake-dir="up"
+                        data-i18n-aria-label="snake.up"
                         aria-label="Felfelé">↑</button>
 
                     <div>
-                        <button type="button" data-snake-dir="left"
-                        aria-label="Balra">←</button>
+                        <button
+                            type="button"
+                            data-snake-dir="left"
+                            data-i18n-aria-label="snake.left"
+                            aria-label="Balra">←</button>
 
-                        <button type="button" data-snake-dir="down"
+                        <button
+                            type="button"
+                            data-snake-dir="down"
+                            data-i18n-aria-label="snake.down"
                             aria-label="Lefelé">↓</button>
 
-                        <button type="button" data-snake-dir="right"
+                        <button
+                            type="button"
+                            data-snake-dir="right"
+                            data-i18n-aria-label="snake.right"
                             aria-label="Jobbra">→</button>
                     </div>
-
                 </div>
 
                 <button
                     type="button"
                     id="snakeStart"
-                    class="btn btn-primary game-start">
+                    class="btn btn-primary game-start"
+                    data-i18n="snake.start">
                     Indítás
                 </button>
 
-                <p class="game-hint">
+                <p class="game-hint" data-i18n="snake.instructions">
                     Irányítás: nyílbillentyűk vagy a fenti gombok.
                     A játék mobilon is használható.
                 </p>
 
             </article>
+
 
 
         </div>
