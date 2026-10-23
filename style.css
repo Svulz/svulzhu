@@ -2832,53 +2832,6 @@ body:not(.dark) .hero a {
     color: #ffffff !important;
 }
 
-
-/* ===== SPOTIFY KÁRTYA ===== */
-
-.spotify-card,
-.game-card {
-    min-width: 0;
-    overflow: hidden;
-}
-
-.spotify-logo {
-    width: 44px;
-    height: 44px;
-    display: grid;
-    place-items: center;
-    border-radius: 14px;
-    background: #1ed760;
-    color: #111;
-    font-size: 30px;
-    font-weight: 800;
-}
-
-.spotify-description {
-    margin: 8px 0 16px;
-    color: var(--muted, #999);
-    font-size: 14px;
-}
-
-.spotify-player {
-    overflow: hidden;
-    border-radius: 12px;
-    background: #121212;
-}
-
-.spotify-player iframe {
-    display: block;
-    border: 0;
-}
-
-.spotify-link {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 14px;
-    text-decoration: none;
-}
-
-
 /* ===== MINI JÁTÉK ===== */
 
 .game-icon {
