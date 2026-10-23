@@ -2962,5 +2962,54 @@ body:not(.dark) .hero a {
     }
 }
 
+/* ===== SPOTIFY + SNAKE: A SAJÁT TÉMÁHOZ IGAZÍTVA ===== */
+
+.spotify-description,
+.game-hint {
+    color: var(--text-secondary);
+}
+
+#snakeStatus {
+    color: var(--accent);
+}
+
+.game-controls button {
+    background: var(--card-solid);
+    color: var(--text);
+    border-color: var(--border);
+}
+
+.game-controls button:hover {
+    background: var(--accent-light);
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.spotify-card .card-label {
+    color: #168b55;
+}
+
+body.dark .spotify-card .card-label {
+    color: #1ed760;
+}
+
+.spotify-card .spotify-logo {
+    box-shadow: 0 0 22px rgba(30, 215, 96, 0.16);
+}
+
+/* A mozgó keret a két új kártyán is megmarad */
+.spotify-card:hover,
+.game-card:hover {
+    border-color: rgba(53, 200, 255, 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .spotify-card,
+    .game-card,
+    .game-controls button {
+        transition: none !important;
+    }
+}
+
 
 
