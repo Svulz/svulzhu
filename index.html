@@ -1056,25 +1056,29 @@
                 </div>
 
             </article>
-
             
             
             <article class="card spotify-card">
                 <div class="card-header">
                     <div>
-                        <p class="card-label">SPOTIFY</p>
-                        <h3>Most ezt hallgatom</h3>
+                        <p class="card-label" data-i18n="spotify.label">SPOTIFY</p>
+                        <h3 id="spotifyTitle" data-i18n="spotify.title">Most hallgatom</h3>
                     </div>
                     <div class="spotify-logo" aria-hidden="true">♫</div>
                 </div>
-                
+
                 <div class="now-playing" id="nowPlaying">
-                    <p class="spotify-status">Zeneadatok betöltése…</p>
+                    <p class="spotify-status" data-i18n="spotify.loading">
+                        Spotify-adatok betöltése...
+                    </p>
                 </div>
 
-                
                 <section class="artist-card" id="artistCard" hidden>
-                    <h4 class="artist-card-heading">Az előadóról</h4>
+                    <h4
+                        class="artist-card-heading"
+                        id="artistProfileHeading"
+                        data-i18n="spotify.artistProfile"
+                    >Az előadóról</h4>
 
                     <div class="artist-card-profile">
                         <img
@@ -1090,8 +1094,6 @@
 
                     <p class="artist-card-bio" id="artistBio"></p>
                 </section>
-
-
             </article>
 
             <style>
