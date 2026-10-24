@@ -3875,11 +3875,12 @@ function updateSpotifyText() {
         artistImage.alt = getTranslation("spotify.artistImage");
     }
 
-    const profileHeading = document.getElementById("artistProfileHeading");
-
-    if (profileHeading) {
-        profileHeading.textContent = getTranslation("spotify.artistProfile");
-    }
+    const profileHeading = 
+       document.getElementById("artistProfileHeading");
+   if (profileHeading) {
+      profileHeading.textContent =
+         getTranslation("spotify.artistProfile");
+   }
 
     const profileLink = document.getElementById("artistProfileLink");
 
