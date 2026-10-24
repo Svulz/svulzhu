@@ -3838,9 +3838,16 @@ async function updateNowPlaying() {
             const bio =
                 document.getElementById("artistBio");
 
-            profileLink.href = profile.url;
             profileImage.alt = `${profile.name} előadói képe`;
             profileName.textContent = profile.name;
+           if (profile.image) {
+               artistCard.style.setProperty(
+                   "--artist-background",
+                   `url("${profile.image}")`
+               );
+           } else {
+              artistCard.style.removeProperty("--artist-background");
+           }
 
             if (profile.image) {
                 profileImage.src = profile.image;
