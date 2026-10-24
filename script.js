@@ -3706,8 +3706,10 @@ applyAccessibilitySettings();
 
         placeFood();
         scoreElement.textContent = score;
-        statusElement.textContent = "Játék folyamatban – gyűjtsd az almákat!";
-        startButton.textContent = "Újrakezdés";
+        statusElement.textContent =
+           translations[currentLang].snake.statusPlaying;
+       startButton.textContent =
+          translations[currentLang].snake.restart;
 
         draw();
         timer = setInterval(tick, 130);
@@ -3718,7 +3720,8 @@ applyAccessibilitySettings();
         timer = null;
         running = false;
         statusElement.textContent = message;
-        startButton.textContent = "Új játék";
+        startButton.textContent =
+           translations[currentLang].snake.newGame;
     }
 
     function tick() {
@@ -3739,7 +3742,10 @@ applyAccessibilitySettings();
             head.y < 0 || head.y >= cellsY ||
             body.some(p => p.x === head.x && p.y === head.y)
         ) {
-            endGame(`Vége a játéknak! Pontszám: ${score}`);
+            endGame(
+               translations[currentLang].snake.statusGameOver
+               .replace("{score}", score)
+            );
             return;
         }
 
@@ -3762,7 +3768,7 @@ applyAccessibilitySettings();
 
             if (!food) {
                 draw();
-                endGame("Gratulálok, megtöltötted a pályát!");
+                endGame(translations[currentLang].snake.statusWon);
                 return;
             }
         } else {
@@ -3831,7 +3837,10 @@ applyAccessibilitySettings();
     ];
 
     placeFood();
-    draw();
+    
+    statusElement.textContent =
+        translations[currentLang].snake.statusReady;
+   draw();
 })();
 
 function updateSpotifyText() {
