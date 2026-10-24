@@ -3707,9 +3707,9 @@ applyAccessibilitySettings();
         placeFood();
         scoreElement.textContent = score;
         statusElement.textContent =
-           translations[currentLang].snake.statusPlaying;
+           translations[currentLanguage].snake.statusPlaying;
        startButton.textContent =
-          translations[currentLang].snake.restart;
+          translations[currentLanguage].snake.restart;
 
         draw();
         timer = setInterval(tick, 130);
@@ -3721,7 +3721,7 @@ applyAccessibilitySettings();
         running = false;
         statusElement.textContent = message;
         startButton.textContent =
-           translations[currentLang].snake.newGame;
+           translations[currentLanguage].snake.newGame;
     }
 
     function tick() {
@@ -3743,7 +3743,7 @@ applyAccessibilitySettings();
             body.some(p => p.x === head.x && p.y === head.y)
         ) {
             endGame(
-               translations[currentLang].snake.statusGameOver
+               translations[currentLanguage].snake.statusGameOver
                .replace("{score}", score)
             );
             return;
@@ -3768,7 +3768,7 @@ applyAccessibilitySettings();
 
             if (!food) {
                 draw();
-                endGame(translations[currentLang].snake.statusWon);
+                endGame(translations[currentLanguage].snake.statusWon);
                 return;
             }
         } else {
@@ -3839,7 +3839,7 @@ applyAccessibilitySettings();
     placeFood();
     
     statusElement.textContent =
-        translations[currentLang].snake.statusReady;
+        translations[currentLanguage].snake.statusReady;
    draw();
 })();
 
