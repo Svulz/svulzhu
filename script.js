@@ -3819,6 +3819,33 @@ async function updateNowPlaying() {
 
         // Az előadó adatlapja
         const profile = data.artistProfile;
+        if (artistCard && profile && profile.name) {
+           const profileImage =
+              document.getElementById("artistProfileImage");
+           const profileName =
+              document.getElementById("artistProfileName");
+           const bio =
+              document.getElementById("artistBio");
+           profileName.textContent = profile.name;
+           if (profile.image) {
+              profileImage.src = profile.image;
+              profileImage.alt = profile.name;
+              
+              artistCard.style.setProperty(
+                 "--artist-background",
+                 `url("${profile.image}")`
+              );
+           } else {
+              profileImage.removeAttribute("src");
+              artistCard.style.removeProperty("--artist-background");
+           }
+           bio.textContent = profile.bio || "";
+           bio.hidden = !profile.bio;
+           
+           artistCard.hidden = false;
+        } else if (artistCard) {
+           artistCard.hidden = true;
+        }
 
         if (
             artistCard &&
