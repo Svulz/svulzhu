@@ -133,6 +133,21 @@ const translations = {
             chf: "Svájci frank"
         },
 
+       spotify: {
+           label: "SPOTIFY",
+           title: "Most hallgatom",
+           playing: "Jelenleg ezt hallgatom",
+           notPlaying: "Jelenleg nem szól zene.",
+           unavailable: "A Spotify-adatok most nem érhetők el.",
+           loading: "Spotify-adatok betöltése...",
+           track: "Dal",
+           artist: "Előadó",
+           albumCover: "Albumborító",
+           artistImage: "Előadó képe",
+           artistProfile: "Az előadó bemutatása",
+           profileLink: "Előadó megtekintése a Spotify-on"
+       },
+
         snake: {
            label: "MINI JÁTÉK",
            title: "Snake",
@@ -341,6 +356,22 @@ const translations = {
             gbp: "British Pound",
             chf: "Swiss Franc"
         },
+
+       spotify: {
+           label: "SPOTIFY",
+           title: "Now Playing",
+           playing: "Currently listening to",
+           notPlaying: "No music is playing right now.",
+           unavailable: "Spotify data is currently unavailable.",
+           loading: "Loading Spotify data...",
+           track: "Track",
+           artist: "Artist",
+           albumCover: "Album cover",
+           artistImage: "Artist image",
+           artistProfile: "About the artist",
+           profileLink: "View artist on Spotify"
+       },
+
 
        snake: {
           label: "MINI GAME",
@@ -551,6 +582,21 @@ const translations = {
             chf: "Schweizer Franken"
         },
 
+       spotify: {
+           label: "SPOTIFY",
+           title: "Aktuelle Wiedergabe",
+           playing: "Ich höre gerade",
+           notPlaying: "Zurzeit läuft keine Musik.",
+           unavailable: "Spotify-Daten sind derzeit nicht verfügbar.",
+           loading: "Spotify-Daten werden geladen...",
+           track: "Titel",
+           artist: "Künstler",
+           albumCover: "Albumcover",
+           artistImage: "Künstlerbild",
+           artistProfile: "Über den Künstler",
+           profileLink: "Künstler auf Spotify ansehen"
+       },
+
        snake: {
           label: "MINI-SPIEL",
           title: "Snake",
@@ -760,6 +806,21 @@ const translations = {
             chf: "Schweizisk franc"
         },
 
+       spotify: {
+           label: "SPOTIFY",
+           title: "Spelas just nu",
+           playing: "Lyssnar just nu på",
+           notPlaying: "Ingen musik spelas just nu.",
+           unavailable: "Spotify-data är inte tillgängliga just nu.",
+           loading: "Laddar Spotify-data...",
+           track: "Låt",
+           artist: "Artist",
+           albumCover: "Albumomslag",
+           artistImage: "Artistbild",
+           artistProfile: "Om artisten",
+           profileLink: "Visa artisten på Spotify"
+       },
+
        snake: {
           label: "MINISPEL",
           title: "Snake",
@@ -967,6 +1028,20 @@ const translations = {
             gbp: "Britisk pund",
             chf: "Schweizisk franc"
         },
+       spotify: {
+           label: "SPOTIFY",
+           title: "Afspilles lige nu",
+           playing: "Lytter lige nu til",
+           notPlaying: "Der afspilles ingen musik lige nu.",
+           unavailable: "Spotify-data er ikke tilgængelige lige nu.",
+           loading: "Indlæser Spotify-data...",
+           track: "Sang",
+           artist: "Kunstner",
+           albumCover: "Albumcover",
+           artistImage: "Kunstnerbillede",
+           artistProfile: "Om kunstneren",
+           profileLink: "Se kunstneren på Spotify"
+       },
 
        snake: {
           label: "MINISPIL",
@@ -1158,6 +1233,8 @@ function setLanguage(language) {
     updateExchangeText();
 
     updateStatusUI();
+
+   updateSpotifyText();
 
 }
 
@@ -3757,6 +3834,61 @@ applyAccessibilitySettings();
     draw();
 })();
 
+function updateSpotifyText() {
+    const container = document.getElementById("nowPlaying");
+    const artistCard = document.getElementById("artistCard");
+
+    if (!container) return;
+
+    const title = document.getElementById("spotifyTitle");
+    const label = document.getElementById("spotifyLabel");
+
+    if (title) {
+        title.textContent = getTranslation("spotify.title");
+    }
+
+    if (label) {
+        label.textContent = getTranslation("spotify.label");
+    }
+
+    // Ha nincs éppen zene, a megfelelő nyelvű
+    // üzenet jelenjen meg.
+    if (container.dataset.spotifyState === "idle") {
+        container.textContent = getTranslation("spotify.notPlaying");
+    }
+
+    if (container.dataset.spotifyState === "error") {
+        container.textContent = getTranslation("spotify.unavailable");
+    }
+
+    // A dinamikusan létrehozott képek alternatív
+    // szövegét is frissítjük.
+    const cover = container.querySelector(".now-playing-cover");
+
+    if (cover) {
+        cover.alt = getTranslation("spotify.albumCover");
+    }
+
+    const artistImage = document.getElementById("artistProfileImage");
+
+    if (artistImage && artistImage.getAttribute("src")) {
+        artistImage.alt = getTranslation("spotify.artistImage");
+    }
+
+    const profileHeading = document.getElementById("artistProfileHeading");
+
+    if (profileHeading) {
+        profileHeading.textContent = getTranslation("spotify.artistProfile");
+    }
+
+    const profileLink = document.getElementById("artistProfileLink");
+
+    if (profileLink) {
+        profileLink.setAttribute("aria-label", getTranslation("spotify.profileLink"));
+        profileLink.title = getTranslation("spotify.profileLink");
+    }
+}
+
 
 const WORKER_URL =
     "https://spotify-now-playing.ballaarpi0318.workers.dev";
@@ -3780,7 +3912,8 @@ async function updateNowPlaying() {
         const data = await response.json();
 
         if (!data.isPlaying || !data.title) {
-            container.textContent = "Jelenleg nem szól zene.";
+           container.dataset.spotifyState = "idle";
+           container.textContent = getTranslation("spotify.notPlaying");
 
             if (artistCard) {
                 artistCard.hidden = true;
@@ -3797,7 +3930,7 @@ async function updateNowPlaying() {
             const img = document.createElement("img");
             img.className = "now-playing-cover";
             img.src = data.cover;
-            img.alt = "Albumborító";
+            img.alt = getTranslation("spotify.albumCover");
 
             row.appendChild(img);
         }
@@ -3815,6 +3948,7 @@ async function updateNowPlaying() {
 
         info.append(title, artist);
         row.appendChild(info);
+        container.dataset.spotifyState = "playing";
         container.replaceChildren(row);
 
         // Az előadó adatlapja
@@ -3865,7 +3999,7 @@ async function updateNowPlaying() {
             const bio =
                 document.getElementById("artistBio");
 
-            profileImage.alt = `${profile.name} előadói képe`;
+            profileImage.alt = getTranslation("spotify.artistImage");
             profileName.textContent = profile.name;
            if (profile.image) {
                artistCard.style.setProperty(
@@ -3894,8 +4028,8 @@ async function updateNowPlaying() {
             artistCard.hidden = true;
         }
     } catch (error) {
-        container.textContent =
-            "A Spotify-adatok most nem érhetők el.";
+       container.dataset.spotifyState = "error";
+       container.textContent = getTranslation("spotify.unavailable");
 
         if (artistCard) {
             artistCard.hidden = true;
