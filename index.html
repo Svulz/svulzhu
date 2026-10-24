@@ -1071,6 +1071,7 @@
                 <div class="now-playing" id="nowPlaying">
                     <p class="spotify-status">Zeneadatok betöltése…</p>
                 </div>
+                <div class="artist-profile" id="artistProfile"></div>
             </article>
 
             <style>
@@ -1142,6 +1143,57 @@
 
             .spotify-song-link:hover .now-playing-title {
                 color: #1ed760;
+            }
+
+            .artist-profile {
+                margin-top: 18px;
+            }
+
+            .artist-profile-content {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                min-width: 0;
+            }
+
+            .artist-profile-cover {
+                width: 64px;
+                height: 64px;
+                flex-shrink: 0;
+                object-fit: cover;
+                border-radius: 50%;
+                background: #222;
+            }
+
+            .artist-profile-info {
+                min-width: 0;
+            }
+
+            .artist-profile-label {
+                margin: 0 0 5px;
+                color: var(--text-secondary);
+                font-size: 11px;
+                text-transform: uppercase;
+                letter-spacing: 0.8px;
+            }
+
+            .artist-profile-name {
+                margin: 0;
+                font-size: 14px;
+                font-weight: 700;
+                overflow-wrap: anywhere;
+            }
+
+            .artist-profile-link {
+                display: inline-block;
+                margin-top: 5px;
+                color: #1ed760;
+                font-size: 12px;
+                text-decoration: none;
+            }
+
+            .artist-profile-link:hover {
+                text-decoration: underline;
             }
             </style>
             
