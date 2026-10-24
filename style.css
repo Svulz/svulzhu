@@ -3116,3 +3116,80 @@ body.dark .spotify-card .card-label {
 }
 
 
+.artist-card {
+    margin-top: 22px;
+    padding: 16px;
+    border-radius: 12px;
+    background: var(--card-background, #181818);
+    min-width: 0;
+}
+
+.artist-card[hidden] {
+    display: none;
+}
+
+.artist-card-heading {
+    margin: 0 0 14px;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.artist-card-profile {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: inherit;
+    text-decoration: none;
+    min-width: 0;
+}
+
+.artist-card-image {
+    display: block;
+    width: 88px;
+    height: 88px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #282828;
+}
+
+.artist-card-info {
+    min-width: 0;
+}
+
+.artist-card-name {
+    margin: 0 0 8px;
+    font-size: 15px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.artist-card-link {
+    color: #1ed760;
+    font-size: 12px;
+}
+
+.artist-card-profile:hover .artist-card-name {
+    color: #1ed760;
+}
+
+.artist-card-bio {
+    margin: 16px 0 0;
+    color: var(--text-secondary, #b3b3b3);
+    font-size: 13px;
+    line-height: 1.7;
+    white-space: pre-line;
+}
+
+@media (max-width: 400px) {
+    .artist-card {
+        padding: 12px;
+    }
+
+    .artist-card-image {
+        width: 72px;
+        height: 72px;
+    }
+}
+
+
