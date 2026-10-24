@@ -3763,6 +3763,8 @@ const WORKER_URL =
 
 async function updateNowPlaying() {
     const container = document.getElementById("nowPlaying");
+    const artistCard = document.getElementById("artistCard");
+
     if (!container) return;
 
     try {
@@ -3776,18 +3778,18 @@ async function updateNowPlaying() {
         }
 
         const data = await response.json();
-        console.log("Spotify Worker válasza:", data);
-        console.log("Lejátszás:", data.isPlaying);
-        console.log("Dal címe:", data.title);
-        console.log("Előadó:", data.artist);
-        console.log("Borító:", data.cover);
 
         if (!data.isPlaying || !data.title) {
-            container.textContent =
-                "Jelenleg nem szól zene.";
+            container.textContent = "Jelenleg nem szól zene.";
+
+            if (artistCard) {
+                artistCard.hidden = true;
+            }
+
             return;
         }
 
+        // A dal kártyája
         const row = document.createElement("div");
         row.className = "now-playing-content";
 
@@ -3796,6 +3798,7 @@ async function updateNowPlaying() {
             img.className = "now-playing-cover";
             img.src = data.cover;
             img.alt = "Albumborító";
+
             row.appendChild(img);
         }
 
@@ -3808,21 +3811,69 @@ async function updateNowPlaying() {
 
         const artist = document.createElement("p");
         artist.className = "now-playing-artist";
-        artist.textContent = data.artist;
+        artist.textContent = data.artist || "";
 
         info.append(title, artist);
         row.appendChild(info);
-
         container.replaceChildren(row);
+
+        // Az előadó adatlapja
+        const profile = data.artistProfile;
+
+        if (
+            artistCard &&
+            profile &&
+            profile.name &&
+            profile.url
+        ) {
+            const profileLink =
+                document.getElementById("artistProfileLink");
+
+            const profileImage =
+                document.getElementById("artistProfileImage");
+
+            const profileName =
+                document.getElementById("artistProfileName");
+
+            const bio =
+                document.getElementById("artistBio");
+
+            profileLink.href = profile.url;
+            profileImage.alt = `${profile.name} előadói képe`;
+            profileName.textContent = profile.name;
+
+            if (profile.image) {
+                profileImage.src = profile.image;
+                profileImage.hidden = false;
+            } else {
+                profileImage.removeAttribute("src");
+                profileImage.hidden = true;
+            }
+
+            // A hivatalos Spotify API nem ad életrajzot.
+            // Csak ténylegesen rendelkezésre álló szöveget mutatunk.
+            bio.textContent = profile.bio || "";
+            bio.hidden = !profile.bio;
+
+            artistCard.hidden = false;
+        } else if (artistCard) {
+            artistCard.hidden = true;
+        }
     } catch (error) {
         container.textContent =
             "A Spotify-adatok most nem érhetők el.";
+
+        if (artistCard) {
+            artistCard.hidden = true;
+        }
+
         console.error(error);
     }
 }
 
 updateNowPlaying();
 setInterval(updateNowPlaying, 20000);
+
 
 
 
