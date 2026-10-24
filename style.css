@@ -3115,13 +3115,42 @@ body.dark .spotify-card .card-label {
     }
 }
 
-
 .artist-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
     margin-top: 22px;
-    padding: 16px;
-    border-radius: 12px;
-    background: var(--card-background, #181818);
+    padding: 20px;
+    border-radius: 14px;
     min-width: 0;
+    background: #181818;
+    color: white;
+}
+
+/* Az előadó fotója a teljes háttérben */
+.artist-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background-image: var(--artist-background);
+    background-size: cover;
+    background-position: center 30%;
+    opacity: 0.45;
+}
+
+/* Sötét átmenet, hogy a szöveg olvasható maradjon */
+.artist-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.25) 0%,
+        rgba(0, 0, 0, 0.72) 55%,
+        rgba(0, 0, 0, 0.94) 100%
+    );
 }
 
 .artist-card[hidden] {
@@ -3129,8 +3158,8 @@ body.dark .spotify-card .card-label {
 }
 
 .artist-card-heading {
-    margin: 0 0 14px;
-    font-size: 17px;
+    margin: 0 0 18px;
+    font-size: 19px;
     font-weight: 700;
 }
 
@@ -3138,13 +3167,10 @@ body.dark .spotify-card .card-label {
     display: flex;
     align-items: center;
     gap: 14px;
-    color: inherit;
-    text-decoration: none;
     min-width: 0;
 }
 
 .artist-card-image {
-    display: block;
     width: 88px;
     height: 88px;
     flex-shrink: 0;
@@ -3159,7 +3185,7 @@ body.dark .spotify-card .card-label {
 
 .artist-card-name {
     margin: 0 0 8px;
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 700;
     overflow-wrap: anywhere;
 }
@@ -3169,13 +3195,9 @@ body.dark .spotify-card .card-label {
     font-size: 12px;
 }
 
-.artist-card-profile:hover .artist-card-name {
-    color: #1ed760;
-}
-
 .artist-card-bio {
-    margin: 16px 0 0;
-    color: var(--text-secondary, #b3b3b3);
+    margin: 18px 0 0;
+    color: #f0f0f0;
     font-size: 13px;
     line-height: 1.7;
     white-space: pre-line;
@@ -3183,7 +3205,7 @@ body.dark .spotify-card .card-label {
 
 @media (max-width: 400px) {
     .artist-card {
-        padding: 12px;
+        padding: 14px;
     }
 
     .artist-card-image {
