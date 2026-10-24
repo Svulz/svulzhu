@@ -3196,10 +3196,10 @@ body.dark .spotify-card .card-label {
 }
 
 .artist-card-bio {
-    margin: 18px 0 0;
+    margin: 12px 0 0;
     color: #f0f0f0;
-    font-size: 13px;
-    line-height: 1.7;
+    font-size: 9px;
+    line-height: 1.45;
     white-space: pre-line;
     opacity: 0.9;
 }
@@ -3215,5 +3215,4 @@ body.dark .spotify-card .card-label {
         height: 72px;
     }
 }
-
 
