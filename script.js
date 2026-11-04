@@ -3844,5 +3844,181 @@ updateNowPlaying();
 setInterval(updateNowPlaying, 20000);
 
 
+const weatherLocation = document.getElementById("weatherLocation");
+const weatherIcon = document.getElementById("weatherIcon");
+const temperature = document.getElementById("temperature");
+const weatherDescription = document.getElementById("weatherDescription");
+const wind = document.getElementById("wind");
+const humidity = document.getElementById("humidity");
+const refreshWeather = document.getElementById("refreshWeather");
+
+const WEATHER_API = "https://api.open-meteo.com/v1/forecast";
+
+const weatherCodes = {
+    0: ["☀️", "Derült ég"],
+    1: ["🌤️", "Többnyire derült"],
+    2: ["⛅", "Részben felhős"],
+    3: ["☁️", "Borult"],
+    45: ["🌫️", "Köd"],
+    48: ["🌫️", "Zúzmarás köd"],
+    51: ["🌦️", "Enyhe szitálás"],
+    53: ["🌦️", "Szitálás"],
+    55: ["🌧️", "Erős szitálás"],
+    61: ["🌧️", "Enyhe eső"],
+    63: ["🌧️", "Eső"],
+    65: ["🌧️", "Erős eső"],
+    71: ["🌨️", "Enyhe havazás"],
+    73: ["❄️", "Havazás"],
+    75: ["❄️", "Erős havazás"],
+    80: ["🌦️", "Zápor"],
+    81: ["🌧️", "Erős zápor"],
+    82: ["⛈️", "Heves zápor"],
+    95: ["⛈️", "Zivatar"],
+    96: ["⛈️", "Zivatar jégesővel"],
+    99: ["⛈️", "Erős zivatar jégesővel"]
+};
+
+async function loadWeather(latitude, longitude) {
+    try {
+        weatherDescription.textContent = "Időjárási adatok lekérése...";
+
+        const url = new URL(WEATHER_API);
+
+        url.search = new URLSearchParams({
+            latitude,
+            longitude,
+            current: [
+                "temperature_2m",
+                "relative_humidity_2m",
+                "apparent_temperature",
+                "wind_speed_10m",
+                "weather_code"
+            ].join(","),
+            temperature_unit: "celsius",
+            wind_speed_unit: "kmh",
+            timezone: "auto"
+        });
+
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error("Az időjárási szolgáltatás nem elérhető.");
+        }
+
+        const data = await response.json();
+        const current = data.current;
+
+        if (!current) {
+            throw new Error("Nem érkezett időjárási adat.");
+        }
+
+        // Hőmérséklet
+        temperature.textContent =
+            Math.round(current.temperature_2m);
+
+        // Időjárási állapot
+        const condition = weatherCodes[current.weather_code]
+            || ["🌡️", "Változó időjárás"];
+
+        weatherIcon.textContent = condition[0];
+        weatherDescription.textContent = condition[1];
+
+        // Szél
+        wind.textContent =
+            `${Math.round(current.wind_speed_10m)} km/h`;
+
+        // Páratartalom
+        humidity.textContent =
+            `${current.relative_humidity_2m}%`;
+
+        // Hőérzet
+        weatherDescription.title =
+            `Hőérzet: ${Math.round(current.apparent_temperature)} °C`;
+
+        // Utolsó frissítés
+        weatherLocation.title =
+            `Utolsó frissítés: ${current.time}`;
+
+    } catch (error) {
+        console.error("Időjárási hiba:", error);
+        weatherDescription.textContent =
+            "Az időjárási adatok jelenleg nem elérhetők.";
+    }
+}
+
+async function getLocalWeather() {
+    if (!navigator.geolocation) {
+        weatherDescription.textContent =
+            "A böngésző nem támogatja a helymeghatározást.";
+        return;
+    }
+
+    weatherLocation.textContent = "Helymeghatározás...";
+    weatherDescription.textContent =
+        "Helymeghatározás engedélyezése szükséges...";
+
+    navigator.geolocation.getCurrentPosition(
+        async (position) => {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+
+            weatherLocation.textContent =
+                "Helyi időjárás";
+
+            // Városnév meghatározása
+            try {
+                const locationResponse = await fetch(
+                    `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=hu`
+                );
+
+                if (locationResponse.ok) {
+                    const locationData =
+                        await locationResponse.json();
+
+                    const city =
+                        locationData.city ||
+                        locationData.locality ||
+                        locationData.principalSubdivision;
+
+                    if (city) {
+                        weatherLocation.textContent = city;
+                    }
+                }
+            } catch (error) {
+                console.warn("A városnév nem érhető el:", error);
+            }
+
+            await loadWeather(latitude, longitude);
+        },
+        (error) => {
+            console.warn("Helymeghatározási hiba:", error);
+
+            const messages = {
+                1: "A helymeghatározás engedélyezése szükséges.",
+                2: "A tartózkodási hely nem állapítható meg.",
+                3: "A helymeghatározás időtúllépés miatt megszakadt."
+            };
+
+            weatherLocation.textContent = "Helymeghatározás";
+            weatherDescription.textContent =
+                messages[error.code] || "Ismeretlen helymeghatározási hiba.";
+        },
+        {
+            enableHighAccuracy: true,
+            timeout: 15000,
+            maximumAge: 300000
+        }
+    );
+}
+
+// Kézi frissítés
+refreshWeather.addEventListener("click", getLocalWeather);
+
+// Automatikus indulás
+getLocalWeather();
+
+// Automatikus frissítés 10 percenként
+setInterval(getLocalWeather, 10 * 60 * 1000);
+
 
 
