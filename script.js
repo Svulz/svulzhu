@@ -22,8 +22,6 @@ const translations = {
 
         nav: {
             home: "Főoldal",
-            projects: "Projektek",
-            cv: "Önéletrajz",
             dashboard: "Dashboard"
         },
 
@@ -37,11 +35,6 @@ const translations = {
             online: "Online",
             offline: "Offline",
             invisible: "Láthatatlan"
-        },
-
-        buttons: {
-            projects: "Projektek",
-            cv: "Önéletrajz"
         },
 
         clock: {
@@ -170,41 +163,7 @@ const translations = {
            instructions: "Irányítás: nyílbillentyűk vagy a fenti gombok. A játék mobilon is használható."
         },
 
-        projects: {
-            eyebrow: "MUNKÁIM",
-            title: "Projektek"
-        },
-
-        project: {
-            viewer: {
-                label: "Projekt",
-                title: "Teljes projekt megtekintése",
-                description:
-                    "A szakdolgozati projektem teljes dokumentációjának megtekintéséhez kattints az alábbi gombra.",
-                button: "Projekt megtekintése"
-            }
-        },
-
-        cv: {
-            eyebrow: "RÓLAM",
-            title: "Önéletrajz",
-
-            viewer: {
-                label: "Önéletrajz",
-                title: "Teljes önéletrajz megtekintése",
-                description:
-                    "A teljes önéletrajzom megtekintéséhez kattints az alábbi gombra.",
-                button: "Teljes önéletrajz megtekintése"
-            },
-
-            viewTitle: "Teljes önéletrajz megtekintése",
-
-            viewDescription:
-                "A teljes önéletrajz megtekintéséhez kattints az alábbi gombra.",
-
-            viewButton: "Teljes önéletrajz megtekintése →"
-        },
-
+        
         footer: {
             rights: "Minden jog fenntartva."
         },
@@ -247,8 +206,6 @@ const translations = {
 
         nav: {
             home: "Home",
-            projects: "Projects",
-            cv: "CV",
             dashboard: "Dashboard"
         },
 
@@ -262,13 +219,8 @@ const translations = {
             offline: "Offline",
             invisible: "Invisible"
         },
-
-        buttons: {
-            projects: "Projects",
-            cv: "CV"
-        },
-
-        clock: {
+       
+       clock: {
             localTime: "LOCAL TIME"
         },
 
@@ -395,41 +347,6 @@ const translations = {
           instructions: "Controls: use the arrow keys or the buttons above. The game also works on mobile devices."
        },
 
-        projects: {
-            eyebrow: "MY WORK",
-            title: "Projects"
-        },
-
-        project: {
-            viewer: {
-                label: "Project",
-                title: "View full project",
-                description:
-                    "Click the button below to view the complete documentation of my thesis project.",
-                button: "View Project"
-            }
-        },
-
-        cv: {
-            eyebrow: "ABOUT ME",
-            title: "Curriculum Vitae",
-
-            viewer: {
-                label: "CURRICULUM VITAE",
-                title: "View Full CV",
-                description:
-                    "Click the button below to view my complete CV.",
-                button: "View Full CV"
-            },
-
-            viewTitle: "View Full CV",
-
-            viewDescription:
-                "Click the button below to view my complete CV.",
-
-            viewButton: "View Full CV →"
-        },
-
         footer: {
             rights: "All rights reserved."
         },
@@ -472,8 +389,6 @@ const translations = {
 
         nav: {
             home: "Startseite",
-            projects: "Projekte",
-            cv: "Lebenslauf",
             dashboard: "Dashboard"
         },
 
@@ -486,11 +401,6 @@ const translations = {
             online: "Online",
             offline: "Offline",
             invisible: "Unsichtbar"
-        },
-
-        buttons: {
-            projects: "Projekte",
-            cv: "Lebenslauf"
         },
 
         clock: {
@@ -619,41 +529,6 @@ const translations = {
           instructions: "Steuerung: Verwende die Pfeiltasten oder die Schaltflächen oben. Das Spiel funktioniert auch auf Mobilgeräten."
        },
 
-        projects: {
-            eyebrow: "MEINE ARBEIT",
-            title: "Projekte"
-        },
-
-        project: {
-            viewer: {
-                label: "Projekt",
-                title: "Vollständiges Projekt ansehen",
-                description:
-                    "Klicken Sie auf die Schaltfläche unten, um die vollständige Dokumentation meines Abschlussprojekts anzusehen.",
-                button: "Projekt ansehen"
-            }
-        },
-
-        cv: {
-            eyebrow: "ÜBER MICH",
-            title: "Lebenslauf",
-
-            viewer: {
-                label: "LEBENSLAUF",
-                title: "Vollständigen Lebenslauf ansehen",
-                description:
-                    "Klicken Sie auf die Schaltfläche unten, um meinen vollständigen Lebenslauf anzusehen.",
-                button: "Vollständigen Lebenslauf ansehen"
-            },
-
-            viewTitle: "Vollständigen Lebenslauf ansehen",
-
-            viewDescription:
-                "Klicken Sie auf die Schaltfläche unten, um meinen vollständigen Lebenslauf anzusehen.",
-
-            viewButton: "Vollständigen Lebenslauf ansehen →"
-        },
-
         footer: {
             rights: "Alle Rechte vorbehalten."
         },
@@ -696,8 +571,6 @@ const translations = {
 
         nav: {
             home: "Hem",
-            projects: "Projekt",
-            cv: "Meritförteckning",
             dashboard: "Instrumentpanel"
         },
 
@@ -710,11 +583,6 @@ const translations = {
             online: "Online",
             offline: "Offline",
             invisible: "Osynlig"
-        },
-
-        buttons: {
-            projects: "Projekt",
-            cv: "Meritförteckning"
         },
 
         clock: {
@@ -842,43 +710,8 @@ const translations = {
           right: "Höger",
           instructions: "Styrning: använd piltangenterna eller knapparna ovan. Spelet fungerar även på mobiltelefoner."
        },
-
-        projects: {
-            eyebrow: "MITT ARBETE",
-            title: "Projekt"
-        },
-
-        project: {
-            viewer: {
-                label: "Projekt",
-                title: "Visa hela projektet",
-                description:
-                    "Klicka på knappen nedan för att visa den fullständiga dokumentationen för mitt examensarbete.",
-                button: "Visa projekt"
-            }
-        },
-
-        cv: {
-            eyebrow: "OM MIG",
-            title: "Meritförteckning",
-
-            viewer: {
-                label: "MERITFÖRTECKNING",
-                title: "Visa hela CV:t",
-                description:
-                    "Klicka på knappen nedan för att visa mitt fullständiga CV.",
-                button: "Visa hela CV:t"
-            },
-
-            viewTitle: "Visa hela CV:t",
-
-            viewDescription:
-                "Klicka på knappen nedan för att visa mitt fullständiga CV.",
-
-            viewButton: "Visa hela CV:t →"
-        },
-
-        footer: {
+       
+       footer: {
             rights: "Alla rättigheter förbehållna."
         },
 
@@ -919,8 +752,6 @@ const translations = {
 
         nav: {
             home: "Hjem",
-            projects: "Projekter",
-            cv: "Levnedsbeskrivelse",
             dashboard: "Dashboard"
         },
 
@@ -933,11 +764,6 @@ const translations = {
             online: "Online",
             offline: "Offline",
             invisible: "Usynlig"
-        },
-
-        buttons: {
-            projects: "Projekter",
-            cv: "Levnedsbeskrivelse"
         },
 
         clock: {
@@ -1064,41 +890,6 @@ const translations = {
           right: "Højre",
           instructions: "Styring: brug piletasterne eller knapperne ovenfor. Spillet fungerer også på mobilen."
        },
-
-        projects: {
-            eyebrow: "MIT ARBEJDE",
-            title: "Projekter"
-        },
-
-        project: {
-            viewer: {
-                label: "Projekt",
-                title: "Se hele projektet",
-                description:
-                    "Klik på knappen nedenfor for at se den fulde dokumentation af mit afgangsprojekt.",
-                button: "Se projekt"
-            }
-        },
-
-        cv: {
-            eyebrow: "OM MIG",
-            title: "Levnedsbeskrivelse",
-
-            viewer: {
-                label: "Levnedsbeskrivelse",
-                title: "Se hele CV'et",
-                description:
-                    "Klik på knappen nedenfor for at se mit fulde CV.",
-                button: "Se hele CV'et"
-            },
-
-            viewTitle: "Se hele CV'et",
-
-            viewDescription:
-                "Klik på knappen nedenfor for at se det fulde CV.",
-
-            viewButton: "Se hele CV'et →"
-        },
 
         footer: {
             rights: "Alle rettigheder forbeholdes."
