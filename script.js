@@ -27,7 +27,7 @@ const translations = {
 
         hero: {
             eyebrow: "Weboldal",
-            description: "IoT fejlesztő"
+            description: "IoT fejlesztő | Azt gondolom, hogy az IoT-fejlesztés izgalmas világa összekapcsolja a szoftvereket a fizikai valósággal. Intelligens eszközöket, okosotthonokat és automatizált rendszereket alkothatsz, miközben a jövő technológiáját építed."
                                        
         },
 
@@ -211,7 +211,7 @@ const translations = {
 
         hero: {
             eyebrow: "Website",
-            description: "IoT developer"
+            description: "IoT developer | I think IoT development connects the digital world with physical reality. You can create smart devices, smart homes and automated systems while building the technology of the future."
         },
 
         status: {
@@ -394,7 +394,7 @@ const translations = {
 
         hero: {
             eyebrow: "Webseite",
-            description: "IoT entwickler"
+            description: "IoT entwickler | Ich denke, dass die IoT-Entwicklung die digitale Welt mit der physischen Realität verbindet. Du kannst intelligente Geräte, Smart Homes und automatisierte Systeme entwickeln und damit die Technologie der Zukunft gestalten."
         },
 
         status: {
@@ -576,7 +576,7 @@ const translations = {
 
         hero: {
             eyebrow: "Webbplats",
-            description: "IoT utvecklare"
+            description: "IoT utvecklare | Jag tycker att IoT-utveckling förenar den digitala världen med den fysiska verkligheten. Du kan skapa smarta enheter, smarta hem och automatiserade system och samtidigt bygga framtidens teknik."
         },
 
         status: {
@@ -757,7 +757,7 @@ const translations = {
 
         hero: {
             eyebrow: "Hjemmeside",
-            description: "IoT udvikler"
+            description: "IoT udvikler | Jeg synes, at IoT-udvikling forbinder den digitale verden med den fysiske virkelighed. Du kan skabe intelligente enheder, smarte hjem og automatiserede systemer og samtidig udvikle fremtidens teknologi."
         },
 
         status: {
