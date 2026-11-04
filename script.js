@@ -29,7 +29,7 @@ const translations = {
 
         hero: {
             eyebrow: "Weboldal",
-            description: "Snowflake | RTOS szakember"
+            description: "IoT fejlesztő"
                                        
         },
 
@@ -254,7 +254,7 @@ const translations = {
 
         hero: {
             eyebrow: "Website",
-            description: "Snowflake | RTOS specialist"
+            description: "IoT developer"
         },
 
         status: {
@@ -479,7 +479,7 @@ const translations = {
 
         hero: {
             eyebrow: "Webseite",
-            description: "Snowflake | RTOS spezialist"
+            description: "IoT entwickler"
         },
 
         status: {
@@ -703,7 +703,7 @@ const translations = {
 
         hero: {
             eyebrow: "Webbplats",
-            description: "Snowflake | RTOS specialist"
+            description: "IoT utvecklare"
         },
 
         status: {
@@ -926,7 +926,7 @@ const translations = {
 
         hero: {
             eyebrow: "Hjemmeside",
-            description: "Snowflake | RTOS specialist"
+            description: "IoT udvikler"
         },
 
         status: {
