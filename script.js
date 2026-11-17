@@ -27,7 +27,8 @@ const translations = {
 
         hero: {
             eyebrow: "Weboldal",
-            description: "IoT fejlesztő | Azt gondolom, hogy az IoT-fejlesztés izgalmas világa összekapcsolja a szoftvereket a fizikai valósággal. Intelligens eszközöket, okosotthonokat és automatizált rendszereket alkothatsz, miközben a jövő technológiáját építed."
+            description: "Számítógépes látásmérnök
+               Készségek: Python  MATLAB  OpenCV  NumPy  Pillow  PyTorch  TensorFlow  CUDA  TensorRT"
                                        
         },
 
@@ -210,7 +211,8 @@ const translations = {
 
         hero: {
             eyebrow: "Website",
-            description: "IoT developer | I think IoT development connects the digital world with physical reality. You can create smart devices, smart homes and automated systems while building the technology of the future."
+            description: "Computer Vision Engineer
+               Skills: Python  MATLAB  OpenCV  NumPy  Pillow  PyTorch  TensorFlow  CUDA  TensorRT"
         },
 
         status: {
@@ -391,8 +393,9 @@ const translations = {
         },
 
         hero: {
-            eyebrow: "Webseite",
-            description: "IoT entwickler | Ich denke, dass die IoT-Entwicklung die digitale Welt mit der physischen Realität verbindet. Du kannst intelligente Geräte, Smart Homes und automatisierte Systeme entwickeln und damit die Technologie der Zukunft gestalten."
+           eyebrow: "Webseite",
+           description: "Ingenieur für Computer Vision
+              Fähigkeiten: Python  MATLAB  OpenCV  NumPy  Pillow  PyTorch  TensorFlow  CUDA  TensorRT"
         },
 
         status: {
@@ -573,7 +576,8 @@ const translations = {
 
         hero: {
             eyebrow: "Webbplats",
-            description: "IoT utvecklare | Jag tycker att IoT-utveckling förenar den digitala världen med den fysiska verkligheten. Du kan skapa smarta enheter, smarta hem och automatiserade system och samtidigt bygga framtidens teknik."
+            description: "Ingenjör inom datorseende
+               Färdigheter: Python  MATLAB  OpenCV  NumPy  Pillow  PyTorch  TensorFlow  CUDA  TensorRT"
         },
 
         status: {
@@ -753,7 +757,8 @@ const translations = {
 
         hero: {
             eyebrow: "Hjemmeside",
-            description: "IoT udvikler | Jeg synes, at IoT-udvikling forbinder den digitale verden med den fysiske virkelighed. Du kan skabe intelligente enheder, smarte hjem og automatiserede systemer og samtidig udvikle fremtidens teknologi."
+            description: "Ingeniør inden for computersyn
+               Færdigheder: Python  MATLAB  OpenCV  NumPy  Pillow  PyTorch  TensorFlow  CUDA  TensorRT"
         },
 
         status: {
