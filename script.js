@@ -2389,7 +2389,7 @@ function getLocale() {
         en: "en-GB",
         de: "de-DE",
         sv: "sv-SE",
-        da: "da-DK"
+        nl: "nl-NL"
 
     }[
         currentLanguage
