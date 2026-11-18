@@ -736,9 +736,10 @@ const translations = {
         }
     },
    
-   /* =====================================================
-   DUTCH
-   ===================================================== */
+   
+    /* =====================================================
+       DUTCH
+    ===================================================== */
 
     nl: {
 
@@ -822,7 +823,7 @@ const translations = {
             mobile: "Mobiel",
             tablet: "Tablet",
             desktop: "Desktopcomputer",
-            watch: "Smartwatch"
+            watch: "Slimme horloge"
         },
 
         contacts: {
@@ -846,7 +847,7 @@ const translations = {
         currency: {
             eur: "Euro",
             usd: "Amerikaanse dollar",
-            gbp: "Britse pond",
+            gbp: "Brits pond",
             chf: "Zwitserse frank"
         },
 
@@ -915,8 +916,6 @@ const translations = {
             99: "Zwaar onweer"
         }
     }
-
-
 };
 
 
