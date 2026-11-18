@@ -736,182 +736,183 @@ const translations = {
         }
     },
    
-    /* =====================================================
-       DANISH
-    ===================================================== */
+   /* =====================================================
+   DUTCH
+   ===================================================== */
 
-    da: {
+    nl: {
 
-        htmlLang: "da",
+        htmlLang: "nl",
 
-        logo: "Tilbage til toppen",
+        logo: "Terug naar boven",
 
         nav: {
-            home: "Hjem",
+            home: "Home",
             dashboard: "Dashboard"
         },
 
         hero: {
-            eyebrow: "Hjemmeside",
-            description: "Ingeniør inden for computersyn | Færdigheder: Python  MATLAB  OpenCV  NumPy  Pillow  PyTorch  TensorFlow  CUDA  TensorRT"
+            eyebrow: "Website",
+            description: "Computer vision-ingenieur | Vaardigheden: Python  MATLAB  OpenCV  NumPy  Pillow  PyTorch  TensorFlow  CUDA  TensorRT"
         },
 
         status: {
             online: "Online",
             offline: "Offline",
-            invisible: "Usynlig"
+            invisible: "Onzichtbaar"
         },
 
         clock: {
-            localTime: "LOKAL TID"
+            localTime: "LOKALE TIJD"
         },
 
         dashboard: {
             eyebrow: "DASHBOARD",
-            title: "Aktuelle oplysninger"
+            title: "Actuele informatie"
         },
 
         accessibility: {
-            title: "Tilgængelighed",
+            title: "Toegankelijkheid",
             description:
-                "Tilpas hjemmesiden, så den bliver mere behagelig at bruge.",
+                "Pas de website aan voor een comfortabelere gebruikerservaring.",
 
-            large: "Større tekst",
-            largeDescription: "Tekst, der er lettere at læse",
+            large: "Grotere tekst",
+            largeDescription: "Tekst die gemakkelijker te lezen is",
 
-            xlarge: "Ekstra stor tekst",
-            xlargeDescription: "Endnu større tekst",
+            xlarge: "Extra grote tekst",
+            xlargeDescription: "Nog grotere tekst",
 
-            contrast: "Høj kontrast",
-            contrastDescription: "Stærkere farver og tydeligere kanter",
+            contrast: "Hoog contrast",
+            contrastDescription: "Duidelijkere kleuren en randen",
 
-            readable: "Letlæselig skrifttype",
-            readableDescription: "Enklere skrifttype",
+            readable: "Goed leesbaar lettertype",
+            readableDescription: "Eenvoudigere lettertypeweergave",
 
-            links: "Fremhæv links",
-            linksDescription: "Understreg hyperlinks",
+            links: "Links markeren",
+            linksDescription: "Onderstreepte links",
 
-            motion: "Deaktiver animationer",
-            motionDescription: "Færre bevægelige elementer",
+            motion: "Animaties uitschakelen",
+            motionDescription: "Minder bewegende elementen",
 
-            targets: "Større knapper",
-            targetsDescription: "Nemmere at trykke og klikke",
+            targets: "Grotere knoppen",
+            targetsDescription: "Gemakkelijker aan te raken en aan te klikken",
 
-            keyboard: "Tastaturtilstand",
-            keyboardDescription: "Mere synlig fokusmarkering",
+            keyboard: "Toetsenbordmodus",
+            keyboardDescription: "Duidelijkere focusmarkering",
 
-            reset: "Nulstil indstillinger"
+            reset: "Instellingen herstellen"
         },
 
         weather: {
-            label: "VEJR",
-            wind: "💨 Vind",
-            humidity: "💧 Luftfugtighed",
-            refresh: "↻ Opdater vejret",
-            loading: "Indlæser vejrdata...",
-            unavailable: "Vejrdata er ikke tilgængelige.",
-            location: "Finder placering..."
+            label: "WEER",
+            wind: "💨 Wind",
+            humidity: "💧 Luchtvochtigheid",
+            refresh: "↻ Weer vernieuwen",
+            loading: "Weergegevens laden...",
+            unavailable: "Weergegevens zijn niet beschikbaar.",
+            location: "Locatie ophalen..."
         },
 
         quick: {
-            label: "HURTIG INFO",
-            date: "Dagens dato",
-            device: "Enhed",
-            gender: "Køn",
-            male: "Mand",
-            mobile: "Mobil",
+            label: "SNELLE INFO",
+            date: "Datum van vandaag",
+            device: "Apparaat",
+            gender: "Geslacht",
+            male: "Man",
+            mobile: "Mobiel",
             tablet: "Tablet",
-            desktop: "Stationær computer",
-            watch: "Smartur"
+            desktop: "Desktopcomputer",
+            watch: "Smartwatch"
         },
 
         contacts: {
-            label: "KONTAKT",
+            label: "CONTACT",
             email: "E-mail",
-            phone: "Telefonnummer",
-            facebook: "Sociale medier",
-            web: "Hjemmeside",
-            location: "Bopæl",
-            locationValue: "Szolnok, Ungarn"
+            phone: "Telefoonnummer",
+            facebook: "Sociale media",
+            web: "Website",
+            location: "Woonplaats",
+            locationValue: "Szolnok, Hongarije"
         },
 
         exchange: {
-            label: "VALUTAKURSER",
-            title: "Valutaer",
-            loading: "Indlæser valutakurser...",
-            unavailable: "Valutakurser er ikke tilgængelige.",
-            updated: "Opdateret"
+            label: "WISSELKOERSEN",
+            title: "Valuta's",
+            loading: "Wisselkoersen laden...",
+            unavailable: "Wisselkoersen zijn niet beschikbaar.",
+            updated: "Bijgewerkt"
         },
 
         currency: {
             eur: "Euro",
-            usd: "Amerikansk dollar",
-            gbp: "Britisk pund",
-            chf: "Schweizisk franc"
+            usd: "Amerikaanse dollar",
+            gbp: "Britse pond",
+            chf: "Zwitserse frank"
         },
-       spotify: {
-           label: "SPOTIFY",
-           title: "Afspilles lige nu",
-           playing: "Lytter lige nu til",
-           notPlaying: "Der afspilles ingen musik lige nu.",
-           unavailable: "Spotify-data er ikke tilgængelige lige nu.",
-           loading: "Indlæser Spotify-data...",
-           track: "Sang",
-           artist: "Kunstner",
-           albumCover: "Albumcover",
-           artistImage: "Kunstnerbillede",
-           artistProfile: "Om kunstneren",
-           profileLink: "Se kunstneren på Spotify"
-       },
 
-       snake: {
-          label: "MINISPIL",
-          title: "Snake",
-          description: "Saml æblerne, og undgå væggene og din egen hale!",
-          score: "Point:",
-          best: "Rekord:",
-          canvasLabel: "Snake-spilleplade",
-          statusReady: "Tryk på Start-knappen!",
-          statusPlaying: "Spillet er i gang – saml æblerne!",
-          statusGameOver: "Spillet er slut! Point: {score}",
-          statusWon: "Tillykke, du har fyldt hele spillepladen!",
-          start: "Start",
-          restart: "Start igen",
-          newGame: "Nyt spil",
-          controls: "Snake-styring",
-          up: "Op",
-          down: "Ned",
-          left: "Venstre",
-          right: "Højre",
-          instructions: "Styring: brug piletasterne eller knapperne ovenfor. Spillet fungerer også på mobilen."
-       },
+        spotify: {
+            label: "SPOTIFY",
+            title: "Wordt momenteel afgespeeld",
+            playing: "Je luistert momenteel naar",
+            notPlaying: "Er wordt momenteel geen muziek afgespeeld.",
+            unavailable: "Spotify-gegevens zijn momenteel niet beschikbaar.",
+            loading: "Spotify-gegevens laden...",
+            track: "Nummer",
+            artist: "Artiest",
+            albumCover: "Albumhoes",
+            artistImage: "Artiestfoto",
+            artistProfile: "Over de artiest",
+            profileLink: "Bekijk de artiest op Spotify"
+        },
+
+        snake: {
+            label: "MINISPEL",
+            title: "Snake",
+            description: "Verzamel de appels en vermijd de muren en je eigen staart!",
+            score: "Score:",
+            best: "Record:",
+            canvasLabel: "Snake-speelveld",
+            statusReady: "Druk op de Start-knop!",
+            statusPlaying: "Het spel is bezig – verzamel de appels!",
+            statusGameOver: "Het spel is afgelopen! Score: {score}",
+            statusWon: "Gefeliciteerd, je hebt het hele speelveld gevuld!",
+            start: "Start",
+            restart: "Opnieuw starten",
+            newGame: "Nieuw spel",
+            controls: "Snake-besturing",
+            up: "Omhoog",
+            down: "Omlaag",
+            left: "Links",
+            right: "Rechts",
+            instructions: "Besturing: gebruik de pijltjestoetsen of de bovenstaande knoppen. Het spel werkt ook op mobiele telefoons."
+        },
 
         footer: {
-            rights: "Alle rettigheder forbeholdes."
+            rights: "Alle rechten voorbehouden."
         },
 
         weatherCodes: {
-            0: "Klar himmel",
-            1: "Overvejende klart",
-            2: "Delvist skyet",
-            3: "Overskyet",
-            45: "Tåge",
-            48: "Rimtåge",
-            51: "Let støvregn",
-            53: "Støvregn",
-            55: "Kraftig støvregn",
-            61: "Let regn",
-            63: "Regn",
-            65: "Kraftig regn",
-            71: "Let snefald",
-            73: "Snefald",
-            75: "Kraftigt snefald",
-            80: "Regnbyger",
-            81: "Regnbyger",
-            82: "Kraftige regnbyger",
-            95: "Tordenvejr",
-            96: "Tordenvejr med hagl",
-            99: "Kraftigt tordenvejr"
+            0: "Onbewolkte hemel",
+            1: "Overwegend helder",
+            2: "Gedeeltelijk bewolkt",
+            3: "Bewolkt",
+            45: "Mist",
+            48: "Rijpmist",
+            51: "Lichte motregen",
+            53: "Motregen",
+            55: "Zware motregen",
+            61: "Lichte regen",
+            63: "Regen",
+            65: "Zware regen",
+            71: "Lichte sneeuwval",
+            73: "Sneeuwval",
+            75: "Zware sneeuwval",
+            80: "Regenbuien",
+            81: "Regenbuien",
+            82: "Zware regenbuien",
+            95: "Onweer",
+            96: "Onweer met hagel",
+            99: "Zwaar onweer"
         }
     }
 
