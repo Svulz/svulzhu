@@ -748,12 +748,12 @@ const translations = {
         logo: "Terug naar boven",
 
         nav: {
-            home: "Home",
-            dashboard: "Dashboard"
+            home: "Startpagina",
+            dashboard: "Overzicht"
         },
 
         hero: {
-            eyebrow: "Website",
+            eyebrow: "Webpagina",
             description: "Computer vision-ingenieur | Vaardigheden: Python  MATLAB  OpenCV  NumPy  Pillow  PyTorch  TensorFlow  CUDA  TensorRT"
         },
 
@@ -768,14 +768,14 @@ const translations = {
         },
 
         dashboard: {
-            eyebrow: "DASHBOARD",
+            eyebrow: "OVERZICHT",
             title: "Actuele informatie"
         },
 
         accessibility: {
             title: "Toegankelijkheid",
             description:
-                "Pas de website aan voor een comfortabelere gebruikerservaring.",
+                "Pas de webpagina aan voor een comfortabelere gebruikerservaring.",
 
             large: "Grotere tekst",
             largeDescription: "Tekst die gemakkelijker te lezen is",
