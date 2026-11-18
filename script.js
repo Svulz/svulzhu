@@ -27,7 +27,8 @@ const translations = {
 
         hero: {
             eyebrow: "Weboldal",
-            description: "Számítógépes látásmérnök | Készségek: Python  MATLAB  OpenCV  NumPy  Pillow  PyTorch  TensorFlow  CUDA  TensorRT"
+            description: "Számítógépes látásmérnök,
+               "Készségek: Python  MATLAB  OpenCV  NumPy  Pillow  PyTorch  TensorFlow  CUDA  TensorRT"
                                        
         },
 
@@ -210,7 +211,8 @@ const translations = {
 
         hero: {
             eyebrow: "Website",
-            description: "Computer Vision Engineer | Skills: Python  MATLAB  OpenCV  NumPy  Pillow  PyTorch  TensorFlow  CUDA  TensorRT"
+            description: "Computer Vision Engineer,
+               Skills: Python  MATLAB  OpenCV  NumPy  Pillow  PyTorch  TensorFlow  CUDA  TensorRT"
         },
 
         status: {
@@ -392,7 +394,8 @@ const translations = {
 
         hero: {
            eyebrow: "Webseite",
-           description: "Ingenieur für Computer Vision | Fähigkeiten: Python  MATLAB  OpenCV  NumPy  Pillow  PyTorch  TensorFlow  CUDA  TensorRT"
+           description: "Ingenieur für Computer Vision,
+              Fähigkeiten: Python  MATLAB  OpenCV  NumPy  Pillow  PyTorch  TensorFlow  CUDA  TensorRT"
         },
 
         status: {
@@ -573,7 +576,8 @@ const translations = {
 
         hero: {
             eyebrow: "Webbplats",
-            description: "Ingenjör inom datorseende | Färdigheter: Python  MATLAB  OpenCV  NumPy  Pillow  PyTorch  TensorFlow  CUDA  TensorRT"
+            description: "Ingenjör inom datorseende,
+               Färdigheter: Python  MATLAB  OpenCV  NumPy  Pillow  PyTorch  TensorFlow  CUDA  TensorRT"
         },
 
         status: {
@@ -754,7 +758,8 @@ const translations = {
 
         hero: {
             eyebrow: "Webpagina",
-            description: "Computer vision-ingenieur | Vaardigheden: Python  MATLAB  OpenCV  NumPy  Pillow  PyTorch  TensorFlow  CUDA  TensorRT"
+            description: "Computer vision-ingenieur,
+               Vaardigheden: Python  MATLAB  OpenCV  NumPy  Pillow  PyTorch  TensorFlow  CUDA  TensorRT"
         },
 
         status: {
